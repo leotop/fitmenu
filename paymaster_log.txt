@@ -1,0 +1,313 @@
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: result_payment
+module called 91.200.28.237
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: result_payment
+Array
+(
+    [LMI_MERCHANT_ID] => b9f58a59-1081-4400-a045-51d215bb91a6
+    [LMI_PAYMENT_SYSTEM] => 3
+    [LMI_CURRENCY] => RUB
+    [LMI_PAYMENT_AMOUNT] => 1696.00
+    [LMI_PAYMENT_NO] => 652
+    [LMI_PAYMENT_DESC] => Заказ 652 от 23.04.2015
+    [LMI_PAID_AMOUNT] => 1696.00
+    [LMI_PAID_CURRENCY] => RUB
+    [LMI_PREREQUEST] => 1
+    [LMI_PAYMENT_METHOD] => Test
+)
+
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: payment.receive
+Array
+(
+    [ACTION_FILE] => /bitrix/modules/sale/payment/paymaster
+    [PARAMS] => a:12:{s:9:"SHOP_ACCT";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:36:"b9f58a59-1081-4400-a045-51d215bb91a6";}s:9:"TEST_MODE";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:1:"0";}s:15:"CNST_SECRET_KEY";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:20:"mt81rz4d2ex2FFTJbiXI";}s:8:"ORDER_ID";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:2:"ID";}s:11:"DATE_INSERT";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:16:"DATE_INSERT_DATE";}s:10:"SHOULD_PAY";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:10:"SHOULD_PAY";}s:9:"CURRRENCY";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:8:"CURRENCY";}s:10:"RESULT_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:61:"http://fitmenu.ru/personal/order/payment/result_paymaster.php";}s:11:"SUCCESS_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:43:"http://fitmenu.ru/personal/order/?status=ok";}s:8:"FAIL_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:45:"http://fitmenu.ru/personal/order/?status=fail";}s:22:"LMI_PAYER_PHONE_NUMBER";a:2:{s:4:"TYPE";s:8:"PROPERTY";s:5:"VALUE";s:5:"PHONE";}s:15:"LMI_PAYER_EMAIL";a:2:{s:4:"TYPE";s:8:"PROPERTY";s:5:"VALUE";s:5:"EMAIL";}}
+    [ENCODING] => utf-8
+)
+
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: payment.receive
+Found file /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: payment.receive
+Is directory /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: payment.receive
+Including /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster/result_rec.php
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: payment_rec
+REQUEST_METHOD POST
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-23 13:50:36
+Module: payment_rec
+CONFIRM PAYMENT
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: result_payment
+module called 91.227.52.232
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: result_payment
+Array
+(
+    [LMI_MERCHANT_ID] => b9f58a59-1081-4400-a045-51d215bb91a6
+    [LMI_PAYMENT_SYSTEM] => 3
+    [LMI_CURRENCY] => RUB
+    [LMI_PAYMENT_AMOUNT] => 1696.00
+    [LMI_PAYMENT_NO] => 664
+    [LMI_PAYMENT_DESC] => Заказ 664 от 24.04.2015
+    [LMI_PAID_AMOUNT] => 1696.00
+    [LMI_PAID_CURRENCY] => RUB
+    [LMI_PREREQUEST] => 1
+    [LMI_PAYMENT_METHOD] => Test
+)
+
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: payment.receive
+Array
+(
+    [ACTION_FILE] => /bitrix/modules/sale/payment/paymaster
+    [PARAMS] => a:12:{s:9:"SHOP_ACCT";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:36:"b9f58a59-1081-4400-a045-51d215bb91a6";}s:9:"TEST_MODE";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:1:"0";}s:15:"CNST_SECRET_KEY";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:20:"mt81rz4d2ex2FFTJbiXI";}s:8:"ORDER_ID";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:2:"ID";}s:11:"DATE_INSERT";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:16:"DATE_INSERT_DATE";}s:10:"SHOULD_PAY";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:10:"SHOULD_PAY";}s:9:"CURRRENCY";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:8:"CURRENCY";}s:10:"RESULT_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:61:"http://fitmenu.ru/personal/order/payment/result_paymaster.php";}s:11:"SUCCESS_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:43:"http://fitmenu.ru/personal/order/?status=ok";}s:8:"FAIL_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:45:"http://fitmenu.ru/personal/order/?status=fail";}s:22:"LMI_PAYER_PHONE_NUMBER";a:2:{s:4:"TYPE";s:8:"PROPERTY";s:5:"VALUE";s:5:"PHONE";}s:15:"LMI_PAYER_EMAIL";a:2:{s:4:"TYPE";s:8:"PROPERTY";s:5:"VALUE";s:5:"EMAIL";}}
+    [ENCODING] => utf-8
+)
+
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: payment.receive
+Found file /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: payment.receive
+Is directory /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: payment.receive
+Including /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster/result_rec.php
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: payment_rec
+REQUEST_METHOD POST
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:03:46
+Module: payment_rec
+CONFIRM PAYMENT
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: result_payment
+module called 91.200.28.237
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: result_payment
+Array
+(
+    [LMI_MERCHANT_ID] => b9f58a59-1081-4400-a045-51d215bb91a6
+    [LMI_PAYMENT_SYSTEM] => 3
+    [LMI_CURRENCY] => RUB
+    [LMI_PAYMENT_AMOUNT] => 1696.00
+    [LMI_PAYMENT_NO] => 664
+    [LMI_PAYMENT_DESC] => Заказ 664 от 24.04.2015
+    [LMI_SYS_PAYMENT_DATE] => 2015-04-24T12:04:20
+    [LMI_SYS_PAYMENT_ID] => 29935451
+    [LMI_PAYER_COUNTRY] => RU
+    [LMI_PAID_AMOUNT] => 1696.00
+    [LMI_PAID_CURRENCY] => RUB
+    [LMI_SIM_MODE] => 0
+    [LMI_PAYER_IDENTIFIER] => 118156357556
+    [LMI_PAYMENT_METHOD] => Test
+    [LMI_PAYER_PASSPORT_COUNTRY] => RU
+    [LMI_PAYER_IP_ADDRESS] => 87.224.181.236
+    [LMI_HASH] => Nu61rwEe/942HzAdMox/1Q==
+)
+
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment.receive
+Array
+(
+    [ACTION_FILE] => /bitrix/modules/sale/payment/paymaster
+    [PARAMS] => a:12:{s:9:"SHOP_ACCT";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:36:"b9f58a59-1081-4400-a045-51d215bb91a6";}s:9:"TEST_MODE";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:1:"0";}s:15:"CNST_SECRET_KEY";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:20:"mt81rz4d2ex2FFTJbiXI";}s:8:"ORDER_ID";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:2:"ID";}s:11:"DATE_INSERT";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:16:"DATE_INSERT_DATE";}s:10:"SHOULD_PAY";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:10:"SHOULD_PAY";}s:9:"CURRRENCY";a:2:{s:4:"TYPE";s:5:"ORDER";s:5:"VALUE";s:8:"CURRENCY";}s:10:"RESULT_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:61:"http://fitmenu.ru/personal/order/payment/result_paymaster.php";}s:11:"SUCCESS_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:43:"http://fitmenu.ru/personal/order/?status=ok";}s:8:"FAIL_URL";a:2:{s:4:"TYPE";s:0:"";s:5:"VALUE";s:45:"http://fitmenu.ru/personal/order/?status=fail";}s:22:"LMI_PAYER_PHONE_NUMBER";a:2:{s:4:"TYPE";s:8:"PROPERTY";s:5:"VALUE";s:5:"PHONE";}s:15:"LMI_PAYER_EMAIL";a:2:{s:4:"TYPE";s:8:"PROPERTY";s:5:"VALUE";s:5:"EMAIL";}}
+    [ENCODING] => utf-8
+)
+
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment.receive
+Found file /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment.receive
+Is directory /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment.receive
+Including /home/u37751/u37751.netangels.ru/www//bitrix/modules/sale/payment/paymaster/result_rec.php
+    include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+	/home/u37751/u37751.netangels.ru/www/personal/order/payment/result_paymaster.php:17
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment_rec
+REQUEST_METHOD POST
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment_rec
+OTHER PRE-REQUEST
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:24
+Module: payment_rec
+PAY ORDER CALLED
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------
+Host: fitmenu.ru
+Date: 2015-04-24 17:04:25
+Module: payment_rec
+ORDER UPDATED Array
+(
+    [PS_STATUS] => Y
+    [PS_STATUS_CODE] => -
+    [PS_STATUS_DESCRIPTION] => номер продавца - b9f58a59-1081-4400-a045-51d215bb91a6; номер счета - ; номер платежа - 29935451; дата платежа - 2015-04-24T12:04:20платежная система - 3
+    [PS_STATUS_MESSAGE] => 
+    [PS_SUM] => 1696.00
+    [PS_CURRENCY] => RUB
+    [PS_RESPONSE_DATE] => 24.04.2015 17:04:24
+    [USER_ID] => 1997
+)
+
+    include < include < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/sale/payment/paymaster/result_rec.php:3
+	/home/u37751/u37751.netangels.ru/www/bitrix/components/bitrix/sale.order.payment.receivea/component.php:47
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:472
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/component.php:515
+	/home/u37751/u37751.netangels.ru/www/bitrix/modules/main/classes/general/main.php:1011
+----------

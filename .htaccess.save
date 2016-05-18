@@ -1,0 +1,77 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+Deny From 92.54.77.193IfModule mod_php5.c>
+  php_flag session.use_trans_sid off
+  php_value date.timezone Europe/Moscow
+  #php_value display_errors 1
+  #php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^u37751.netangels.ru$ [OR]
+RewriteCond %{HTTP_HOST} ^www.u37751.netangels.ru$
+RewriteRule ^(.*)$ http://fitmenu.ru/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} !^fitmenu\.ru/bitrix/admin/
+RewriteCond %{REQUEST_URI} ^(.*)/index\.php$
+RewriteRule ^(.*)index\.php$ http://fitmenu.ru/$1 [R=301,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+  
+
+
+  RedirectMatch 301 ^(.*)/shop/aminokisloty/bcaa/ $1/catalog/aminokisloty_bcaa
+  RedirectMatch 301 ^(.*)/shop/aminokisloty/bcaa/bsn_amino_x/ $1/catalog/aminokisloty_bcaa/bsn_poroshok_bcaa_amino_x_435_gr
+  RedirectMatch 301 ^(.*)/shop/aminokisloty/page2 $1/catalog/aminokisloty?in_stock=0&PAGEN_1=2
+  RedirectMatch 301 ^(.*)/shop/batonchiki/ps_professional_eiweiss_riegel/ $1/catalog/proteinovye/ps_wpt_professional_40_70_gr_proteinovyy_batonchik
+  RedirectMatch 301 ^(.*)/shop/geynervy/ $1/catalog/geynery
+  RedirectMatch 301 ^(.*)/shop/kreatin/monogidraty/ $1/catalog/monogidrat
+  RedirectMatch 301 ^(.*)/shop/proteiny/bsn_syntha__6_1320_g/ $1/catalog/proteiny/bsn_syntha_6_1320_gr
+  RedirectMatch 301 ^(.*)/shop/proteiny/bsn_syntha__6_2290g/ $1/catalog/proteiny/bsn_syntha_6_2288_gr
+  RedirectMatch 301 ^(.*)/shop/proteiny/syvorotochnye_izolyaty/ $1/catalog/izolyat_gidrolizat
+  RedirectMatch 301 ^(.*)/shop/proteiny/syvorotochnye_proteiny/ $1/catalog/syvorotka
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/biotech/bt_100_creatine_monohydrate_1000/ $1/catalog/monogidrat/bt_100_creatine_monohydrate_1000gr
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/bsn/bsn_amino_x_1015gr/ $1/catalog/bsn_poroshok_bcaa_amino_x_1015_gr/bsn_poroshok_bcaa_amino_x_1015_gr
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/bsn/bsn_syntha__6_4540_g/ $1/catalog/mnogokomponentnyy_1/bsn_syntha_6_4540_gr
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/mhp/mhp_creatine_monohydrate(.*) $1/catalog/monogidrat/mhp_kreatin_300g$2
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/bsn/ $1/brend/bsn
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/natrol/arnold_iron_series_cuts_90_kaps/ $1/catalog/arnold_iron_cuts_30_90caps/arnold_iron_cuts_30_90caps
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/nutrex/nutrex_lipo_6_black_hers/ $1/catalog/nutrex_zh_s_dlya_zhen_lipo6_black_hers_120kaps/nutrex_zh_s_dlya_zhen_lipo6_black_hers_120kaps
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/nutrex/ $1/brend/nutrex
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/optimum_nutr234/on_100_whey_gold_standart_4545_gr/ $1/catalog/on_whey_protein_gold_standart_4540_gr/on_whey_protein_gold_standart_4540_gr
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/optimum_nutr234/on_bcaa_5000_powder/ $1/catalog/on_poroshok_bcaa_5000_powder_380_gr/on_poroshok_bcaa_5000_powder_380_gr
+  RedirectMatch 301 ^(.*)/shop/vse_proizvoditeli/optimum_nutr234/on_opti-men/ $1/catalog/on_opti_men_90_tabl/on_opti_men_90_tabl
+  RedirectMatch 301 ^(.*)/shop/zhiroszhigateli/iron_cuts_arnold_series_120_kaps/ $1/catalog/zhiroszhigateli/arnold_iron_cuts_40_120caps
+  RedirectMatch 301 ^(.*)/shop/zhiroszhigateli/nutrex_lipo_6_120/ $1/catalog/zhiroszhigateli/nutrex_zh_s_lipo6_120kaps
+  RedirectMatch 301 ^(.*)/shop/zhiroszhigateli/nutrex_lipo_6_240/ $1/catalog/zhiroszhigateli/nutrex_zh_s_lipo6_240kaps
+  RedirectMatch 301 ^(.*)/shop/zhiroszhigateli/nutrex_lipo_6_black_hers/ $1/catalog/zhiroszhigateli/nutrex_zh_s_dlya_zhen_lipo6_black_hers_120kaps
+  RedirectMatch 301 ^(.*)/shop/zhiroszhigateli/nutrex_lipo_6-x_240/ $1/catalog/zhiroszhigateli/nutrex_zh_s_lipo6_x_240kaps
+  #RedirectMatch 301 ^(.*)/shop(.*) $1/catalog$2
+  RedirectMatch 301 ^/shop(.*)  /catalog$1
+
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"  
+</IfModule>
