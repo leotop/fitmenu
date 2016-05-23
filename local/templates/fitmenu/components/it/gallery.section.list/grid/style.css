@@ -1,0 +1,30 @@
+.content-info.main.block DIV.pressa-block {padding: 0;}
+
+.list-gallery .cover .img {width:150px;}
+.list-gallery .cover .img IMG {width:150px;}
+/**LIST Sections */
+.grid-table{display: table; position: relative; width: 100%;}
+.grid-row{display: table-row; position: relative; }
+.grid-cell{display: table-cell; position: relative; }
+
+.gallery{position: relative;}
+.side-gallery {position: relative;}
+.side-gallery A.img {width: 220px; margin: 0 0 20px 0;}
+.side-gallery A.img IMG{width: 220px;}
+
+.list-gallery{position: relative; overflow: hidden; padding: 15px 0;text-align: left;}
+.list-gallery .cover{position: relative;padding: 10px 100px; text-align: center;}
+.list-gallery .cover A.img {display: block; margin: 0 auto 20px; position: relative; width: 230px;}
+.list-gallery .cover .img IMG {display: block; position: relative;border: none; width: 100%;}
+.list-gallery .cover .name{color:#ff6743; font:bold 16px/18px PT-Sans; text-decoration: none; text-align: center; display: block;}
+.list-gallery .cover .counter {position: absolute; right: 0; bottom: 0; background: #392726 url(images/photo.png) 8px center no-repeat; padding: 10px 8px 10px 30px; color:#FFF;}
+.list-gallery .cover .counter {font-size: 14px; line-height: 14px;}
+.list-gallery .hidden{display: none;}
+
+.list-gallery .cover .counter,.list-gallery .cover .name {display: none;}
+
+.list-gallery li {
+list-style: none;
+margin: 0 0 20px 20px;
+font-size: 19px;
+}

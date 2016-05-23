@@ -1,0 +1,8 @@
+.hidden-respon {
+	display: none;
+	visibility: hidden;
+}
+
+.basket__main-row > td {
+	display: block;
+}

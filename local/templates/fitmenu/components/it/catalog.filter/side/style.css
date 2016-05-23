@@ -1,0 +1,338 @@
+.side-full-filter {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	/*height: 307px;*/
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.side-full-filter .version {
+	float: left;
+	position: relative;
+	background: url(images/filter-version.png) right 0 no-repeat scroll;
+	padding: 0 56px 0 0;
+	height: 300px;
+}
+
+.side-full-filter .version .it-radio {
+	padding: 5px 0 10px 20px;
+	position: relative;
+}
+
+.side-full-filter .version .icon {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	/*background: url(images/filters-icon-b.png) 0 0 no-repeat;*/
+	width: 80px;
+	height: 70px;
+	cursor: pointer;
+}
+
+
+/*.side-full-filter .version .icon:hover{background: url(images/filters-icon.png) 0 0 no-repeat;}  */
+
+.side-full-filter .version LABEL {
+	cursor: pointer;
+}
+
+.sports #f_prop_41 .icon {
+	background-position: -250px -20px;
+}
+
+.sports #f_prop_42 .icon {
+	background-position: -250px -88px;
+}
+
+.sports #f_prop_43 .icon {
+	background-position: -255px -235px;
+}
+
+.sports #f_prop_44 .icon {
+	background-position: -250px -166px;
+}
+
+.indicator #f_prop_38 .icon {
+	background-position: -161px -20px;
+}
+
+.indicator #f_prop_39 .icon {
+	background-position: -161px -88px;
+}
+
+.indicator #f_prop_40 .icon {
+	background-position: -161px -166px;
+}
+
+.sex #f_prop_33 .icon {
+	background-position: -3px -20px;
+}
+
+.sex #f_prop_34 .icon {
+	background-position: -3px -88px;
+}
+
+.mission #f_prop_35 .icon {
+	background-position: -75px -20px;
+}
+
+.mission #f_prop_36 .icon {
+	background-position: -84px -88px;
+}
+
+.mission #f_prop_37 .icon {
+	background-position: -75px -166px;
+}
+
+.side-full-filter .version .h {
+ font-family: 'Magistral', sans-serif;
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    background: #787878;
+    color: #fff;
+}
+
+.side-full-filter .version .h SPAN {
+	display: none;
+}
+
+.side-full-filter .last.version {
+	float: left;
+}
+
+.side_filter .side-full-filter .versions {
+	float: none;
+padding: 6px;
+}
+
+.side_filter .side-full-filter .last.version {
+	float: none;
+	overflow: hidden;
+	background: none;
+	margin: 0 0 0 0px;
+	padding: 0;
+}
+
+
+/*.side_filter .side-full-filter .last.version .button{
+    display: block; width: 100px;height: 30px; 
+     text-transform: uppercase;
+    margin: 5px 10px; float: right;
+
+    background: url(images/button_filter.png?v=2) 0 0 no-repeat; border:none;
+     width: 110px;height: 37px;   
+}    */
+
+.side_filter {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.side_filter .side-full-filter .version {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	padding: 0;
+	height: auto;
+	float: none;
+	width: 235px;
+}
+
+.small_filter .icon {
+	background: none;
+	display: none;
+}
+
+.small_filter .side-full-filter .version .it-radio {
+	padding: 7px 0 7px 7px;
+}
+
+.small_filter .side-full-filter .last.version .button {
+	left: -40px;
+}
+
+.form_filter {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 340px;
+	min-height: 70px;
+	margin-top: -140px;
+	margin-left: -170px;
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #787878;
+	z-index: 900;
+}
+
+.form_filter__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form_filter label {
+	clear: both;
+	display: block;
+	float: left;
+	margin-right: 13px;
+	margin-top: 20px;
+	margin-left: 30px;
+	display: block;
+	width: 50px;
+	text-align: right;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.form_filter .close_form {
+	position: absolute;
+	right: -15px;
+	top: -13px;
+	background-color: #fff;
+	border-radius: 50%;
+	padding: 5px 8px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	border: 1px solid #787878;
+}
+
+.form_filter input {
+	width: 190px;
+	height: 26px;
+	margin-top: 15px;
+	float: left;
+	background-color: #dcdcdc;
+	color: #8e8e8e;
+	font-size: 15px;
+	padding: 5px 10px;
+}
+
+.submit_filter {
+	text-decoration: none;
+	float: right;
+	clear: both;
+	margin-right: 36px;
+	margin-top: 25px;
+	padding: 9px 15px;
+	background-color: #922229;
+        border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.submit_filter:hover {
+  background: #787878;
+  color: #fff;
+}
+
+
+.form_filter .error_form {
+	color: red;
+	text-align: center;
+	margin-left: 91px;
+	top: 15px;
+	position: relative;
+}
+
+.error_form {
+	display: none;
+}
+
+.side-full-filter .last .button {
+	float: left;
+	width: 100px;
+	height: 26px;
+	position: absolute;
+	left: 5px;
+	border: none;
+	cursor: pointer;
+	font-family: Magistral;
+	color: #fff;
+	border-radius: 8px;
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #922229;
+	box-shadow: -2px 2px 4px 0px rgba(137, 137, 137, 0.58);
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 7px;
+	bottom: 14px;
+}
+
+.side-full-filter .last .button:hover {
+	background-color: #787878;
+}
+
+.side-full-filter .last {
+	height: 50px;
+}
+
+.side-full-filter .it-radio label {
+	margin-left: 6px;
+font-size:15px;
+}
+
+.side-full-filter .it-radio input[type=radio] {
+	display: none;
+}
+
+.side-full-filter .it-radio label:after {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	border: 1px solid #787878;
+	border-radius: 50%;
+	/*box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8); */
+}
+
+label:before {
+	border-radius: 8px;
+}
+
+.side-full-filter .it-radio input[type=radio]:checked + label:before {
+	content: "\2022";
+	color: rgba(101, 101, 101, 0.6);
+	font-size: 24px;
+	text-align: center;
+	line-height: 18px;
+	position: absolute;
+	left: 2.5px;
+	bottom: 9px;
+}
+
+.side-full-filter .success_form {
+	line-height: 1.5;
+}
+
+.side_filter__title {
+	font-weight: bold;
+padding: 5px 10px;
+}
+
+.side_filter__title p {
+	margin-bottom: 10px;
+}
+
+.side_filter__title::after {
+	content: '';
+	display: block;
+	margin: 10px auto 5px;
+	width: 100%;
+	height: 2px;
+	background: #c1c1c1;
+}
+
+.side_filter__title p:last-child {
+	margin-bottom: 10px;
+}
