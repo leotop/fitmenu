@@ -1,0 +1,62 @@
+/* Left menu*/
+ul.left-menu{
+	list-style:none;
+	margin:0; 
+	padding:0;
+	position: relative; /*IE bug*/
+	height: 100%;
+	background: whitesmoke;
+	box-shadow: none;
+	float: left;
+}
+
+ul.left-menu li{
+	padding: 5px 16px;
+}
+ul.left-menu.z LI{}
+ul.left-menu.z {z-index: 500;}
+
+ul.left-menu li a
+{
+	font-size:14px;
+	color:#000;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+ul.left-menu li a:visited
+{
+	color:#000;
+}
+
+ul.left-menu li a:hover
+{
+	color:#000;
+}
+ul.left-menu li.hidden{display: none;}
+
+
+ul.left-menu li a.selected:link, 
+ul.left-menu li a.selected:visited, 
+ul.left-menu li a.selected:active, 
+ul.left-menu li a.selected:hover{	color:#000;}
+
+ul.left-menu .show{color:red;}
+ul.left-menu LI.show A{text-decoration: none; border-bottom: 1px dashed red;color:red;}
+ul.left-menu LI.show A:hover{text-decoration: none; border-bottom: 1px solid red;}
+
+div#tab2 {
+	position: absolute;
+	box-shadow: 0 0 3px rgba(0,0,0,.4);
+	z-index: 1000;
+	background: #F5F5F5;
+}
+
+.left-menu {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.menu-open.left-menu {
+	width: 100%;
+}

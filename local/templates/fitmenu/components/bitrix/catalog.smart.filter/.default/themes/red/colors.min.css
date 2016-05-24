@@ -1,0 +1,71 @@
+.bx-retina .bx-filter.bx-red .bx-filter-input-container input:focus {
+  -webkit-border-image: url(images/active.png) 2 repeat;
+  -moz-border-image: url(images/active.png) 2 repeat;
+  -o-border-image: url(images/active.png) 2 repeat;
+  border-image: url(images/active.png) 2 repeat
+}
+
+.bx-filter.bx-red .bx-ui-slider-track {
+  background: #e7e7e7
+}
+
+.bx-filter.bx-red .bx-ui-slider-pricebar-vd {
+  background: #b1b1b1
+}
+
+.bx-filter.bx-red .bx-ui-slider-pricebar-vn {
+  background: #c1c1c1;
+}
+
+.bx-filter.bx-red .bx-ui-slider-pricebar-v {
+  background: #922229;
+}
+
+.bx-filter.bx-red .bx-ui-slider-handle.left {
+}
+
+.bx-filter.bx-red .bx-ui-slider-handle.right {
+}
+
+.bx-retina .bx-filter.bx-red .bx-filter-select-container.bx-active, .bx-retina .bx-filter.bx-red .bx-filter-select-container:focus {
+  -webkit-border-image: url(images/active.png) 2 repeat;
+  -moz-border-image: url(images/active.png) 2 repeat;
+  -o-border-image: url(images/active.png) 2 repeat;
+  border-image: url(images/active.png) 2 repeat
+}
+
+.bx-filter.bx-red .bx-filter-tag {
+  border-top: 1px solid #f8dbdb;
+  border-bottom: 1px solid #f8dbdb
+}
+
+.bx-filter.bx-red .bx-tag-link {
+  color: #e48d8d
+}
+
+.bx-filter.bx-red .bx-filter-param-label.bx-active .bx-filter-param-btn, .bx-filter.bx-red .bx-filter-param-btn:hover, .bx-filter.bx-red .bx-filter-param-btn:active, .bx-filter.bx-red .bx-filter-param-btn:focus {
+  border-color: #da3737
+}
+
+.bx-retina .bx-filter.bx-red .bx-filter-param-label.bx-active .bx-filter-param-btn, .bx-retina .bx-filter.bx-red .bx-filter-param-btn:hover, .bx-retina .bx-filter.bx-red .bx-filter-param-btn:active, .bx-retina .bx-filter.bx-red .bx-filter-select-container:focus {
+  -webkit-border-image: url(images/active.png) 2 repeat;
+  -moz-border-image: url(images/active.png) 2 repeat;
+  -o-border-image: url(images/active.png) 2 repeat;
+  border-image: url(images/active.png) 2 repeat
+}
+
+.bx-filter.bx-red .btn-themes {
+  background-color: #922229;
+  color: #FFF;
+  font-size: 18px;
+  border-right: 5px;
+}
+
+.bx-filter .btn-link, .bx-filter .btn-link:hover {
+  color: #000;
+} 
+
+.bx-filter.bx-red .btn-themes.bx-active, .bx-filter.bx-red .btn-themes.focus, .bx-filter.bx-red .btn-themes:active, .bx-filter.bx-red .btn-themes:focus, .bx-filter.bx-red .btn-themes:hover {
+  background-color: #787878;
+  color: #FFF
+}

@@ -1,0 +1,5 @@
+.mfp-arrow-right:before, .mfp-arrow-right .mfp-b { border-left: 27px solid #ff6743;}
+.mfp-arrow-left:before, .mfp-arrow-left .mfp-b { border-right: 27px solid #ff6743;}
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {cursor: pointer; color:#ff6743;}
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close {font-size:45px;right: -45px;}
+.mfp-figure small.copyright{color:#ff6743;}
