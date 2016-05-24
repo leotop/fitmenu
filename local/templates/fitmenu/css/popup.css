@@ -1,0 +1,29 @@
+#modalbox,
+#modalnews{display:none;position:absolute;box-shadow:0px 0px 50px -5px #000;border-radius:3px;background:#fff;width:440px;}
+#modalnews{width:80%;}
+#modalbox .b-close,
+#modalnews .b-close{background:url("../images/btn-close-popup.png") 0px 0px no-repeat;text-indent:-10000px;position:absolute;cursor:pointer;display:block;z-index:8040;height:28px;width:27px;right:13px;top:12px;}
+.popup-form{padding:40px 60px;}
+.popup-form .form-item{margin-bottom:15px;}
+.popup-form .form-item label{color:#535353;display:block;font-size:14px;margin-bottom:8px;font-family:"Arial";}
+.popup-form .wrapper{position:relative;overflow:hidden;margin:20px auto;width:100%;}
+.popup-form .form-item .text-input,
+.popup-form .form-item textarea{background:#fff;font-family:"Arial";border:1px solid #E6E6E4;border-radius:3px;line-height:20px;padding:4px 10px;font-size:14px;color:#535353;height:20px;width:300px;}
+.popup-form .form-item textarea{height:104px;resize:none;}
+.popup-form .form-item .text-input.error,
+.popup-form .form-item textarea.error{border:1px solid #fb1c1c;background:#fd8888;}
+.popup-form .form-item .date-time{padding-top:15px;}
+.popup-form .form-item .date-time .text-input{background:#fff;font-family:"Arial",;border:1px solid #E6E6E4;border-radius:3px;line-height:20px;padding:4px 10px;font-size:14px;color:#3e3e3e;height:20px;width:125px;}
+.popup-form .form-item .date-time .text-input.error{border:1px solid #fb1c1c;background:#fd8888;}
+.popup-form .form-item .date-time .date{width:176px;margin-right:12px;float:left;}
+.popup-form .form-item .date-time .date .input{position:relative;}
+.popup-form .form-item .date-time .date .input img{position:absolute;top:4px;left:0;cursor:pointer;}
+.popup-form .form-item .date-time .date .input .text-input{margin-left:29px;line-height:24px;}
+.popup-form .form-item .date-time .time{float:left;width:132px;}
+.popup-form .form-item .date-time .time .text-input{width:45px;line-height:24px;}
+.popup-form .form-buttons{padding:15px 0 10px 0;height:40px;clear:both;}
+.popup-form .form-buttons .btn.l{float:left;margin:0 20px 0 0;}
+.popup-form .form-buttons .btn.r{float:right;margin:0 0px 0 0;}
+.popup-form .form-buttons .btn{padding:0 20px;border-radius:3px;background:#d74f41;text-decoration:none;border-bottom:3px solid #9c453e;display:inline-block;margin:0 0 0 74px;text-align:center;line-height:40px;font-weight:700;font-size:16px;cursor:pointer;height:39px;color:#fff;border:0;}
+.popup-form .form-buttons .btn:hover{opacity:0.8;}
+.popup-form .form-buttons .btn:active{border:1px solid #9b443e;border-bottom:1px;line-height:38px;padding:0 19px;height:41px;opacity:1;}

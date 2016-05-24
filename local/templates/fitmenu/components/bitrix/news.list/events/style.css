@@ -1,0 +1,5 @@
+.sidebar-holder .events{padding: 25px 17px; position: relative;}
+.sidebar-holder .events .date{}
+.sidebar-holder .events .link{margin: 7px 0; text-transform: uppercase; display: block;}
+.sidebar-holder .events .preview{ position: relative; width: 185px; margin: 7px;}
+.sidebar-holder .events .preview IMG{width: 185px; display: block; position: relative;}

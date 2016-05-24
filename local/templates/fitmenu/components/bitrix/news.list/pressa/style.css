@@ -1,0 +1,8 @@
+.pressa-block H3{font-size:26px; text-align: center; font-weight: bold;}
+.pressa{position: relative;}
+.pressa LI {float: left; width: 25%; padding: 10px 0; text-align: center;}
+.pressa LI.hidden{display: none;}
+.pressa LI .preview {overflow: hidden; position: relative; margin: 0 0 15px 0; text-align: center;}
+.pressa LI .preview IMG{width: 130px; display: block;margin: 0 auto;}
+.pressa-block {position: relative; overflow: hidden; text-align: center; margin: 15px 0; width: 100%; float: none;}
+.content-info .pressa-block{width: 100%; float: none; border:none; margin: 15px 0; padding: 0;}

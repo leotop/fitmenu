@@ -1,0 +1,49 @@
+.view-list .h3{
+	background: #922229;
+	font-size: 13px;
+	line-height: 30px;
+	padding: 0 12px;
+	color: #FFF;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: block;
+}
+.view-list .picture{
+	float:left;
+	width:60px;
+	text-align:center;
+}
+.view-list a{
+	font-size: 12px;
+}
+.view-list .to-cart{
+	width:40px;
+	height:40px;
+	background-size: cover;
+	float:right;
+	margin:0px 5px;
+}
+div.view-list {  
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
+	margin: 0 0 15px 0;
+	overflow: hidden;
+	background-color: #FFF;
+	padding-bottom: 10px;
+}
+div.view-header {
+	height: 20px;
+	text-align: center;
+	background-color: #CCC;
+	margin-bottom:10px;
+}
+div.view-item {
+	width:100%;
+	float:left;
+	text-align: left;
+  padding: 10px 0;
+  border-bottom: 1px solid #c1c1c1;
+}
+div.view-item:last-child {border:none}
+.viewed__descr{float:left;width:115px}
+

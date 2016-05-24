@@ -1,0 +1,367 @@
+/**
+HOME
+*/
+@font-face {
+  font-family: 'magistralcregular';
+  src: url('font/pt-magistral-bold-cyrillic_36741-webfont.eot');
+  src: url('font/pt-magistral-bold-cyrillic_36741-webfont.eot?#iefix') format('embedded-opentype'),
+  url('font/pt-magistral-bold-cyrillic_36741-webfont.woff2') format('woff2'),
+  url('font/pt-magistral-bold-cyrillic_36741-webfont.woff') format('woff'),
+  url('font/pt-magistral-bold-cyrillic_36741-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.full-width.ovf {
+  position: relative;
+}
+
+.full-filter {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 275px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px #d8d8d8;
+}
+
+.full-filter .version {
+  display: inline-block;
+  position: relative;
+  background: url(images/filter-version.png) right 0 no-repeat scroll;
+  padding: 0 5px 0 0;
+}
+
+.version.indicator {
+  width: 180px;
+}
+
+.version.mission {
+  width: 180px;
+}
+
+
+.full-filter .version .it-radio {
+  padding: 20px 20px 0 30px;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.full-filter .versions .sex .it-radio {
+  margin-bottom: 40px;
+}
+
+.full-filter .versions .mission .it-radio, .full-filter .versions .indicator .it-radio {
+  margin-bottom: 20px;
+}
+
+.full-filter .versions .sex .icon {
+  width: 30px;
+  height: 50px
+}
+
+.full-filter .sports .icon {
+  width: 80px;
+  height: 65px
+}
+
+.full-filter .values {
+  margin-top: 10px;
+}
+
+.full-filter .sex .values {
+  margin-top: 30px;
+}
+
+.full-filter .sports .it-radio {
+  padding: 20px 35px 15px 45px;
+}
+
+.full-filter .version .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(images/sprite-filter.png) 0 0 no-repeat;
+  width: 40px;
+  height: 45px;
+  cursor: pointer;
+  background-size: 180px;
+}
+
+.full-filter .version.sports .icon {
+  width: 50px;
+  height: 45px;
+}
+
+.full-filter .version LABEL {
+  cursor: pointer;
+}
+
+.sports #f_prop_41 .icon {
+  background-position: -119px 1px;
+}
+
+.sports #f_prop_42 .icon {
+  background-position: -119px -46px;
+  height: 33px;
+  top: 7px;
+}
+
+.sports #f_prop_43 .icon {
+	background-position: -124px -77px;
+	width: 35px;
+	height: 30px;
+}
+
+.sports #f_prop_44 .icon {
+  background-position: -116px -107px;
+}
+
+.indicator #f_prop_38 .icon {
+  background-position: -80px -4px;
+}
+
+.indicator #f_prop_39 .icon {
+  background-position: -80px -95px;
+}
+
+.indicator #f_prop_40 .icon {
+  background-position: -79px -49px;
+}
+
+.sex #f_prop_33 .icon {
+  background-position: 2px -58px;
+}
+
+.sex #f_prop_34 .icon {
+  background-position: 2px -4px;
+}
+
+#f_prop_33:hover .icon {
+  background-position: 3px -166px;
+}
+
+#f_prop_34:hover .icon {
+  background-position: 3px -112px;
+}
+
+.filter__background-men {
+  background-position: 11px -235px !important;
+}
+
+.filter__background-women {
+  background-position: 10px -157px !important;
+}
+
+.mission #f_prop_35 .icon {
+  background-position: -35px -99px;
+}
+
+.mission #f_prop_36 .icon {
+  background-position: -34px -57px;
+}
+
+.mission #f_prop_37 .icon {
+  background-position: -33px -10px;
+}
+
+.full-filter .version .h {
+  color: #000000;
+  height: 50px;
+  border-bottom: 1px solid #e3e3e3;
+  line-height: 50px;
+  font-size: 1.3em;
+}
+
+.full-filter .version .h SPAN {
+  display: none;
+}
+
+.full-filter .versions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.full-filter .last.version {
+  background: none;
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+  padding: 0;
+}
+
+.full-filter .last.version .button {
+  width: 70px;
+  line-height: 25px;
+  border: none;
+  cursor: pointer;
+  font-family: Magistral;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #922229;
+  box-shadow: -2px 2px 4px 0px rgba(137, 137, 137, 0.58);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.full-filter .versions .indicator .it-radio {
+  margin-bottom: 25px;
+}
+
+.full-filter .last.version .button:hover {
+  background-color: #787878;
+}
+
+.small_filter {
+}
+
+.small_filter .full-filter .version {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  padding: 0;
+}
+
+.small_filter .icon {
+  background: none;
+  display: none;
+}
+
+.small_filter .full-filter .version .it-radio {
+  padding: 7px 0 7px 7px;
+}
+
+.small_filter .full-filter .last.version .button {
+  left: -40px;
+}
+
+.form_filter {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  min-height: 70px;
+  margin-top: -140px;
+  margin-left: -170px;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #787878;
+  z-index: 100;
+}
+
+.form_filter h2 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.form_filter label {
+  clear: both;
+  display: block;
+  float: left;
+  margin-right: 13px;
+  margin-top: 20px;
+  margin-left: 30px;
+  display: block;
+  width: 50px;
+  text-align: right;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.form_filter .close_form {
+  position: absolute;
+  right: -15px;
+  top: -13px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #787878;
+}
+
+.form_filter input {
+  width: 190px;
+  height: 26px;
+  margin-top: 15px;
+  float: left;
+  background-color: #dcdcdc;
+  color: #8e8e8e;
+  font-size: 15px;
+  padding: 0 10px;
+}
+
+.submit_filter {
+  text-decoration: none;
+  float: right;
+  clear: both;
+  margin-right: 36px;
+  margin-top: 25px;
+  padding: 9px 15px;
+  background-color: #00ff00;
+  color: #fff;
+  font-weight: bold;
+}
+
+.form_filter .error_form {
+  color: red;
+  text-align: center;
+  margin-left: 91px;
+  top: 15px;
+  position: relative;
+}
+
+.error_form {
+  display: none;
+}
+
+.full-filter .success_form {
+  line-height: 1.5;
+}
+
+.filter__title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.filter__feature {
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.filter__icon {
+  display: block;
+  margin: 0 auto 5px;
+  width: 50px;
+  height: 50px;
+  background: #c1c1c1;
+}
+
+.filter__feature:first-child .filter__icon {
+  background: url('/bitrix/templates/fitmenu/images/icons/filter__man.png') no-repeat center center;
+  background-size: cover;
+}
+
+.filter__feature:nth-child(2) .filter__icon {
+  background: url('/bitrix/templates/fitmenu/images/icons/filter__good.png') no-repeat center center;
+  background-size: cover;
+}
+
+.filter__feature:last-child .filter__icon {
+  background: url('/bitrix/templates/fitmenu/images/icons/filter__plain.png') no-repeat center center;
+  background-size: cover;
+}
