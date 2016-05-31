@@ -244,7 +244,7 @@
 
                             <?
 
-                            echo  $arElement['PROPERTIES']["ANONS"]["VALUE"]; //$arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE'];   //             arshow($arElement);
+                            echo  $arElement['PROPERTIES']["ANONS"]["VALUE"];
 
                             ?>
 
