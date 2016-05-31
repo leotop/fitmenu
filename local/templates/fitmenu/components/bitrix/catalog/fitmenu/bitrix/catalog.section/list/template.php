@@ -244,10 +244,7 @@
 
                             <?
 
-                                //     echo '<!--', base64_encode( $arElement['PREVIEW_TEXT'] ), '-->';
-
-                                //  echo  '<!--', base64_encode($arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE']), '-->';
-                            echo  $arElement['PREVIEW_TEXT']; //$arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE'];   //             arshow($arElement);
+                            echo  $arElement['PROPERTIES']["ANONS"]["VALUE"];
 
                             ?>
 
