@@ -375,7 +375,7 @@
 	array(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "23",
-		"DISCOUNT_ID" => "645",
+		"DISCOUNT_ID" => "623",
 		"COUNT_PRODUCT" => "3",
 		"IBLOCKS_PROP" => "203",
 		"DETAIL_URL" => "",
