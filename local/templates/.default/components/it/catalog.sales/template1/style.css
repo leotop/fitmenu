@@ -1,0 +1,30 @@
+.sales {}
+.sales .list{position: relative; overflow:hidden; margin: 5px 0;}
+.sales .list .product{ position: relative;}
+.sales .list .product .preview{position: relative; margin:5px auto; width: 200px;}
+.sales .list .product .preview IMG{position: relative; display: block; margin: 0 auto; max-width: 200px;}
+.sales .list .product .price{
+font-size: 30px;
+text-align: center;
+margin: 0 0 15px 15px;
+font-weight: bold;
+display: inline-block;
+color: rgba(229, 3, 12, 0.94);
+background: #E4E4E4;
+padding: 0 5px;
+border-radius: 5px;
+}
+.sales .list .product .name{color: black;position: relative; display: block; margin: 0 auto 5px; font-size: 23px; font-weight:bold; text-align: center;}
+.sales  .title_block {color: red;text-align: center; display: block;font-size: 16px; font-weight:bold;margin: 10px 0;text-transform: uppercase;}
+.sales  .discount_name{text-align: center; display: block;font-size: 15px; font-weight:bold; margin: 5px 0;}
+.sales  .timeTo {text-align: center; margin: 5px 0;}
+.sales .product .special-discount-price {
+    text-align: center;
+    font-size: 25px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.sales .product .special-discount-price span:first-child {
+    text-decoration: line-through;   
+}

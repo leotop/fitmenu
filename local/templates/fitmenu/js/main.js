@@ -247,7 +247,6 @@ $(function() {
       }
     });
   } else {
-    $('.footer__sticky').hide();
     $('#footer').css({'margin-bottom': 0});
   }
   
