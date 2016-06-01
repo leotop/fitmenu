@@ -76,10 +76,14 @@
 
     <div class="footer__sticky">
         <div class="footer__sticky-inner">
-            <!--<p class="footer_sticky-discount-left"><a href="/news/darim_3000r/">Дарим 3000 Р при покупке</a>
-            <img src="http://www.flexsf.ru/upload/iblock/905/9051713d920c04ce8017981360af2eac.png" width="100">
-            </p>-->
-            <p><span class="discount-link"><a href="http://fitmenu.ru/about/stocks/" style="color:#fff">Акция</a></span> до 19 мая!</p>
+            <?
+                $APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_TEMPLATE_PATH."/includes/action.php",
+                    "EDIT_TEMPLATE" => "standard.php"
+                    )
+                );
+            ?>
         </div>
     </div>
 
@@ -111,7 +115,7 @@
         (function(){ var widget_id = '6mVNGaKGA1';
         var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
     <!-- {/literal} END JIVOSITE CODE -->
-<?}?>
+    <?}?>
 
 <div class="modal hiddencart">
     <div class="modal-inner">
@@ -243,6 +247,6 @@
         "' alt='' title='LiveInternet' "+
         "border='0' width='31' height='31'><\/a>")
     //--></script><!--/LiveInternet--></span>
-
+	
 </body>
 </html>

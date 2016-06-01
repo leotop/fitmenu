@@ -1,6 +1,6 @@
 /********************************************************************
 
-				Menu Controls
+Menu Controls
 
 ********************************************************************/
 .photo-top-controls {margin: 0 0 1em 1px;}
@@ -39,7 +39,7 @@ div.photo-controls-album,div.photo-controls-gallery {float: right;}
 
 /********************************************************************
 
-				Menu Controls /
+Menu Controls /
 
 ********************************************************************/
 
@@ -47,7 +47,7 @@ div.photo-controls-album,div.photo-controls-gallery {float: right;}
 
 /********************************************************************
 
-				Popups
+Popups
 
 ********************************************************************/
 table.photo-dialog-table, table.photo-popup{border: 0; border-collapse: collapse; width: 100%;}
@@ -75,41 +75,41 @@ div.photo-popup{background-color: gray;overflow: hidden;width: 600px;height: 400
 
 div.photo-popup div.photo-popup-container{
 
-	border: 1px solid black;}
+border: 1px solid black;}
 
 div.photo-popup div.photo-popup-inner{
 
-	padding: 9px;}
+padding: 9px;}
 
 div.photo-popup div.photo-popup-data{
 
-	overflow: hidden;
+    overflow: hidden;
 
-	width: 580px;
+    width: 580px;
 
-	height: 380px;}
+height: 380px;}
 
 div.photo-popup table{
 
-	width: 100%;
+    width: 100%;
 
-	border: none;}
+border: none;}
 
 table.photo-popup thead{
 
-	display: none;}
+display: none;}
 
 div.photo-popup tbody {
 
-	height: 330px;}
+height: 330px;}
 
 div.photo-popup tbody td {
 
-	border: none;
+    border: none;
 
-	text-align: left;
+    text-align: left;
 
-	vertical-align: top;}
+vertical-align: top;}
 
 div.photo-popup tbody div.photo-info-box-section-edit-icon,
 
@@ -117,29 +117,29 @@ div.photo-popup tbody div.photo-info-box-section-edit,
 
 div.photo-popup tbody div.photo-info-box-element-edit  {
 
-	height: 335px;
+    height: 335px;
 
-	overflow: auto;
+    overflow: auto;
 
-	zoom: 1;}
+zoom: 1;}
 
 div.photo-popup tfoot td {
 
-	text-align: center;
+    text-align: center;
 
-	vertical-align: middle;
+    vertical-align: middle;
 
-	height: 50px;
+    height: 50px;
 
-	overflow: hidden;}
+overflow: hidden;}
 
 div.photo-popup tfoot td input {
 
-	margin: 2px;}
+margin: 2px;}
 
 div.photo-popup div.photo-edit-field {
 
-	padding: 0.3em 0 0.2em 0.3em;}
+padding: 0.3em 0 0.2em 0.3em;}
 
 div.photo-popup div.photo-edit-field-title input,
 
@@ -147,21 +147,21 @@ div.photo-popup div.photo-edit-field-tags input,
 
 div.photo-popup div.photo-edit-field textarea {
 
-	width: 99%;}
+width: 99%;}
 
 div.photo-popup div.photo-edit-field select {
 
-	width: 50%;}
+width: 50%;}
 
 /********************************************************************
 
-				Popups /
+Popups /
 
 ********************************************************************/
 
 /********************************************************************
 
-				Filter
+Filter
 
 ********************************************************************/
 
@@ -169,51 +169,51 @@ div.photo-popup div.photo-edit-field select {
 
 div.photo-filter{
 
-	margin: 1.5em 0 2.5em 0;
+    margin: 1.5em 0 2.5em 0;
 
-	border: 1px solid;
+    border: 1px solid;
 
-	padding: 1em;
+    padding: 1em;
 
-	width: 70%;}
+width: 70%;}
 
 div.photo-filter-field {
 
-	margin-bottom: 0.7em;}
+margin-bottom: 0.7em;}
 
 div.photo-filter-field-inner {
 
-	margin-bottom: 0.4em;}
+margin-bottom: 0.4em;}
 
 div.photo-calendar-field label {
 
-	display: block;
+    display: block;
 
-	margin-bottom: 0.5em;}
+margin-bottom: 0.5em;}
 
 div.photo-filter-buttons {
 
-	margin-right: 0.5em;}
+margin-right: 0.5em;}
 
 div.photo-filter-field legend {
 
-	padding: 0.5em 1em;}
+padding: 0.5em 1em;}
 
 /********************************************************************
 
-				Filter /
+Filter /
 
 ********************************************************************/
 
 /********************************************************************
 
-				Page Navigation
+Page Navigation
 
 ********************************************************************/
 
 div.modern-page-navigation {
 
-	padding: 0.5em 0;}
+padding: 0.5em 0;}
 
 div.modern-page-navigation a,
 
@@ -223,41 +223,41 @@ span.modern-page-dots
 
 {
 
-	border-left-width: 1px;
+    border-left-width: 1px;
 
-	border-left-style: solid;
+    border-left-style: solid;
 
-	padding-left: 0.75em;
+    padding-left: 0.75em;
 
-	padding-right: 0.5em;
+    padding-right: 0.5em;
 
-	text-decoration: none;
+    text-decoration: none;
 
 }
 
 div.modern-page-navigation a.modern-page-previous {
 
-	border-right-width: 1px;
+    border-right-width: 1px;
 
-	border-right-style: solid;
+    border-right-style: solid;
 
-	border-left: none; }
+border-left: none; }
 
 div.modern-page-navigation a.modern-page-first,
 
 div.modern-page-navigation span.modern-page-first {
 
-	border-left: none;
+    border-left: none;
 
-	padding-left: 0.5em; }
+padding-left: 0.5em; }
 
 span.modern-page-current {
 
-	font-weight: bold; }
+font-weight: bold; }
 
 /********************************************************************
 
-				Page Navigation /
+Page Navigation /
 
 ********************************************************************/
 
@@ -265,147 +265,147 @@ span.modern-page-current {
 
 /********************************************************************
 
-				Standart styles
+Standart styles
 
 ********************************************************************/
 
 ul.photo-items-list, ul.photo-items-list, li.photo-item {
 
-	padding: 0;
+    padding: 0;
 
-	margin: 0;
+    margin: 0;
 
-	list-style-type: none;}
+list-style-type: none;}
 
 div.photo-info-box {}
 
 div.photo-note-box {
 
-	width: 70%;
+    width: 70%;
 
-	border-width: 1px;
+    border-width: 1px;
 
-	border-style: solid;
+    border-style: solid;
 
-	margin: 1.117em 0;
+    margin: 1.117em 0;
 
-	padding: 0.4em 1.117em;}
+padding: 0.4em 1.117em;}
 
 div.photo-note-box ul {
 
-	padding: 0.3em 0.6em;
+    padding: 0.3em 0.6em;
 
-	list-style-type: none;
+    list-style-type: none;
 
-	margin: 0;}
+margin: 0;}
 
 div.photo-note-box ul li {
 
-	margin: 0.3em 0;
+    margin: 0.3em 0;
 
-	padding: 0;}
+padding: 0;}
 
 div.photo-breadcrumb-top{
 
-	margin-bottom: 1.27em;}
+margin-bottom: 1.27em;}
 
 div.empty-clear{
 
-	clear: both;
+    clear: both;
 
-	overflow: hidden;
+    overflow: hidden;
 
-	height: 0;}
+height: 0;}
 
 div.photo-popup-inner form, form.photo-form{
 
-	padding: 0;
+    padding: 0;
 
-	margin: 0;}
+margin: 0;}
 
 table.photo-table, table.photo-table td{
 
-	font-size: 100%;}
+font-size: 100%;}
 
 div#photo_waitwindow{
 
-	width: 170px!important;
+    width: 170px!important;
 
-	padding: 10px!important;
+    padding: 10px!important;
 
-	display: block!important;
+    display: block!important;
 
-	border: 1px solid #EACB6B!important;
+    border: 1px solid #EACB6B!important;
 
-	text-align: center!important;
+    text-align: center!important;
 
-	font-size: 13px!important;
+    font-size: 13px!important;
 
-	background-color: #FCF7D1!important;
+    background-color: #FCF7D1!important;
 
-	background-image: url("/bitrix/themes/.default/images/wait.gif")!important;
+    background-image: url("/bitrix/themes/.default/images/wait.gif")!important;
 
-	background-position: 10px center!important;
+    background-position: 10px center!important;
 
-	background-repeat: no-repeat!important;
+    background-repeat: no-repeat!important;
 
-	position: relative!important;
+    position: relative!important;
 
-	z-index: 10000;
+    z-index: 10000;
 
-	text-align: center;
+    text-align: center;
 
-	position: static!important;
+    position: static!important;
 
-	width: 100%;}
+width: 100%;}
 
 div.photo-header-big div.photo-header-inner,
 
 div.photo-header-middle div.photo-header-inner{
 
-	margin-bottom: 0.78em; }
+margin-bottom: 0.78em; }
 
 div.photo-header-big {
 
-	border-bottom: 1px solid;
+    border-bottom: 1px solid;
 
-	font-weight: bold;
+    font-weight: bold;
 
-	font-size: 110%;
+    font-size: 110%;
 
-	margin-bottom: 0.78em; }
+margin-bottom: 0.78em; }
 
 div.photo-header-component {
 
-	font-weight: bold;
+    font-weight: bold;
 
-	font-size: 110%;
+    font-size: 110%;
 
-	margin-right: 1em;
+    margin-right: 1em;
 
-	margin-bottom: 0.78em;}
+margin-bottom: 0.78em;}
 
 span.photo-header-link {
 
-	font-weight: normal;
+    font-weight: normal;
 
-	font-size: 100%;}
+font-size: 100%;}
 
 div.reviews-navigation-top {
 
-	display: none;}
+display: none;}
 
 div.tags-cloud a {
 
-	text-decoration: none;}
+text-decoration: none;}
 
 div.tags-cloud a:hover{
 
-	text-decoration: underline;}
+text-decoration: underline;}
 
 /********************************************************************
 
-				Standart styles
+Standart styles
 
 ********************************************************************/
 
@@ -415,21 +415,21 @@ div.tags-cloud a:hover{
 
 /********************************************************************
 
-				Album  styles
+Album  styles
 
 ********************************************************************/
 
 div.photo-album-avatar, div.photo-album-thumbs-avatar, div.photo-album-avatar-empty{
 
-	background-position: center center;
+    background-position: center center;
 
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
 
-	cursor: pointer;
+    cursor: pointer;
 
-	cursor: hand;
+    cursor: hand;
 
-	overflow: hidden;}
+overflow: hidden;}
 
 
 
@@ -439,13 +439,13 @@ div.photo-album-avatar-edit div.photo-album-menu{display: block!important;}
 
 div.photo-item-cover-block-outside{
 
-	padding: 0 8px 8px 0; }
+padding: 0 8px 8px 0; }
 
 div.photo-item-cover-block-inside{
 
-	padding: 8px 20px;
+    padding: 8px 20px;
 
-	border: none;}
+border: none;}
 
 div.photo-item-cover-block-container,
 
@@ -453,53 +453,53 @@ div.photo-item-cover-block-outer,
 
 div.photo-item-cover-block-inner {
 
-	border: 1px solid; }
+border: 1px solid; }
 
 div.photo-item-cover-block-container{
 
-	position: relative!important; }
+position: relative!important; }
 
 div.photo-item-cover-block-outer,
 
 div.photo-item-cover-block-inner {
 
-	position:absolute!important; }
+position:absolute!important; }
 
 div.photo-item-cover-block-container{
 
-	left: 6px;
+    left: 6px;
 
-	top: 8px;}
+top: 8px;}
 
 div.photo-item-cover-block-outer {
 
-	left: -4px;
+    left: -4px;
 
-	top: -4px;}
+top: -4px;}
 
 div.photo-item-cover-block-inner {
 
-	left: -4px;
+    left: -4px;
 
-	top: -4px;}
+top: -4px;}
 
 div.photo-item-info-block-outer{
 
-	padding: 4px 2px 2px 2px;}
+padding: 4px 2px 2px 2px;}
 
 div.photo-item-cover {
 
-	cursor: pointer;
+    cursor: pointer;
 
-	cursor: hand;}
+cursor: hand;}
 
 div.photo-album-name a {
 
-	line-height: 1.2em; }
+line-height: 1.2em; }
 
 div.photo-album-date, div.photo-album-photos {
 
-	font-size: 11px;}
+font-size: 11px;}
 
 /************** Album controls on cover ****************************/
 
@@ -571,12 +571,12 @@ ul.photo-album-list-first-photos .album-no-photos{color: #808080;}
 /************** Album Single ***************************************/
 
 div.photo-album-header div {
-	float: left;}
+float: left;}
 div.photo-album-item div.photo-album-name,
 div.photo-album-item div.photo-album-date {
-	line-height:1.5em;}
+line-height:1.5em;}
 div.photo-album-item div.photo-album-name {
-	font-weight: bold;}
+font-weight: bold;}
 div.photo-album-item div.photo-album-date, div.photo-album-item div.photo-album-description {margin-top:0.3em;}
 div.photo-album-item div.photo-album-info{margin-bottom:1em;}
 
@@ -689,7 +689,7 @@ div.photo-edit-field-description textarea {width: 100%;height: 10em;}
 
 div.photo-edit-field {
 
-	padding: 0.7em 0 0.3em 0.3em;}
+padding: 0.7em 0 0.3em 0.3em;}
 
 div.photo-edit-field-title label,
 
@@ -699,39 +699,39 @@ div.photo-edit-field-description label,
 
 div.photo-edit-field-date label{
 
-	display: block;
+    display: block;
 
-	margin-bottom: 0.2em;}
+margin-bottom: 0.2em;}
 
 div.photo-edit-field-image{
 
-	position: relative;
+    position: relative;
 
-	float: left;
+    float: left;
 
-	padding: 0px;
+    padding: 0px;
 
-	margin: 0px 5px 5px 0px !important;
+    margin: 0px 5px 5px 0px !important;
 
-	border: none;}
+border: none;}
 
 div.photo-edit-field-image input {position: absolute;z-index: 1000;top: 2px;left: 2px;}
 
 div.photo-edit-field-image img {
 
-	cursor: pointer;
+    cursor: pointer;
 
-	cursor: hand;}
+cursor: hand;}
 
 /********************************************************************
 
-				Album  styles/
+Album  styles/
 
 ********************************************************************/
 
 /********************************************************************
 
-				Photo styles
+Photo styles
 
 ********************************************************************/
 
@@ -741,83 +741,83 @@ li.photo-control-photo-selectall span, li.photo-control-photo-drop span,
 
 li.photo-control-photo-moderate span {
 
-	padding-right: 1em;
+    padding-right: 1em;
 
-	border-right: 1px solid;}
+border-right: 1px solid;}
 
 li.photo-control-photo-move select {
 
-	width: 12em;
+    width: 12em;
 
-	margin-left: 0.5em;}
+margin-left: 0.5em;}
 
 /************** Controls on detail photo ***************************/
 
 div.photo-controls-photo ul {
 
-	height: auto;}
+height: auto;}
 
 div.photo-controls-photo li {
 
-	float: none;}
+float: none;}
 
 /************** Photographies **************************************/
 
 div.group-by-days {
 
-	clear: both;
+    clear: both;
 
-	padding-bottom: 1em;}
+padding-bottom: 1em;}
 
 table.photo-photo-item {
 
-	float:left;
+    float:left;
 
-	margin-right:1.5em;
+    margin-right:1.5em;
 
-	margin-bottom:1.5em;}
+margin-bottom:1.5em;}
 
 table.photo-photo-item td, table.photo-photo-item th{
 
-	border:none;
+    border:none;
 
-	margin:0;
+    margin:0;
 
-	padding:0;}
+padding:0;}
 
 div.photo-photo-name{
 
-	font-weight: bold;}
+font-weight: bold;}
 
 /* Photo .Default */
 
 table.photo-photo-item-default td.photo-photo-info div.photo-photo-comments {
 
-	line-height: 1em;
+    line-height: 1em;
 
-	height: 1.2em;
+    height: 1.2em;
 
-	overflow: hidden;
+    overflow: hidden;
 
-	font-size: 11px;
+    font-size: 11px;
 
-	padding-left: 3px;}
+padding-left: 3px;}
 
 table.photo-photo-item-default div.photo-photo-item-inner{
 
-	padding: 3px;
+    padding: 3px;
 
-	vertical-align: top;}
+vertical-align: top;}
 
 /* Photo Table */
 
 table.photo-photo-item-table{
 
-	border: 1px solid;}
+border: 1px solid;}
 
 table.photo-photo-item-table th.photo-photo-image {
 
-	padding: 1em 1em 0 1em;}
+padding: 1em 1em 0 1em;}
 
 table.photo-photo-item-table div.photo-photo-name,
 
@@ -829,27 +829,27 @@ table.photo-photo-item-table div.photo-photo-comments,
 
 table.photo-photo-item-table div.photo-photo-shows {
 
-	overflow: hidden;
+    overflow: hidden;
 
-	white-space: nowrap;
+    white-space: nowrap;
 
-	line-height: 1em;
+    line-height: 1em;
 
-	height: 1.2em;}
+height: 1.2em;}
 
 table.photo-photo-item-table tfoot td.photo-photo-info {
 
-	padding: 1em;
+    padding: 1em;
 
-	vertical-align: top;}
+vertical-align: top;}
 
 table.photo-photo-item-table div.photo-photo-item-block-inner {
 
-	border: 1px solid;}
+border: 1px solid;}
 
 table.photo-photo-item-table div.photo-photo-info{
 
-	margin-top: 1em;}
+margin-top: 1em;}
 
 /* Photo Ascetic */
 
@@ -857,107 +857,107 @@ div.photo-photo-item-ascetic{padding: 2px; float: left;margin: 0 4px 4px 0;}
 
 a.photo-photo-item-ascetic-inner{
 
-	overflow: hidden;
+    overflow: hidden;
 
-	display: block;}
+display: block;}
 
 /************** Popup div To Detail to around Slider ***************/
 
 div.photo-photo-item-popup {
 
-	cursor: pointer;
+    cursor: pointer;
 
-	cursor: hand;
+    cursor: hand;
 
-	background-position: left top;
+    background-position: left top;
 
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
 
-	zoom: 1;
+    zoom: 1;
 
-	z-index: 1100;
+    z-index: 1100;
 
-	visibility: visible;
+    visibility: visible;
 
-	display: block;
+    display: block;
 
-	width: 20px;
+    width: 20px;
 
-	height: 20px;}
+height: 20px;}
 
 div.photo-detail-img div.photo-photo-item-popup {
 
-	display: none!important;}
+display: none!important;}
 
 /************** Photo navigation on detail page ********************/
 
 div.photo-detail {
 
-	margin-bottom: 1.5em;}
+margin-bottom: 1.5em;}
 
 div.photo-photo-info div.vote-no-results {
 
-	display: block;}
+display: block;}
 
 div.photo-detail-image {
 
-	float: left;}
+float: left;}
 
 div.photo-photo-info div.photo-photo-date {
 
-	padding-top: 0.38em;}
+padding-top: 0.38em;}
 
 div.photo-photo-info div.photo-photo-description {
 
-	margin-top: 1em;
+    margin-top: 1em;
 
-	padding-top: 0.5em;}
+padding-top: 0.5em;}
 
 div.photo-photo-tags {
 
-	padding-top: 0.5em;}
+padding-top: 0.5em;}
 
 div.photo-photo-rating {
 
-	padding-top: 2em;}
+padding-top: 2em;}
 
 div.photo-controls-photo {
 
-	margin-top: 2em;}
+margin-top: 2em;}
 
 div.photo-detail-image{
 
-	padding-right: 1em;}
+padding-right: 1em;}
 
 div.photo-photo-date, div.photo-photo-tags, div.photo-photo-tags a {
 
-	font-size: 11px;}
+font-size: 11px;}
 
 div.photo-photo-info #photo_vote td.vote-result{
 
-	width: 100px;
+    width: 100px;
 
-	overflow: hidden;}
+overflow: hidden;}
 
 /********************************************************************
 
-				/ Photo styles
+/ Photo styles
 
 ********************************************************************/
 
 /********************************************************************
 
-				Gallery
+Gallery
 
 ********************************************************************/
 
 div.photo-gallery-name {
 
-	white-space: nowrap;}
+white-space: nowrap;}
 
 div.photo-gallery-avatar{
 
-	display: none;}
+display: none;}
 
 /************** Ascetic Gallery ************************************/
 
@@ -973,67 +973,67 @@ ul.photo-galleries-list-ascetic  div.photo-gallery-description {line-height: 1.5
 
 div.photo-gallery-item div.photo-control {
 
-	float: left;
+    float: left;
 
-	line-height: 1.7em;
+    line-height: 1.7em;
 
-	height: 1.7em;
+    height: 1.7em;
 
-	padding-left: 0.7em;}
+padding-left: 0.7em;}
 
 ul.photo-galleries-list li.photo-gallery-item {
 
-	padding-bottom: 1em;}
+padding-bottom: 1em;}
 
 div.photo-controls-gallery-edit {
 
-	margin-top: 0.5em;}
+margin-top: 0.5em;}
 
 /************** Galleries ******************************************/
 
 li.photo-gallery-item td.photo-item-cover {
 
-	display: none;}
+display: none;}
 
 div.photo-gallery-empty a{
 
-	text-decoration: none;}
+text-decoration: none;}
 
 /************** Gallery Edit ***************************************/
 
 div.photo-edit-fields-gallery i {
 
-	display: block;
+    display: block;
 
-	font-size: 90%;
+    font-size: 90%;
 
-	width: 80%;
+    width: 80%;
 
-	color: gray;}
+color: gray;}
 
 div.photo-edit-fields-gallery div.photo-edit-field-avatar {
 
-	/*display: none;*/
+    /*display: none;*/
 
 }
 
 div.photo-edit-fields-gallery div.photo-edit-field-code input {
 
-	width: 50%;}
+width: 50%;}
 
 div.photo-edit-fields-gallery div.photo-edit-field-title input{
 
-	width: 80%;}
+width: 80%;}
 
 div.photo-edit-fields-gallery div.photo-edit-field-description textarea {
 
-	width: 80%;
+    width: 80%;
 
-	height: 10em;}
+height: 10em;}
 
 div.photo-edit-fields-gallery div.photo-edit-field {
 
-	padding: 0.7em 0 0.5em 0.3em;}
+padding: 0.7em 0 0.5em 0.3em;}
 
 div.photo-edit-fields-gallery div.photo-edit-field-code label,
 
@@ -1043,13 +1043,13 @@ div.photo-edit-fields-gallery div.photo-edit-field-avatar label,
 
 div.photo-edit-fields-gallery div.photo-edit-field-description label{
 
-	display: block;
+    display: block;
 
-	margin-bottom: 0.2em;}
+margin-bottom: 0.2em;}
 
 /********************************************************************
 
-				/ Gallery
+/ Gallery
 
 ********************************************************************/
 
@@ -1057,7 +1057,7 @@ div.photo-edit-fields-gallery div.photo-edit-field-description label{
 
 /********************************************************************
 
-				Pages
+Pages
 
 ********************************************************************/
 
@@ -1083,7 +1083,7 @@ div.photo-page-section div.photo-info-box-photo-list {margin-bottom: 2.8em;}
 
 /********************************************************************
 
-				/Pages
+/Pages
 
 ********************************************************************/
 
