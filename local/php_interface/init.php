@@ -417,11 +417,17 @@
         }
     }    
 
-    //Handler for composition property
+    //Handler for composition custom property
     AddEventHandler("iblock", "OnIBlockPropertyBuildList", array("ProductDataComposition", "GetUserTypeDescription"));
 
-    //Class for composition property
+    //Class for composition custom property
     class ProductDataComposition {
+        
+        /***************
+        * 
+        * The method returns an array describing the behavior of custom property
+        * 
+        *************/
         function GetUserTypeDescription() {
             return array(
                 "PROPERTY_TYPE" => "E",
@@ -434,7 +440,16 @@
             );
         }
 
-        //Output multy property
+        /***************
+        * 
+        * Output form edit multiple property
+        * 
+        * @param array() $arProperty
+        * @param array() $value
+        * @param array() $strHTMLControlName
+        * @return string $result 
+        * 
+        *************/
         function GetPropertyFieldHtmlMulty($arProperty, $value, $strHTMLControlName) {
             $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);    
             if ($linkBlockId) {  
@@ -492,7 +507,15 @@
             }
         }
 
-        //Change data
+        /***************
+        * 
+        * The method for saving, updating, and deleting of a custom property values.
+        * 
+        * @param array() $arProperty
+        * @param array() $value
+        * @return string $arResult 
+        * 
+        *************/
         function ConvertToDB($arProperty, $value) {
             $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);
             if ($linkBlockId) {
@@ -500,8 +523,8 @@
                 if (is_array($value["VALUE"]["ITEM"]) && !empty($value["VALUE"]["ITEM"]["VALUE"]) && empty($value["VALUE"]["ITEM"]["ID"])) {
                     $obElement = new CIBlockElement;
                     $propComposition = array();
-                    $propComposition[526] = $value["VALUE"]["ITEM"]["WEIGHT"];
-                    $propComposition[527] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
+                    $propComposition["WEIGHT_PACK"] = $value["VALUE"]["ITEM"]["WEIGHT"];
+                    $propComposition["DESCRIPTION_COMPLEX"] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
                     $arResult["VALUE"] = $obElement->Add(array(
                         "IBLOCK_ID" => $linkBlockId,
                         "NAME" => $value["VALUE"]["ITEM"]["VALUE"],
@@ -512,8 +535,8 @@
                 elseif (is_array($value["VALUE"]["ITEM"]) && !empty($value["VALUE"]["ITEM"]["VALUE"]) && !empty($value["VALUE"]["ITEM"]["ID"])) {
                     $obElement = new CIBlockElement;
                     $propComposition = array();
-                    $propComposition[526] = $value["VALUE"]["ITEM"]["WEIGHT"];
-                    $propComposition[527] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
+                    $propComposition["WEIGHT_PACK"] = $value["VALUE"]["ITEM"]["WEIGHT"];
+                    $propComposition["DESCRIPTION_COMPLEX"] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
                     $result = $obElement->Update(
                         $value["VALUE"]["ITEM"]["ID"],
                         array(
