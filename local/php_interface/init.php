@@ -422,7 +422,7 @@
 
     //Class for composition custom property
     class ProductDataComposition {
-        
+
         /***************
         * 
         * The method returns an array describing the behavior of custom property
@@ -451,34 +451,28 @@
         * 
         *************/
         function GetPropertyFieldHtmlMulty($arProperty, $value, $strHTMLControlName) {
-            $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);    
-            if ($linkBlockId) {  
-                foreach ($value as $key => $prop) {
-                    $elementId = intval($prop["VALUE"]);
-                    if ($elementId) {
-                        $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $arProperty["LINK_IBLOCK_ID"],
-                            "ID" => $prop["VALUE"]), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
-                        $arElement = $rsElement->Fetch();
-                        if (is_array($arElement)) {
-                            $arElements[$key] = $arElement;
-                        }
-                    }
-                }
-                foreach ($arElements as $keyValue => $arValue) {
+            $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);   
+            $productId = $_REQUEST["ID"]; 
+
+            if ($linkBlockId) { 
+                $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $arProperty["LINK_IBLOCK_ID"],
+                    "PROPERTY_ID_PRODUCT" => $productId), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
+                    
+                while ($arElement = $rsElement->Fetch()) {
                     $result .= '<tr>
                     <td>
                     </br>
                     Название: 
-                    <input type="text" size="'.$arProperty["COL_COUNT"].'" value="'.$arValue["NAME"].'" name="'.$strHTMLControlName["VALUE"].'['.$keyValue.'][VALUE][ITEM][VALUE]"/>
-                    <input type="hidden" value="'.$arValue["ID"].'" name="'.$strHTMLControlName["VALUE"].'['.$keyValue.'][VALUE][ITEM][ID]"/>
+                    <input type="text" size="'.$arProperty["COL_COUNT"].'" value="'.$arElement["NAME"].'" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][VALUE]"/>
+                    <input type="hidden" value="'.$arElement["ID"].'" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][ID]"/>
                     Вес на порцию: 
-                    <input type="text" size="5" value="'.$arValue["PROPERTY_WEIGHT_PACK_VALUE"].'" name="'.$strHTMLControlName["VALUE"].'['.$keyValue.'][VALUE][ITEM][WEIGHT]"/></br>
+                    <input type="text" size="5" value="'.$arElement["PROPERTY_WEIGHT_PACK_VALUE"].'" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][WEIGHT]"/></br>
                     Описание комплекса: 
                     </br>
-                    <textarea style="width: 100%; height: 100px;" class="typearea" name="'.$strHTMLControlName["VALUE"].'['.$keyValue.'][VALUE][ITEM][DESCRIPTION]">'.$arValue["PROPERTY_DESCRIPTION_COMPLEX_VALUE"].'</textarea>
+                    <textarea style="width: 100%; height: 100px;" class="typearea" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][DESCRIPTION]">'.$arElement["PROPERTY_DESCRIPTION_COMPLEX_VALUE"].'</textarea>
                     </br>
                     </td>
-                    </tr>';                           
+                    </tr>';
                 }
 
                 if (!empty($arProperty["MULTIPLE_CNT"])) {
@@ -525,6 +519,7 @@
                     $propComposition = array();
                     $propComposition["WEIGHT_PACK"] = $value["VALUE"]["ITEM"]["WEIGHT"];
                     $propComposition["DESCRIPTION_COMPLEX"] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
+                    $propComposition["ID_PRODUCT"] = $arProperty["ELEMENT_ID"];
                     $arResult["VALUE"] = $obElement->Add(array(
                         "IBLOCK_ID" => $linkBlockId,
                         "NAME" => $value["VALUE"]["ITEM"]["VALUE"],
@@ -537,6 +532,7 @@
                     $propComposition = array();
                     $propComposition["WEIGHT_PACK"] = $value["VALUE"]["ITEM"]["WEIGHT"];
                     $propComposition["DESCRIPTION_COMPLEX"] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
+                    $propComposition["ID_PRODUCT"] = $arProperty["ELEMENT_ID"];
                     $result = $obElement->Update(
                         $value["VALUE"]["ITEM"]["ID"],
                         array(
