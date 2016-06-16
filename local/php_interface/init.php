@@ -529,7 +529,7 @@
                 //Update property data
                 elseif (is_array($value["VALUE"]["ITEM"]) && !empty($value["VALUE"]["ITEM"]["VALUE"]) && !empty($value["VALUE"]["ITEM"]["ID"])) {
                     $obElement = new CIBlockElement;
-                    $propComposition = array();
+                    $propComposition = array();     
                     $propComposition["WEIGHT_PACK"] = $value["VALUE"]["ITEM"]["WEIGHT"];
                     $propComposition["DESCRIPTION_COMPLEX"] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
                     $propComposition["ID_PRODUCT"] = $arProperty["ELEMENT_ID"];
