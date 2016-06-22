@@ -475,20 +475,17 @@
     $arResult['SKU_PROPS'] = $arSKUPropList;
     $arResult['DEFAULT_PICTURE'] = $arEmptyPreview;
 
-    //Separation of the composition into groups
-    foreach ($arResult["PROPERTIES"]["PRODUCT_COMPOSITION"]["VALUE"] as $keyIngridient => $propIngridient) {
-        $elementId = intval($propIngridient);
-        if($elementId) {
-            $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $arResult["PROPERTIES"]["PRODUCT_COMPOSITION"]["LINK_IBLOCK_ID"],
-                "ID" => $elementId), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
-            $arElement = $rsElement->Fetch();
-            if(is_array($arElement)) {
-                if (empty($arElement["PROPERTY_DESCRIPTION_COMPLEX_VALUE"])) {
-                    $arResult["PRODUCT_COMPOSITION"]["COMPONENT"][]=$arElement;
-                } else {
-                    $arResult["PRODUCT_COMPOSITION"]["COMPLEX"][]=$arElement;
-                }
+    //Get list of composition property 
+    $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_CODE" => COMPOSITION_IBLOCK_CODE,
+        "PROPERTY_ID_PRODUCT" => $arResult["ID"]), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
+    while ($arElement = $rsElement->Fetch()) { 
+        //Separation of the composition into groups
+        if(is_array($arElement)) {
+            if (empty($arElement["PROPERTY_DESCRIPTION_COMPLEX_VALUE"])) {
+                $arResult["PRODUCT_COMPOSITION"]["COMPONENT"][]=$arElement;
+            } else {
+                $arResult["PRODUCT_COMPOSITION"]["COMPLEX"][]=$arElement;
             }
-        }
+        } 
     }
 ?>
