@@ -370,23 +370,23 @@
             <div class="special">
                 <noindex>
                     <?$APPLICATION->IncludeComponent(
-                        "it:catalog.sales", 
-                        "template1", 
-                        array(
-                            "IBLOCK_TYPE" => "catalog",
-                            "IBLOCK_ID" => "23",
-                            "DISCOUNT_ID" => "645",
-                            "COUNT_PRODUCT" => "3",
-                            "IBLOCKS_PROP" => "203",
-                            "DETAIL_URL" => "",
-                            "CACHE_TYPE" => "N",
-                            "CACHE_TIME" => "30000",
-                            "CACHE_GROUPS" => "Y",
-                            "PARENT_SECTION" => "",
-                            "COMPONENT_TEMPLATE" => "template1"
-                        ),
-                        false
-                    );?></noindex>
+	"it:catalog.sales", 
+	"template1", 
+	array(
+		"IBLOCK_TYPE" => "catalog",
+		"IBLOCK_ID" => "23",
+		"DISCOUNT_ID" => "728",
+		"COUNT_PRODUCT" => "3",
+		"IBLOCKS_PROP" => "203",
+		"DETAIL_URL" => "",
+		"CACHE_TYPE" => "N",
+		"CACHE_TIME" => "30000",
+		"CACHE_GROUPS" => "Y",
+		"PARENT_SECTION" => "",
+		"COMPONENT_TEMPLATE" => "template1"
+	),
+	false
+);?></noindex>
             </div>
         </div>
 

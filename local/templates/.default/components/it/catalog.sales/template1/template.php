@@ -50,7 +50,7 @@ $this->setFrameMode(true);
     <div class="price"><? echo SaleFormatCurrency($arElement['PRICE']['PRICE'], $arElement['PRICE']['CURRENCY']); ?></div>
 
         <div class="special-discount-price">
-            <span>2510<!--<?= $price ?>--></span>
+            <span>2400<!--<?= $price ?>--></span>
         </div>
 
 	<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>" class="name"><?=$arElement["NAME"]?></a>

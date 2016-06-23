@@ -4,6 +4,10 @@
 }
 
 @media (max-width: 480px) {
+  .discount_link {
+    display: block;
+  }
+
   .catalog-view {
     display: none;
   }
@@ -689,8 +693,14 @@
 
   div#tab2 {
     height: 100% !important;
+      position: static;
   }
 
+  .left-menu {
+    display: block;
+    float: none;
+  }
+    
   .tabs-container {
     height: 100% !important;
   }
@@ -1624,7 +1634,7 @@
 
   .btn-up {
     display: none;
-    background: #fff url(../../../images/sng.up/up.png) no-repeat center center;
+    background: #fff url(../../../../bitrix/images/sng.up/up.png) no-repeat center center;
     background-size: 100%;
     border-radius: 51px;
     width: 45px;
@@ -1706,8 +1716,7 @@
     border: none;
     padding: 10px 25px;
   }
-  
-  // С этим товаром покупают
+
   
 .bx_item_list_recommended .bx_catalog_item_container {
     width: 100%!important;

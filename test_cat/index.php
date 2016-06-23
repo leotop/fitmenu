@@ -23,7 +23,7 @@ $APPLICATION->IncludeComponent(
 	array(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "23",
-		"HIDE_NOT_AVAILABLE" => "Y",
+		"HIDE_NOT_AVAILABLE" => "L",
 		"SECTION_ID_VARIABLE" => "SECTION_CODE",
 		"SEF_MODE" => "Y",
 		"SEF_FOLDER" => "/catalog/",
@@ -173,7 +173,7 @@ $APPLICATION->IncludeComponent(
 		"USE_ALSO_BUY" => "Y",
 		"ALSO_BUY_ELEMENT_COUNT" => "2",
 		"ALSO_BUY_MIN_BUYES" => "0",
-		"USE_STORE" => "Y",
+		"USE_STORE" => "N",
 		"USE_STORE_PHONE" => "Y",
 		"USE_STORE_SCHEDULE" => "Y",
 		"USE_MIN_AMOUNT" => "N",
@@ -244,8 +244,7 @@ $APPLICATION->IncludeComponent(
 			2 => "",
 		),
 		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
-		"STORES" => array(
-		),
+		"STORES" => "",
 		"USER_FIELDS" => array(
 			0 => "",
 			1 => "",

@@ -552,6 +552,70 @@
             }
             return $arResult;
         }
-    } 
+    }
 
-?>
+// отправка кастомного письма об оформлении заказа
+// обработка события OnSaleComponentOrderOneStepComplete вызывается в bitrix:sale.order.ajax
+AddEventHandler('sale', 'OnSaleComponentOrderOneStepComplete', Array('customEvents', 'OnOrderAddHandler'));
+
+/*
+class customEvents
+{
+    function OnOrderAddHandler($ID, &$arFields)
+    {
+        GLOBAL $USER;
+        // свойства заказа
+        $arProps = array();
+        $res = CSaleOrderPropsValue::GetOrderProps($arFields['ID']);
+        while ($prop = $res->Fetch())
+            $arProps[$prop['CODE']] = $prop;
+        // состав заказа
+        $strBasket = '';
+        $res = CSaleBasket::GetList(
+          array('NAME' => 'ASC'),
+          array('ORDER_ID' => $arFields['ID']),
+          false,
+          false,
+          array('ID', 'NAME', 'QUANTITY', 'PRICE', 'CURRENCY')
+        );
+        while ($el = $res->GetNext())
+            $strBasket .= ' * '.$el['NAME'].' ('.strval((int)$el['QUANTITY']).') - '.SaleFormatCurrency($el['PRICE'], $el['CURRENCY'])."\n";
+        // платежная система
+        if ($arFields['PAY_SYSTEM_ID'])
+            $arPaySystem = CSalePaySystem::GetByID($arFields['PAY_SYSTEM_ID']);
+        // служба доставки
+        if ($arFields['DELIVERY_ID'])
+            $arDelivery = CSaleDelivery::GetByID($arFields['DELIVERY_ID']);
+        // адрес
+        $arAddress = array();
+        if (strlen($arProps['INDEX']['VALUE']))
+            $arAddress[] = $arProps['INDEX']['VALUE'];
+        if ($arProps['COUNTRY']['VALUE'])
+        {
+            $arLocation = CSaleLocation::GetByID($arProps['COUNTRY']['VALUE']);
+            if (strlen($arLocation['COUNTRY_NAME']))
+                $arAddress[] = $arLocation['COUNTRY_NAME'];
+            if (strlen($arLocation['CITY_NAME']))
+                $arAddress[] = $arLocation['CITY_NAME'];
+        }
+        if (strlen($arProps['LOCATION']['VALUE']))
+            $arAddress[] = $arProps['LOCATION']['VALUE'];
+        // отправка сообщения
+        $arEventFields = array(
+          'ORDER_ID' => $arFields['ID'],
+          'ORDER_DATE' => $arFields['DATE_INSERT_FORMAT'],
+          'USER_NAME' => $arProps['CONTACT_PERSON']['VALUE'],
+          'USER_PHONE' => $arProps['PHONE']['VALUE'],
+          'PRICE' => SaleFormatCurrency($arFields['PRICE'], $arFields['CURRENCY']),
+          'ORDER_LIST' => $strBasket,
+          'PAY_SYSTEM' => $arPaySystem['NAME'],
+          'DELIVERY' => $arDelivery['NAME'],
+          'ADDRESS' => implode(', ', $arAddress),
+          'COMPANY_NAME' => (isset($arProps['F_COMPANY_NAME']) ? 'Организация: '.$arProps['F_COMPANY_NAME']['VALUE']."\n" : ''),
+          'BCC' => COption::GetOptionString('sale', 'order_email', 'order@'.$SERVER_NAME),
+          'EMAIL' => (strlen($arProps['EMAIL']['VALUE']) ? $arProps['EMAIL']['VALUE'] : $USER->GetEmail()),
+          'SALE_EMAIL' => COption::GetOptionString('sale', 'order_email', 'order@'.$SERVER_NAME),
+        );
+        CEvent::Send('CUSTOM_SALE_NEW_ORDER', SITE_ID, $arEventFields);
+    }
+}*/
