@@ -14,11 +14,15 @@
 
     AddEventHandler("sale", "OnSaleComponentOrderOneStepProcess", Array("MyOrderProcessor", "OnSaleComponentOrderOneStepProcess"));
 
-    AddEventHandler("sale", "OnOrderUpdate", "BUY_NUM_ADD");
+    AddEventHandler("sale", "OnOrderUpdate", "BUY_NUM_ADD");  
 
     CModule::IncludeModule("main");
     CModule::IncludeModule("sale");
     CModule::IncludeModule("catalog");
+
+    //Define constants
+    define("COMPOSITION_IBLOCK_CODE", 'composition_data');
+
 
     function arshow($array, $adminCheck = false){
         global $USER;
@@ -456,7 +460,7 @@
             if ($linkBlockId && $productId) { 
                 $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $linkBlockId,
                     "PROPERTY_ID_PRODUCT" => $productId), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
-                    
+
                 while ($arElement = $rsElement->Fetch()) {
                     $result .= '<tr>
                     <td>
