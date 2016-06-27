@@ -458,7 +458,7 @@
             $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);   
             $productId = intval($_REQUEST["ID"]); 
             if ($linkBlockId && $productId) { 
-                $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $linkBlockId,
+                $rsElement = CIBlockElement::GetList(array("ID" => "ASC"), array("IBLOCK_ID" => $linkBlockId,
                     "PROPERTY_ID_PRODUCT" => $productId), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
 
                 while ($arElement = $rsElement->Fetch()) {

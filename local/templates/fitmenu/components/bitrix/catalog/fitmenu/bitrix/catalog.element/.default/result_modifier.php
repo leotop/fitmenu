@@ -476,15 +476,15 @@
     $arResult['DEFAULT_PICTURE'] = $arEmptyPreview;
 
     //Get list of composition property 
-    $rsElement = CIBlockElement::GetList(array(), array("IBLOCK_CODE" => COMPOSITION_IBLOCK_CODE,
-        "PROPERTY_ID_PRODUCT" => $arResult["ID"]), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
+    $rsElement = CIBlockElement::GetList(array("ID" => "ASC"), array("IBLOCK_CODE" => COMPOSITION_IBLOCK_CODE,
+        "PROPERTY_ID_PRODUCT" => $arResult["ID"]), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX", "PROPERTY_ID_PRODUCT"));
     while ($arElement = $rsElement->Fetch()) { 
         //Separation of the composition into groups
         if(is_array($arElement)) {
             if (empty($arElement["PROPERTY_DESCRIPTION_COMPLEX_VALUE"])) {
-                $arResult["PRODUCT_COMPOSITION"]["COMPONENT"][]=$arElement;
+                $arResult["PRODUCT_COMPOSITION"]["COMPONENT"][] = $arElement;
             } else {
-                $arResult["PRODUCT_COMPOSITION"]["COMPLEX"][]=$arElement;
+                $arResult["PRODUCT_COMPOSITION"]["COMPLEX"][] = $arElement;
             }
         } 
     }
