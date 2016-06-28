@@ -27,13 +27,10 @@
 ?>
 
 
-
-	<div class="head-wrapper">
-		<h1 class="head"><?=$arResult['NAME']?></h1></div>
+    <div class="head-wrapper"><h1 class="head"><?=$arResult['NAME']?></h1></div>
 
 
-
-	<!--<div class="sort_catalog">
+<!--<div class="sort_catalog">
 
 <b>Сортировать:</b>
 
@@ -53,28 +50,25 @@
 
 
 
-	<div class="catalog-section">
+<div class="catalog-section">
 
-		<?if($arParams["DISPLAY_TOP_PAGER"]):?>
+    <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 
-			<p>
-				<?=$arResult["NAV_STRING"]?>
-			</p>
+        <p><?=$arResult["NAV_STRING"]?></p>
 
-			<?endif?>
+        <?endif?>
 
 
 
-				<div class="catalog-view clearfix">
+    <div class="catalog-view clearfix">
 
-					<div class="sorting_block">
-						<?
+        <div class="sorting_block"><?
 
                 // arshow($arParams);
 
             ?>
 
-							<?$APPLICATION->IncludeFile(SITE_TEMPLATE_PATH.'/includes/catalog/choose_nmg.php',array("arChoose"=>array(
+            <?$APPLICATION->IncludeFile(SITE_TEMPLATE_PATH.'/includes/catalog/choose_nmg.php',array("arChoose"=>array(
 
                     "1"=>array("NAME"=>"по имени", "CODE"=> "NAME", "sort"=>"ASC"),
 
@@ -90,80 +84,71 @@
 
                     "6"=>array("NAME"=>"по новинкам", "CODE" => "propertysort_210", "sort"=>"DESC"),
 
-                )));?>
-								<?
+                )));?><?
 
             ?>
 
-									<div class="clear"></div>
+            <div class="clear"></div>
 
-					</div>
+        </div>
 
-					<div class="btn-group">
+        <div class="btn-group">
 
-						<button class="catalog-view__triggers is_active" id="catalog-list" title="Список"></button>
+            <button class="catalog-view__triggers is_active" id="catalog-list" title="Список"></button>
 
-						<button class="catalog-view__triggers" id="catalog-grid" title="Сетка"></button>
+            <button class="catalog-view__triggers" id="catalog-grid" title="Сетка"></button>
 
-					</div>
+        </div>
 
-				</div>
+    </div>
 
 
 
-				<table class="data-table category" cellspacing="0" cellpadding="0" width="100%">
+    <table class="data-table category" cellspacing="0" cellpadding="0"  width="100%">
 
-					<thead class="hidden-480">
+        <thead class="hidden-480">
 
-						<tr>
+            <tr>
 
-							<td>Бренд</td>
+                <td>Бренд</td>
 
-							<td>
-								<?=GetMessage("CATALOG_TITLE")?>
-							</td>
+                <td><?=GetMessage("CATALOG_TITLE")?></td>
 
-							<?if(count($arResult["ITEMS"]) > 0):
+                <?if(count($arResult["ITEMS"]) > 0):
 
                     foreach($arResult["ITEMS"][0]["DISPLAY_PROPERTIES"] as $arProperty):?>
 
-								<?
+                    <?
 
                         if ($arProperty['CODE']== "ANONS") { continue;}
 
                     ?>
 
-									<td class="td <? echo ($arProperty['CODE'] == 'CML2_MANUFACTURER' ? " hidden " : " ")  ?>"<? echo ($arProperty[ 'CODE']=='SUPER_FOOD' ? "style='display:none'" : "") ?> >
-										<?=$arProperty["NAME"]?>
-									</td>
+                    <td class="td <? echo ($arProperty['CODE'] == 'CML2_MANUFACTURER' ? "hidden" : " ")  ?>"<? echo ($arProperty['CODE'] == 'SUPER_FOOD' ? "style='display:none'" : "") ?> > <?=$arProperty["NAME"]?></td>
 
-									<?endforeach;
+                    <?endforeach;
 
                     endif;?>
 
-										<?foreach($arResult["PRICES"] as $code=>$arPrice):?>
+                <?foreach($arResult["PRICES"] as $code=>$arPrice):?>
 
-											<td>Цена
-												<? //=$arPrice["TITLE"]?>
-											</td>
+                    <td>Цена<? //=$arPrice["TITLE"]?></td>
 
-											<?endforeach?>
+                    <?endforeach?>
 
-												<?if(count($arResult["PRICES"]) > 0):?>
+                <?if(count($arResult["PRICES"]) > 0):?>
 
-													<td class="w_150">
-														<? echo GetMessage("CATALOG_TD_ORDER")?>
-													</td>
+                    <td class="w_150"><? echo GetMessage("CATALOG_TD_ORDER")?></td>
 
-													<?endif?>
+                    <?endif?>
 
-						</tr>
+            </tr>
 
-					</thead>
+        </thead>
 
-					<?foreach($arResult["ITEMS"] as $arElement){?>
+        <?foreach($arResult["ITEMS"] as $arElement){?>
 
-						<?
+            <?
 
                 $this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 
@@ -171,40 +156,37 @@
 
             ?>
 
-							<? if(! empty($arElement['BREND'])): ?>
+            <? if(! empty($arElement['BREND'])): ?>
 
-								<tr class="tr brend">
+                <tr class="tr brend">
 
-									<td colspan="6">
-										<? echo $arElement['BREND']['VIEW'] ?>
-									</td>
+                    <td colspan="6"><? echo $arElement['BREND']['VIEW'] ?></td>
 
-								</tr>
+                </tr>
 
-								<? endif ?>
+                <? endif ?>
 
 
 
-									<? echo "<!--" . $arOffer['CATALOG_QUANTITY'] . "-->" ?>
+            <? echo "<!--" . $arOffer['CATALOG_QUANTITY'] . "-->" ?>
 
 
 
-										<tr class="category-item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+            <tr class="category-item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
 
 
 
-											<td class="category-item__img-box">
-												<? $preview = $arElement['DETAIL_PICTURE'];?>
+                <td class="category-item__img-box"><? $preview = $arElement['DETAIL_PICTURE'];?>
 
 
 
-													<? echo label_product($arElement['PROPERTIES']) ?>
+                    <? echo label_product($arElement['PROPERTIES']) ?>
 
 
 
-														<div class="shide">
+                    <div class="shide">
 
-															<?
+                        <?
 
                             $txt =  '<a href="'.$arElement["DETAIL_PAGE_URL"].'" title="'.$arElement["NAME"].'" class="preview">';
 
@@ -225,15 +207,15 @@
 
                         ?>
 
-														</div>
+                    </div>
 
-											</td>
+                </td>
 
-											<td class="category-item__descr">
+                <td class="category-item__descr">
 
-												<div class="shide">
+                    <div class="shide">
 
-													<?
+                        <?
 
                             /*echo '<!--', base64_encode(
                             '<a href="'.$arElement["DETAIL_PAGE_URL"].'" class="name">'.$arElement["NAME"].'</a>'
@@ -242,55 +224,52 @@
 
                         ?>
 
-												</div>
+                    </div>
 
-												<?if(count($arElement["SECTION"]["PATH"])>0):?>
+                    <?if(count($arElement["SECTION"]["PATH"])>0):?>
 
-													<br />
+                        <br />
 
-													<?foreach($arElement["SECTION"]["PATH"] as $arPath):?>
+                        <?foreach($arElement["SECTION"]["PATH"] as $arPath):?>
 
-														/
-														<a href="<?=$arPath[" SECTION_PAGE_URL "]?>">
-															<?=$arPath["NAME"]?>
-														</a>
+                            / <a href="<?=$arPath["SECTION_PAGE_URL"]?>"><?=$arPath["NAME"]?></a>
 
-														<?endforeach?>
+                            <?endforeach?>
 
-															<?endif?>
+                        <?endif?>
 
-																<div class="desc">
+                    <div class="desc">
 
-																	<div class="shide">
+                        <div class="shide">
 
-																		<?
+                            <?
 
-                            echo  $arElement['PROPERTIES']["ANONS"]["VALUE"];
+                                //     echo '<!--', base64_encode( $arElement['PREVIEW_TEXT'] ), '-->';
+
+                                //  echo  '<!--', base64_encode($arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE']), '-->';
+                            echo  $arElement['PREVIEW_TEXT']; //$arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE'];   //             arshow($arElement);
 
                             ?>
 
-																	</div>
+                        </div>
 
-																</div>
+                    </div>
 
-											</td>
+                </td>
 
-											<?foreach($arElement["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+                <?foreach($arElement["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 
-												<?
+                    <?
 
-                        if ($arProperty['CODE']== "ANONS") { continue;}
-//                        if ($arProperty['CODE']== "PACK") { continue;}
-                        if ($arProperty['CODE']== "SUPER_FOOD") { continue;}
-                        if ($arProperty['CODE']== "CML2_MANUFACTURER") { continue;}
+                        // if ($arProperty['CODE']== "ANONS") { continue;}
 
                     ?>
 
-													<td class="td hidden-480">
+                    <td class="td hidden-480 <? echo ($arProperty['CODE'] == 'PACK' ? "category-item__weight" : "") ?>" <? echo ($arProperty['CODE'] == 'SUPER_FOOD' ? "style='display:none'" : "") ?><? echo ($arProperty['CODE'] == 'CML2_MANUFACTURER' ? "style='display:none'" : "")  ?>>
 
 
 
-														<?if(is_array($arProperty["DISPLAY_VALUE"]))
+                        <?if(is_array($arProperty["DISPLAY_VALUE"]))
 
                                 echo implode(" / ", $arProperty["DISPLAY_VALUE"]);
 
@@ -304,113 +283,107 @@
                                 //echo '<span class="shide"><!--'.base64_encode($arProperty["DISPLAY_VALUE"]).'--></span>';
                                 ?>
 
-													</td>
+                    </td>
 
-													<?endforeach?>
+                    <?endforeach?>
 
-														<?foreach($arResult["PRICES"] as $code=>$arPrice):?>
+                <?foreach($arResult["PRICES"] as $code=>$arPrice):?>
 
-															<td class="category__price">
-
-
-
-																<?if($arPrice = $arElement["PRICES"][$code]):?>
-
-																	<?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
-
-																		<p class="old">
-																			<?=$arPrice["VALUE"]?> Р<span>Выгода: <? echo $arPrice["VALUE"] - $arPrice["DISCOUNT_VALUE"] ?> Р</span></p>
-
-																		<p class="product-price shk-price">
-																			<?echo '<span class="shide">'.round($arPrice["DISCOUNT_VALUE"]).'</span>'; ?><span class="rub"> Р</span></p>
-
-																		<?else:?>
-
-																			<p class="product-price shk-price">
-																				<?echo '<span class="shide">'.$arPrice["VALUE"].'</span>';?><span class="rub"> Р</span></p>
-
-																			<?endif?>
-
-																				<?else:?>
+                    <td class="category__price">
 
 
 
-																					<?endif;?>
+                        <?if($arPrice = $arElement["PRICES"][$code]):?>
 
-															</td>
+                            <?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
 
-															<?endforeach;?>
+                                <p class="old"><?=$arPrice["VALUE"]?> Р<span>Выгода: <? echo $arPrice["VALUE"] - $arPrice["DISCOUNT_VALUE"] ?> Р</span></p>
 
-																<td class="category__usp">
+                                <p class="product-price shk-price" ><?echo '<span class="shide">'.round($arPrice["DISCOUNT_VALUE"]).'</span>'; ?><span  class="rub"> Р</span></p>
 
-																	<ul class="category__usp-list">
+                                <?else:?>
 
-																		<li class="category__usp-delivery">
+                                <p class="product-price shk-price" ><?echo '<span class="shide">'.$arPrice["VALUE"].'</span>';?><span class="rub"> Р</span></p>
 
-																			<div class="category__usp-image"></div>
+                                <?endif?>
 
-																			Бесплатная доставка
+                            <?else:?>
 
-																		</li>
+                             
 
-																		<li class="category__usp-pickup">
+                            <?endif;?>
 
-																			<div class="category__usp-image"></div>
+                    </td>
 
-																			Самовывоз
+                    <?endforeach;?>
 
-																		</li>
+                <td class="category__usp">
 
-																		<li class="category__usp-pay">
+                    <ul class="category__usp-list">
 
-																			<div class="category__usp-image"></div>
+                        <li class="category__usp-delivery">
 
-																			Удобная оплата
+                            <div class="category__usp-image"></div>
 
-																		</li>
+                            Бесплатная доставка
 
-																	</ul>
+                        </li>
 
-																</td>
+                        <li class="category__usp-pickup">
 
-																<?if(count($arResult["PRICES"]) > 0):?>
+                            <div class="category__usp-image"></div>
 
-																	<td class="category-item__buy">
+                            Самовывоз
 
-																		<? //print_r($arElement['OFFERS']); ?>
+                        </li>
 
-																			<?if($arElement["CAN_BUY"]):?>
+                        <li class="category__usp-pay">
 
-																				<? if(count($arElement['OFFERS']) < 1): ?>
+                            <div class="category__usp-image"></div>
 
-																					<noindex>
+                            Удобная оплата
 
-																						<!--<a href="<?echo $arElement["BUY_URL"]?>" class="to-cart" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
+                        </li>
 
-                                      -->
-																						<a href="<?echo $arElement[" ADD_URL "]?>" class="to-cart" rel="nofollow">
-																							<? echo GetMessage("CATALOG_ADD")?>
-																						</a>
+                    </ul>
 
-																					</noindex>
+                </td>
 
-																					<? endif ?>
+                <?if(count($arResult["PRICES"]) > 0):?>
+
+                    <td class="category-item__buy">
+
+                        <? //print_r($arElement['OFFERS']); ?>
+
+                        <?if($arElement["CAN_BUY"]):?>
+
+                            <? if(count($arElement['OFFERS']) < 1): ?>
+
+                                <noindex>
+
+                                    <!--<a href="<?echo $arElement["BUY_URL"]?>" class="to-cart" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
+
+                                      -->  <a href="<?echo $arElement["ADD_URL"]?>" class="to-cart" rel="nofollow"><? echo GetMessage("CATALOG_ADD")?></a>
+
+                                </noindex>
+
+                                <? endif ?>
 
 
 
-																						<? // echo $offer['ID'].'--'.$offer['CAN_BUY'].'--'.$offer['CATALOG_QUANTITY']; ?>
+                            <? // echo $offer['ID'].'--'.$offer['CAN_BUY'].'--'.$offer['CATALOG_QUANTITY']; ?>
 
-																							<div class="offers">
+                            <div class="offers">
 
-																								<? $k_offers = 0; ?>
+                                <? $k_offers = 0; ?>
 
-																									<? $arShowOffers = array(); $s_o = 0; foreach ($arElement['OFFERS'] as $key => $arOffer): ?>
+                                <? $arShowOffers = array(); $s_o = 0; foreach ($arElement['OFFERS'] as $key => $arOffer): ?>
 
-																										<? // echo $arOffer['CATALOG_QUANTITY']; ?>
+                                    <? // echo $arOffer['CATALOG_QUANTITY']; ?>
 
-																											<? if(! empty($arOffer['PROPERTIES']['CML2_ATTRIBUTES']['VALUE'])): ?>
+                                    <? if(! empty($arOffer['PROPERTIES']['CML2_ATTRIBUTES']['VALUE'])): ?>
 
-																												<? $arShowOffer = $arOffer;
+                                        <? $arShowOffer = $arOffer;
 
                                             $CML2_ATTRIBUTES = $arOffer['PROPERTIES']['CML2_ATTRIBUTES']['VALUE'];
 
@@ -426,7 +399,7 @@
 
                                         ?>
 
-																													<? $arShowOffer['ATTRIBUTES'] = $CML2_ATTRIBUTES;
+                                        <? $arShowOffer['ATTRIBUTES'] = $CML2_ATTRIBUTES;
 
                                             $arShowOffer['ATTRIBUTES_DECRIPTION'] = $CML2_ATTRIBUTES_DESCRIPTION;
 
@@ -438,43 +411,43 @@
 
                                             $arShowOffers[] = $arShowOffer; ?>
 
-																														<? foreach($CML2_ATTRIBUTES as $k => $CML2_ATTRIBUTE): ?>
+                                        <? foreach($CML2_ATTRIBUTES as $k => $CML2_ATTRIBUTE): ?>
 
-																															<? $k_offers++; ?>
+                                            <? $k_offers++; ?>
 
-																																<? endforeach ?>
+                                            <? endforeach ?>
 
-																																	<? endif ?>
+                                        <? endif ?>
 
-																																		<? endforeach ?>
-
-
-
-																																			<? if($k_offers > 0): ?>
-
-																																				<div class="select_sku">
-
-																																					<? $SHOW_NOT_AVALIBELE = FALSE; // выводить подписку ?>
-
-																																						<noindex>
-
-																																							<select name="offers" class="offers-select">
-
-																																								<? foreach($arShowOffers as $arShowOffer): ?>
-
-																																									<?  if($arShowOffer['CATALOG_QUANTITY'] > 0 OR $SHOW_NOT_AVALIBELE): // В наличии ?>
-
-																																										<option value="<? echo $arShowOffer['ID']  ?>" <?// echo (++$s_o==1 ? 'selected="selected"' : ''); ?>>
-
-																																											<? //echo $arShowOffer['CATALOG_QUANTITY'].'-'; ?>
-
-																																												<? if(count($arShowOffer['ATTRIBUTES']) > 0): ?>
-
-																																													<? foreach($arShowOffer['ATTRIBUTES'] as $k => $CML2_ATTRIBUTE): ?>
+                                    <? endforeach ?>
 
 
 
-																																														<? echo
+                                <? if($k_offers > 0): ?>
+
+                                    <div class="select_sku">
+
+                                        <? $SHOW_NOT_AVALIBELE = FALSE; // выводить подписку ?>
+
+                                        <noindex>
+
+                                            <select name="offers" class="offers-select">
+
+                                                <? foreach($arShowOffers as $arShowOffer): ?>
+
+                                                    <?  if($arShowOffer['CATALOG_QUANTITY'] > 0 OR $SHOW_NOT_AVALIBELE): // В наличии ?>
+
+                                                        <option value="<? echo $arShowOffer['ID']  ?>" <?// echo (++$s_o == 1 ? 'selected="selected"' : ''); ?>>
+
+                                                            <? //echo $arShowOffer['CATALOG_QUANTITY'].'-'; ?>
+
+                                                            <? if(count($arShowOffer['ATTRIBUTES']) > 0): ?>
+
+                                                                <? foreach($arShowOffer['ATTRIBUTES'] as $k => $CML2_ATTRIBUTE): ?>
+
+
+
+                                                                    <? echo
 
                                                                         $arShowOffer['ATTRIBUTES_DECRIPTION'][$k].': '.$CML2_ATTRIBUTE
 
@@ -482,49 +455,49 @@
 
 
 
-																																															<? endforeach ?>
+                                                                    <? endforeach ?>
 
-																																																<? else: ?>
+                                                                <? else: ?>
 
-																																																	<? echo $arShowOffer['NAME']; ?>
+                                                                <? echo $arShowOffer['NAME']; ?>
 
-																																																		<? endif ?>
+                                                                <? endif ?>
 
-																																										</option>
+                                                        </option>
 
-																																										<? else: ?>
-
-
-
-																																											<? endif ?>
-
-																																												<? endforeach ?>
-
-																																							</select>
-
-																																						</noindex>
-
-																																				</div>
-
-																																				<? endif ?>
+                                                        <? else: ?>
 
 
 
-																																					<? $b_o = 0; foreach($arShowOffers as $arShowOffer): ?>
+                                                        <? endif ?>
 
-																																						<div class="offer <? echo ($b_o > 0 ? 'hidden' : '');?>" id="_offer_<? echo $arShowOffer['ID']  ?>">
+                                                    <? endforeach ?>
 
-																																							<?  if($arShowOffer['CATALOG_QUANTITY'] > 0): // В наличии ?>
+                                            </select>
 
-																																								<? if(count($arShowOffer['ATTRIBUTES']) > 0): ?>
+                                        </noindex>
 
-																																									<div class="left">
+                                    </div>
 
-																																										<? foreach($arShowOffer['ATTRIBUTES'] as $k => $CML2_ATTRIBUTE): ?>
+                                    <? endif ?>
 
-																																											<p>
 
-																																												<b><? echo '<span class="shide">',
+
+                                <? $b_o = 0; foreach($arShowOffers as $arShowOffer): ?>
+
+                                    <div class="offer <? echo ($b_o > 0 ? 'hidden' : '');?>" id="_offer_<? echo $arShowOffer['ID']  ?>">
+
+                                        <?  if($arShowOffer['CATALOG_QUANTITY'] > 0): // В наличии ?>
+
+                                            <? if(count($arShowOffer['ATTRIBUTES']) > 0): ?>
+
+                                                <div class="left">
+
+                                                    <? foreach($arShowOffer['ATTRIBUTES'] as $k => $CML2_ATTRIBUTE): ?>
+
+                                                        <p>
+
+                                                            <b><? echo '<span class="shide">',
 
                                                                     $arShowOffer['ATTRIBUTES_DECRIPTION'][$k]
 
@@ -532,7 +505,7 @@
 
 
 
-																																												<? echo '<span class="shide">',
+                                                            <? echo '<span class="shide">',
 
                                                                     $CML2_ATTRIBUTE
 
@@ -540,54 +513,52 @@
 
 
 
-																																											</p>
+                                                        </p>
 
-																																											<? endforeach ?>
+                                                        <? endforeach ?>
 
-																																									</div>
+                                                </div>
 
-																																									<div class="prices">
+                                                <div class="prices">
 
-																																										<? foreach($arShowOffer['PRICES'] as $k => $Offer_price): ?>
+                                                    <? foreach($arShowOffer['PRICES'] as $k => $Offer_price): ?>
 
-																																											<p class="price"><b><? echo $Offer_price['VALUE'] ?></b><span class="rub">P</span> </p>
+                                                        <p class="price"><b><? echo $Offer_price['VALUE'] ?></b><span class="rub">P</span> </p>
 
-																																											<? endforeach ?>
+                                                        <? endforeach ?>
 
-																																									</div>
+                                                </div>
 
-																																									<? endif ?>
+                                                <? endif ?>
 
-																																										<div class="buy">
+                                            <div class="buy">
 
-																																											<a href="<? echo $arShowOffer['ADD_URL'] ?>" id="<? echo $arShowOffer['ID'] ?>_buy_link" onclick="return addtoBasket(<? echo $arShowOffer['ID']?>)" class="to-cart" title="Купить"><span>Купить</span> <?  echo $buyBtnMessage; ?></a>
+                                                <a href="<? echo $arShowOffer['ADD_URL'] ?>" id="<? echo $arShowOffer['ID'] ?>_buy_link" onclick="return addtoBasket(<? echo $arShowOffer['ID']?>)" class="to-cart" title="Купить"><span>Купить</span> <?  echo $buyBtnMessage; ?></a>
 
-																																											<a href="javascript:;" class="add_to_favorite" data-id="<?=$arElement[" ID "]?>"></a>
-
-
-																																											<!-- КУПИТЬ В ОДИН КЛИК -->
+                                                <a href="javascript:;" class="add_to_favorite" data-id="<?=$arElement["ID"]?>"></a>
 
 
-
-																																											<div class="one-click-buy">
-
-																																												<span data-id="<?=$arElement[" ID "]?>">Купить в 1 клик</span>
-
-																																												<div class="nameElement" style="display:none">
-																																													<?=$arElement["NAME"]?>
-																																												</div>
-
-																																											</div>
+                                                <!-- КУПИТЬ В ОДИН КЛИК -->
 
 
 
-																																										</div>
+                                                <div class="one-click-buy">
 
-																																										<?  $b_o++;?>
+                                                    <span data-id="<?=$arElement["ID"]?>">Купить в 1 клик</span>
 
-																																											<? elseif($SHOW_NOT_AVALIBELE): ?>
+                                                    <div class="nameElement" style="display:none"><?=$arElement["NAME"]?></div>
 
-																																												<?$APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <?  $b_o++;?>
+
+                                            <? elseif($SHOW_NOT_AVALIBELE): ?>
+
+                                            <?$APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(
 
                                                     "NOTIFY_ID" => $arShowOffer['ID'],
 
@@ -601,33 +572,33 @@
 
                                                 );?>
 
-																																													<? endif ?>
+                                            <? endif ?>
 
-																																						</div>
+                                    </div>
 
-																																						<? endforeach ?>
+                                    <? endforeach ?>
 
-																							</div>
+                            </div>
 
 
 
-																							<?elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):?>
+                            <?elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):?>
 
-																								<? //print_r($arElement) ?>
+                            <? //print_r($arElement) ?>
 
-																									<? foreach ($arElement['OFFERS'] as $key => $arOffer): ?>
+                            <? foreach ($arElement['OFFERS'] as $key => $arOffer): ?>
 
-																										<? //echo 'Q'.$arOffer['CATALOG_QUANTITY'] ?>
+                                <? //echo 'Q'.$arOffer['CATALOG_QUANTITY'] ?>
 
-																											<? endforeach ?>
+                                <? endforeach ?>
 
-																												<div class="slad_empty">
+                            <div class="slad_empty">
 
-																													<span class="hide-cart-trigger" data-id="<?=$arElement[" ID "]?>"><?//=GetMessage("CATALOG_NOT_AVAILABLE")?>Сделать предзаказ</span>
+                                <span class="hide-cart-trigger" data-id="<?=$arElement["ID"]?>"><?//=GetMessage("CATALOG_NOT_AVAILABLE")?>Сделать предзаказ</span>
 
-																												</div>
+                            </div>
 
-																												<?$APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(
+                            <?$APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(
 
                                     "NOTIFY_ID" => $arElement['ID'],
 
@@ -641,270 +612,266 @@
 
                                 );?>
 
-																													<?endif?>
+                            <?endif?>
 
-																	</td>
+                    </td>
 
-																	<?endif;?>
+                    <?endif;?>
 
-										</tr>
+            </tr>
 
-										<?};?>
+            <?};?>
 
-				</table>
+    </table>
 
-				<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+    <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 
-					<p>
-						<?=$arResult["NAV_STRING"]?>
-					</p>
+        <p><?=$arResult["NAV_STRING"]?></p>
 
-					<?endif?>
+        <?endif?>
 
-	</div>
+</div>
 
 
 
-	<!-- Форма предзаказ -->
+<!-- Форма предзаказ -->
 
-	<div class="order_one_click preOrder">
+<div class="order_one_click preOrder">
 
-		<div class="close_order_form show-cart-trigger">X</div>
+    <div class="close_order_form show-cart-trigger">X</div>
 
-		<p>Как только товар появится у нас на складе, мы сразу же свяжемся с Вами!</p>
+    <p>Как только товар появится у нас на складе, мы сразу же свяжемся с Вами!</p>
 
-		<form action="javascript:void(0)" id="order_one_click_new" name="order_one_click_new" method="post">
+    <form action="javascript:void(0)" id="order_one_click_new" name="order_one_click_new" method="post">
 
-			<span>Имя</span>
+        <span>Имя</span>
 
-			<input type="text" name="name_order" placeholder="обязательное поле" id="name_order" value="" required>
+        <input type="text" name="name_order" placeholder="обязательное поле" id="name_order" value="" required>
 
-			<span>Тел.</span>
+        <span>Тел.</span>
 
-			<input type="number" name="phone_order" placeholder="обязательное поле" id="phone_order" value="" required>
+        <input type="number" name="phone_order" placeholder="обязательное поле" id="phone_order" value="" required>
 
-			<span>E-mail</span>
+        <span>E-mail</span>
 
-			<input type="text" name="email_order" id="email_order" value="">
+        <input type="text" name="email_order" id="email_order" value="">
 
-			<input type="hidden" form="order_one_click_new" id="id_order" name="id_order" value="">
+        <input type="hidden" form="order_one_click_new" id="id_order" name="id_order" value="">
 
-			<span style=" font-size: 12px; font-weight: 600; ">Комментарий к заказу</span>
+        <span style=" font-size: 12px; font-weight: 600; ">Комментарий к заказу</span>
 
-			<textarea type="text" name="coment_order" value=""></textarea>
+        <textarea type="text" name="coment_order" value=""></textarea>
 
-			<input type="submit" value="Отправить" onclick="sendData()">
+        <input type="submit" value="Отправить" onclick="sendData()">
 
-		</form>
+    </form>
 
-		<div class="form_alert"></div>
+    <div class="form_alert"></div>
 
-	</div>
+</div>
 
 
 
-	<div class="popup-wrapper popup-oneClick">
+<div class="popup-wrapper popup-oneClick">
 
 
 
-		<div class="popup">
+    <div class="popup">
 
-			<div class="popup__content">
+        <div class="popup__content">
 
-				<h3 class="popup__title">Заказ в один клик</h3>
+            <h3 class="popup__title">Заказ в один клик</h3>
 
-				<form class="popup__form" action="javascript:void(0)" id="newOneClick" name="newOneClick">
+            <form class="popup__form" action="javascript:void(0)" id="newOneClick" name="newOneClick">
 
-					<input type="text" id="name" name="name" placeholder="Имя" required>
+                <input type="text" id="name" name="name" placeholder="Имя" required>
 
-					<input type="text" id="phone" name="phone" placeholder="Телефон" required>
+                <input type="text" id="phone" name="phone" placeholder="Телефон" required>
 
-					<input type="hidden" id="one_click_id" name="id_order" value="">
+                <input type="hidden" id="one_click_id" name="id_order" value="">
 
-					<button type="submit" onclick="sendOneClick()">Отправить</button>
+                <button type="submit" onclick="sendOneClick()">Отправить</button>
 
-				</form>
+            </form>
 
-				<div class="close-trigger">x</div>
+            <div class="close-trigger">x</div>
 
-			</div>
+        </div>
 
-		</div>
+    </div>
 
 
 
-	</div>
+</div>
 
 
 
-	<div class="popup-answer-wrapper">
+<div class="popup-answer-wrapper">
 
-		<div class="popup-answer__content">
+    <div class="popup-answer__content">
 
-			<div class="popup-answer__title">Ваша заявка отравлена!</div>
+        <div class="popup-answer__title">Ваша заявка отравлена!</div>
 
-			<p class="popup-answer__text">Оператор Вам позвонит для уточнения деталей заказа.</p>
+        <p class="popup-answer__text">Оператор Вам позвонит для уточнения деталей заказа.</p>
 
-		</div>
+    </div>
 
-	</div>
+</div>
 
 
 
-	<? if(! is_ajax() AND empty($_GET['ajax_buy'])) : ?>
+<? if(! is_ajax() AND empty($_GET['ajax_buy'])) : ?>
 
-		<div id="popup_form_product" style="display: none;">
+    <div id="popup_form_product" style="display: none;">
 
-			<input type="hidden" value="" name="popup_product_url" id="popup_product_url" />
+        <input type="hidden" value="" name="popup_product_url" id="popup_product_url" />
 
-			<div class="h3">
-				<?=GetMessage("MESSAGE_ADD_CART"); ?>
-			</div>
+        <div class="h3"><?=GetMessage("MESSAGE_ADD_CART"); ?></div>
 
-			<div class="product">
+        <div class="product">
 
-				<div class="img hidden">
+            <div class="img hidden">
 
-				</div>
+            </div>
 
-				<span class="name hidden"></span>
+            <span class="name hidden"></span>
 
-				<span class="sku hidden"></span>
+            <span class="sku hidden"></span>
 
-				<span class="price hidden"></span>
+            <span class="price hidden"></span>
 
-			</div>
+        </div>
 
-			<div class="bottons"></div>
+        <div class="bottons"></div>
 
-		</div>
+    </div>
 
 
 
-		<script>
-			var wind2 = new BX.PopupWindow('popup_product', BX('popup_form_product'), {
+    <script>
 
-				lightShadow: true,
+        var wind2 = new BX.PopupWindow('popup_product', BX('popup_form_product'), {
 
-				offsetTop: 10,
+            lightShadow : true,
 
-				offsetLeft: 0,
+            offsetTop: 10,
 
-				autoHide: true,
+            offsetLeft: 0,
 
-				closeByEsc: true,
+            autoHide: true,
 
-				zIndex: 510,
+            closeByEsc: true,
 
-				bindOptions: {
-					position: "right"
-				},
+            zIndex: 510,
 
-				/*buttons: [
+            bindOptions: {position: "right"},
 
-				new BX.PopupWindowButton({
+            /*buttons: [
 
-				text : '<?=GetMessage("GOTO_CART");?>',
+            new BX.PopupWindowButton({
 
-				events : {
+            text : '<?=GetMessage("GOTO_CART");?>',
 
-				click : function() {
+            events : {
 
-				window.location.assign('/personal/cart/');
+            click : function() {
 
-				}
+            window.location.assign('/personal/cart/');
 
-				}
+            }
 
-				}),
+            }
 
-				new BX.PopupWindowButton({
+            }),
 
-				text : '<?=GetMessage('POPUP_CLOSE')?>',
+            new BX.PopupWindowButton({
 
-				events : {
+            text : '<?=GetMessage('POPUP_CLOSE')?>',
 
-				click : function() {
+            events : {
 
-				wind2.close();
+            click : function() {
 
-				}
+            wind2.close();
 
-				}
+            }
 
-				})
+            }
 
-				]*/
+            })
 
-			});
+            ]*/
 
+        });
 
 
-			wind2.setContent(BX('popup_form_product'));
 
-			function addtoBasket(id)
+        wind2.setContent(BX('popup_form_product'));
 
-			{
+        function addtoBasket(id)
 
-				var a = $('#' + id + '_buy_link')
-					, url = a.attr('href') + "&ajax_basket=Y&ajax_buy=1";
-				var tr = a.closest('tr')
-					, preview = $('.preview', tr)
-					, name = $('.name', tr)
-					, offers_select = $('.offers-select', tr);
+        {
 
+            var a = $('#' + id + '_buy_link'), url = a.attr('href')+ "&ajax_basket=Y&ajax_buy=1";
+            var tr = a.closest('tr'), preview = $('.preview',tr), name = $('.name',tr), offers_select = $('.offers-select',tr);
 
+            wind2.setBindElement(BX(id + '_buy_link'));
+            var popup_product = $('#popup_product');
+            if(preview.length > 0){
+                $('.product .img', popup_product).html(preview.html());
+            }else{
+                $('.product .img', popup_product).html('');
+            }
 
-					function pageReloader() {
-						location.reload();
-					}
+            if(name.length > 0) {
+                $('.product .name', popup_product).html(name.html());
+            } else {
+                $('.product .name', popup_product).html('');
+            }
 
-				wind2.setBindElement(BX(id + '_buy_link'));
-				var popup_product = $('#popup_product');
-				if (preview.length > 0) {
-					$('.product .img', popup_product).html(preview.html());
-				} else {
-					$('.product .img', popup_product).html('');
-				}
+            if(offers_select.length > 0){
+                var sku = $('option:selected',offers_select);
+                $('.product .sku', popup_product).html(sku.html());
+            } else {
+                $('.product .sku', popup_product).html('');
+            }
 
-				if (name.length > 0) {
-					$('.product .name', popup_product).html(name.html());
-				} else {
-					$('.product .name', popup_product).html('');
-				}
+            wind2.show();
 
-				if (offers_select.length > 0) {
-					var sku = $('option:selected', offers_select);
-					$('.product .sku', popup_product).html(sku.html());
-				} else {
-					$('.product .sku', popup_product).html('');
-				}
+            BX.ajax.post(url, '', function(res) {
+                var shopCart = $('#shopCart');
 
-				wind2.show();
 
-				BX.ajax.post(url, '', function (res) {
-					var shopCart = $('#shopCart');
+                BX.ajax.get('/', '', function(html) {
+                    var cart = $(html).filter('#shopCart');
+                    if(cart.length > 0){
+                    }else{
+                        cart = $(html).find('#shopCart');
+                    }
+                    shopCart.html(cart.html());
+                    $('.hiddencart').html('').load('/basketajax.php');
 
 
-					BX.ajax.get('/', '', function (html) {
-						var cart = $(html).filter('#shopCart');
-						if (cart.length > 0) {} else {
-							cart = $(html).find('#shopCart');
-						}
-						shopCart.html(cart.html());
-						$('.hiddencart').html('').load('/basketajax.php');
+                })
 
+                setTimeout(function(){
 
-					})
+                    $('#popup_product').hide();
 
-					setTimeout(function () {
+                    },5000)
 
-						$('#popup_product').hide();
 
-					}, 5000)
-				});
-				return pageReloader();
-			}
-		</script>
+            });
 
-		<? endif ?>
+
+            return !1;
+
+
+
+        }
+
+
+
+    </script>
+
+    <? endif ?>
