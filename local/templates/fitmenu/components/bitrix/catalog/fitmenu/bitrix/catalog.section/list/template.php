@@ -27,7 +27,7 @@
 ?>
 
 
-	<div class="head-wrapper"><h1 class="head"><?=$arResult['NAME']?></h1></div>
+    <div class="head-wrapper"><h1 class="head"><?=$arResult['NAME']?></h1></div>
 
 
 <!--<div class="sort_catalog">
@@ -244,10 +244,7 @@
 
                             <?
 
-                                //     echo '<!--', base64_encode( $arElement['PREVIEW_TEXT'] ), '-->';
-
-                                //  echo  '<!--', base64_encode($arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE']), '-->';
-                            echo  $arElement['PREVIEW_TEXT']; //$arElement['DISPLAY_PROPERTIES']['ANONS']['VALUE'];   //             arshow($arElement);
+                            echo  $arElement['PROPERTIES']["ANONS"]["VALUE"];
 
                             ?>
 
