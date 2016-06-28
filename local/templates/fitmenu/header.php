@@ -82,12 +82,12 @@
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 
 <div id="header">
-    <!--<div class="top-banner">
+    <div class="top-banner">
     <a class="full-size-link" href="/catalog/sumki_sixpackfitness"></a>
     <div class="top-banner__inner">СУПЕР АКЦИЯ на сумки <span class="top-banner__logo lennylarry"><img
-    src="<?= SITE_TEMPLATE_PATH ?>/images/top-banner/6pack.jpeg" alt="6pack" width="95px"></span> только до 1 мая!
+    src="<?= SITE_TEMPLATE_PATH ?>/images/top-banner/6pack.jpeg" alt="6pack" width="95px"></span> только до 30 июня!
     <a class="discount-link" href="/catalog/sumki_sixpackfitness">Подробнее</a> </div>
-    </div>-->
+    </div>
     <div class="full-width">
         <div class="rs-navbar">
             <div class="main-menu-trigger"></div>
@@ -375,7 +375,7 @@
 	array(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "23",
-		"DISCOUNT_ID" => "728",
+		"DISCOUNT_ID" => "642",
 		"COUNT_PRODUCT" => "3",
 		"IBLOCKS_PROP" => "203",
 		"DETAIL_URL" => "",

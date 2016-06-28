@@ -211,6 +211,7 @@
         );?> 
 </div>
 <div class="left-sidebar reviews-main-bottom">
+    <!--
     <?$APPLICATION->IncludeComponent(
             "bitrix:news.list",
             "reviews",
@@ -259,7 +260,9 @@
                 "DISPLAY_PREVIEW_TEXT" => "Y",
                 "AJAX_OPTION_ADDITIONAL" => ""
             )
-        ); ?> 
+        ); ?> -->
+
+    <a class="flamp-widget" href="http://ekaterinburg.flamp.ru/firm/fitmenu_ru_set_magazinov_sportivnogo_pitaniya-1267166676176247"  data-flamp-widget-type="responsive" data-flamp-widget-count="5" data-flamp-widget-id="1267166676176247" data-flamp-widget-width="100%">Отзывы о нас на Флампе</a><script>!function(d,s){var js,fjs=d.getElementsByTagName(s)[0];js=d.createElement(s);js.async=1;js.src="//widget.flamp.ru/loader.js";fjs.parentNode.insertBefore(js,fjs);}(document,"script");</script>
 </div>
 <div class="right-sidebar m"> 
     <div class="social hidden-480"> <?$APPLICATION->IncludeComponent(

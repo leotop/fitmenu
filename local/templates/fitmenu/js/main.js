@@ -295,16 +295,16 @@ $(function () {
     });
   }
 
-  /*
-   if (screen.width > 768) {
-   setTimeout(function () {
-   setPopup($('.popup_discount'), 'inline')
-   }, 3000);
 
-   $('.popup_discount-trigger').on('click', function() {
-   document.cookie = 'popup=closed';
-   })
-   }*/
+   if (screen.width > 768 && $('.popup_discount').length > 0) {
+     setPopup($('.popup_discount'), 'inline');
+
+     $('.popup_discount-trigger').on('click', function() {
+       var date = new Date;
+       date.setMinutes(20);
+       document.cookie = 'popup=closed; expires=' + date.toUTCString();
+     });
+   }
 });
 
 

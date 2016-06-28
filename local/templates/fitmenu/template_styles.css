@@ -415,7 +415,7 @@ div, .h.center, .products li, .slider-holder h2, .slider-nav ul, .slider-s, .sli
 
 #footer {
   width: 100%;
-  margin-bottom: 50px;
+  padding-bottom: 50px!important;
   background-color: #555;
 }
 
@@ -1884,7 +1884,7 @@ h2.hTovar {
 .cart.fixed {
   position: fixed;
   top: 32px;
-/*  width: 227px;*/
+  width: 227px;
   margin-top: 0;
   z-index: 999;
 }
@@ -4496,6 +4496,10 @@ table.grid-active .brend {
 .sidebar-holder.main IMG {
   max-width: 100%;
   height: inherit;
+}
+
+.sidebar-holder.main {
+	z-index: 1;
 }
 
 .content-holder .slider-s .js-slide, .slideWrapper {
