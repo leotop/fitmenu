@@ -1,0 +1,19 @@
+a.search-page-params {
+    border-bottom: 1px dashed blue;
+    text-decoration: none;
+}
+div.search-page-params {
+    margin-top: 6px;
+}
+.search-item-rate {font-size: 11px;}
+
+.search-page input[type=submit] {
+    font-size: 1.2em;  
+} 
+.search-page input[name=q] { 
+    background: #F8F7F7;
+    border-color: #D9D9D9 !important;
+    width: 89%;
+    border: 1px solid;
+    font-size: 1.3em;
+}

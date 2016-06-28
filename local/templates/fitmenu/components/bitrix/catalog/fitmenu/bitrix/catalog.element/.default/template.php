@@ -754,7 +754,7 @@
                     <div class="total_products  block" id="tab_totals">
 
                         <? // echo(! empty($arResult['DISPLAY_PROPERTIES']['totals']['DISPLAY_VALUE']) ? $arResult['DISPLAY_PROPERTIES']['totals']['DISPLAY_VALUE'] : '') ?>
-                        <? if (!empty($arResult["PROPERTIES"]["PRODUCT_COMPOSITION"]["VALUE"])) { ?>
+                        <? if (!empty($arResult["PRODUCT_COMPOSITION"])) { ?>
                             <div id="ingredients"> 
                                 <div class="label_frame"> 
                                     <div class="label_top"> 

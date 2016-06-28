@@ -76,14 +76,19 @@
 
     <div class="footer__sticky">
         <div class="footer__sticky-inner">
-            <!--<p class="footer_sticky-discount-left"><a href="/news/darim_3000r/">Дарим 3000 Р при покупке</a>
-            <img src="http://www.flexsf.ru/upload/iblock/905/9051713d920c04ce8017981360af2eac.png" width="100">
-            </p>-->
-            <p><span class="discount-link"><a href="http://fitmenu.ru/about/stocks/" style="color:#fff">Акция</a></span> до 19 мая!</p>
+            <?
+                $APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_TEMPLATE_PATH."/includes/action.php",
+                    "EDIT_TEMPLATE" => "standard.php"
+                    )
+                );
+            ?>
         </div>
     </div>
+    <div class="discount_link"><a href="http://fitmenu.ru/about/stocks/">Акция</a></div>
 
-    <div class="popup_discount mfp-hide"><a class="popup_discount-trigger" href="http://fitmenu.ru/brend/fitmax"><img src="<?php echo SITE_TEMPLATE_PATH; ?>/images/popups/popup_discount.jpg" alt="IMAGE" class="img-responsive"></a></div>
+    <div class="popup_discount mfp-hide"><img src="<?php echo SITE_TEMPLATE_PATH; ?>/images/popups/gift.jpg" alt="IMAGE" class="img-responsive"></div>
 </div>
 
 <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/settings.js"></script>
@@ -111,7 +116,7 @@
         (function(){ var widget_id = '6mVNGaKGA1';
         var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
     <!-- {/literal} END JIVOSITE CODE -->
-<?}?>
+    <?}?>
 
 <div class="modal hiddencart">
     <div class="modal-inner">

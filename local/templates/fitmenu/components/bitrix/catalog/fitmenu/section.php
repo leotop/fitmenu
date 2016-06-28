@@ -298,6 +298,9 @@
     </div><?
     }
 ?>  
+
+<div class="bestsellers-title h3">Лидеры продаж</div>
+
 <?
 
     if (\Bitrix\Main\ModuleManager::isModuleInstalled("sale"))

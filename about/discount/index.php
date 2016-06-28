@@ -81,17 +81,21 @@ $APPLICATION->SetTitle("Скидки");
         <tbody> 
           <tr> <td>Сумма покупок</td> <td>Ваша скидка</td> </tr>
          
-          <tr> <td>До 2999 р</td> <td>1 %</td> </tr>
+          <tr> <td>До 3000 р</td> <td>1 %</td> </tr>
          
-          <tr> <td>3000-4999 р</td> <td>3 %</td> </tr>
+          <tr> <td>3000-5000 р</td> <td>3 %</td> </tr>
          
-          <tr> <td>5000-9999 р</td> <td>5 %</td> </tr>
+          <tr> <td>5000-10000 р</td> <td>5 %</td> </tr>
          
-          <tr> <td>10000-29999 р</td> <td>7%</td> </tr>
+          <tr> <td>10000-15000 р</td> <td>7%</td> </tr>
          
-          <tr> <td>30000-59999 р</td> <td>10 %</td> </tr>
+          <tr> <td>15000-30000 р </td> <td>10 %</td> </tr>
          
-          <tr> <td>От 100000 р</td> <td>VIP 15 %</td> </tr>
+          <tr> <td> от 30000</td> <td> 15 %</td> </tr>
+         
+          <tr> <td>Узнай свою скидку по тел. <b>351-05-85</b></td><td> 
+              <br />
+             </td> </tr>
          </tbody>
        </table>
      </div>

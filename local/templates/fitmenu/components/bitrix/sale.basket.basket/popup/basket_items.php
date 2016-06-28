@@ -446,27 +446,18 @@ if ($normalCount > 0):
 
 		<div class="bx_ordercart_order_pay_left">
 			<div class="bx_ordercart_coupon">
-				<?
-				if ($arParams["HIDE_COUPON"] != "Y"):
-
+				<?php
 					$couponClass = "";
-					if (array_key_exists('COUPON_VALID', $arResult))
-					{
+					if (array_key_exists('COUPON_VALID', $arResult)) {
 						$couponClass = ($arResult["COUPON_VALID"] == "Y") ? "good" : "bad";
-					}elseif (array_key_exists('COUPON', $arResult) && strlen($arResult["COUPON"]) > 0)
-					{
+					} elseif (array_key_exists('COUPON', $arResult) && strlen($arResult["COUPON"]) > 0) {
 						$couponClass = "good";
 					}
-
 				?>
-					<span><?=GetMessage("STB_COUPON_PROMT")?></span>
-					<input type="text" id="coupon" name="COUPON" value="<?=$arResult["COUPON"]?>" onchange="enterCoupon();" size="21" class="<?=$couponClass?>">
-					</br>
-					<b><a href="/about/discount/" target="_blank">Как получить скидку?</a></b>
-					
-				<?else:?>
-					 
-				<?endif;?>
+				<span><?=GetMessage("STB_COUPON_PROMT")?></span>
+				<input type="text" id="coupon" name="COUPON" value="<?=$arResult["COUPON"]?>" onchange="enterCoupon();" size="21" class="<?=$couponClass?>">
+				</br>
+				<b><a href="/about/discount/" target="_blank">Как получить скидку?</a></b>
 			</div>
 		</div>
 
