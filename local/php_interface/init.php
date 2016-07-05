@@ -629,8 +629,7 @@ class customEvents
 
     class newOrder{
         function orderDataChange(&$arFields, &$arTemplate){
-
-            if ($arFields["ORDER_ID"] > 0) {
+            if ($arFields["ORDER_ID"] > 0 && $arTemplate["ID"] == 22) {
                 //общая инфо о зказе
                 $order = CSaleOrder::GetById($arFields["ORDER_ID"]);
 
@@ -643,40 +642,45 @@ class customEvents
                     $delivery = CSaleDelivery::GetById($order["DELIVERY_ID"]);
                 }
 
-
                 //платежная система
                 $paysystem = CSalePaysystem::GetById($order["PAY_SYSTEM_ID"]);
-                //убираем лишние символы в цене
-                $pattern = "/(\D)/";
-                $price = preg_replace($pattern,'',$arFields["PRICE"]);
-
 
                 $arFields["PAYSYSTEM"] = $paysystem['NAME'];
-
-
-                $arFields["PRICE"] = $price;
 
                 //свойства заказа
                 $orderProps = array();
                 $db_props = CSaleOrderPropsValue::GetList(array(),array("ORDER_ID" => $order["ID"]));
                 while($orderProp = $db_props->Fetch()) {
-                    $orderProps[$orderProp["CODE"]] = $orderProp["VALUE"];
+                    if($orderProp["CODE"] == "STREET"){
+                        $orderProps["STREET"] = $orderProp["NAME"].':'.$orderProp["VALUE"];
+                    }elseif($orderProp["CODE"] == "HOUSE"){
+                        $orderProps["HOUSE"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
+                    }elseif($orderProp["CODE"] == "CORPUS"){
+                        $orderProps["CORPUS"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
+                    }elseif($orderProp["CODE"] == "LEVEL"){
+                        $orderProps["LEVEL"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
+                    }elseif($orderProp["CODE"] == "KVARTIRA"){
+                        $orderProps["KVARTIRA"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
+                    }elseif($orderProp["CODE"] == "PICKUP"){
+                        $arVal = CSaleOrderPropsVariant::GetByValue($orderProp["ORDER_PROPS_ID"], $orderProp["VALUE"]);
+                        if($delivery["ID"] == 2){
+                            $delivery["NAME"] .= ', '.$arVal["NAME"];
+                        }
+                    }else{
+                        $orderProps[$orderProp["CODE"]] = $orderProp["VALUE"];
+                    }
+
                 }
+
                 //местоположение
                 $location = CSaleLocation::GetByID($orderProps["LOCATION"]);
-
-                //состав заказа
-                $basket =  CSaleBasket::GetList(array(), array("ORDER_ID"=>$order["ID"]));
-                $basketItem = $basket->Fetch();
-                $arIblockItem = CIBlockElement::GetList(array(), array("ID"=>$basketItem["PRODUCT_ID"]))->Fetch();
-                $arSection =  CIBlockSection::GetList(array(), array("ID"=>$arIblockItem["IBLOCK_SECTION_ID"]))->Fetch();
-
                 //собираем полученные данные
                 $arFields["DELIVERY_TYPE"] = $delivery["NAME"];
                 $arFields["PHONE"] = $orderProps["PHONE"];
                 $arFields["ZIP"] = $orderProps["ZIP"];
-                $arFields["ADDRESS"] = $location["COUNTRY_NAME"].", ".$location["CITY_NAME"].", ".$orderProps["ADDRESS"];
+                $arFields["ADDRESS"] = $location["COUNTRY_NAME"].", ".$location["CITY_NAME"].", ".$orderProps["STREET"].$orderProps["HOUSE"].$orderProps["CORPUS"].$orderProps["LEVEL"].$orderProps["KVARTIRA"];
                 $arFields["ORDER_LIST"] = str_replace(".00 шт.", " шт.", $arFields["ORDER_LIST"]);
+                $arFields["CPMMENT"] = $order["USER_DESCRIPTION"];
             }
 
         }
