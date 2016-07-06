@@ -23,6 +23,8 @@
     global $const;
     //Define constants
     define("COMPOSITION_IBLOCK_CODE", 'composition_data');
+    define("ID_LETTER_TEMPLATE", 22);
+    define("ID_DELIVERY_SERVICE", 2);
 
 
     function arshow($array, $adminCheck = false){
@@ -630,7 +632,7 @@ class customEvents
 
     class newOrder{
         function orderDataChange(&$arFields, &$arTemplate){
-            if ($arFields["ORDER_ID"] > 0 && $arTemplate["ID"] == 22) {
+            if ($arFields["ORDER_ID"] > 0 && $arTemplate["ID"] == ID_LETTER_TEMPLATE) {
                 //общая инфо о зказе
                 $order = CSaleOrder::GetById($arFields["ORDER_ID"]);
 
@@ -658,7 +660,7 @@ class customEvents
                         $orderProps["KVARTIRA"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
                     } elseif ($orderProp["CODE"] == "PICKUP") {
                         $arVal = CSaleOrderPropsVariant::GetByValue($orderProp["ORDER_PROPS_ID"], $orderProp["VALUE"]);
-                        if($delivery["ID"] == 2){
+                        if($delivery["ID"] == ID_DELIVERY_SERVICE){
                             $delivery["NAME"] .= ', ' . $arVal["NAME"];
                         }
                     } else {
