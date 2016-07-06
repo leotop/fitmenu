@@ -3,6 +3,7 @@
 
     require_once($include_path.'iblock.class.php');
     require_once($include_path.'ucresizeimg.class.php');
+    require_once($include_path.'config.php');
 
     AddEventHandler("iblock", "OnBeforeIBlockElementAdd", Array("MyIblock", "OnBeforeIBlockElementAddHandler"));
     AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", Array("MyIblock", "OnBeforeIBlockElementUpdateHandler"));
@@ -19,7 +20,7 @@
     CModule::IncludeModule("main");
     CModule::IncludeModule("sale");
     CModule::IncludeModule("catalog");
-
+    global $const;
     //Define constants
     define("COMPOSITION_IBLOCK_CODE", 'composition_data');
 
@@ -634,13 +635,7 @@ class customEvents
                 $order = CSaleOrder::GetById($arFields["ORDER_ID"]);
 
                 //служба доставки
-                if ($order["DELIVERY_ID"]=='pickpoint:postamat') {
-                    $order["DELIVERY_ID"]=37;
-                    $delivery = Services\Manager::getById($order["DELIVERY_ID"]);
-
-                } else {
-                    $delivery = CSaleDelivery::GetById($order["DELIVERY_ID"]);
-                }
+                $delivery = CSaleDelivery::GetById($order["DELIVERY_ID"]);
 
                 //платежная система
                 $paysystem = CSalePaysystem::GetById($order["PAY_SYSTEM_ID"]);
@@ -651,22 +646,22 @@ class customEvents
                 $orderProps = array();
                 $db_props = CSaleOrderPropsValue::GetList(array(),array("ORDER_ID" => $order["ID"]));
                 while($orderProp = $db_props->Fetch()) {
-                    if($orderProp["CODE"] == "STREET"){
-                        $orderProps["STREET"] = $orderProp["NAME"].':'.$orderProp["VALUE"];
-                    }elseif($orderProp["CODE"] == "HOUSE"){
-                        $orderProps["HOUSE"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
-                    }elseif($orderProp["CODE"] == "CORPUS"){
-                        $orderProps["CORPUS"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
-                    }elseif($orderProp["CODE"] == "LEVEL"){
-                        $orderProps["LEVEL"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
-                    }elseif($orderProp["CODE"] == "KVARTIRA"){
-                        $orderProps["KVARTIRA"] = ", ".$orderProp["NAME"].':'.$orderProp["VALUE"];
-                    }elseif($orderProp["CODE"] == "PICKUP"){
+                    if ($orderProp["CODE"] == "STREET") {
+                        $orderProps["STREET"] = $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "HOUSE") {
+                        $orderProps["HOUSE"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "CORPUS") {
+                        $orderProps["CORPUS"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "LEVEL") {
+                        $orderProps["LEVEL"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "KVARTIRA") {
+                        $orderProps["KVARTIRA"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "PICKUP") {
                         $arVal = CSaleOrderPropsVariant::GetByValue($orderProp["ORDER_PROPS_ID"], $orderProp["VALUE"]);
                         if($delivery["ID"] == 2){
-                            $delivery["NAME"] .= ', '.$arVal["NAME"];
+                            $delivery["NAME"] .= ', ' . $arVal["NAME"];
                         }
-                    }else{
+                    } else {
                         $orderProps[$orderProp["CODE"]] = $orderProp["VALUE"];
                     }
 
@@ -678,7 +673,7 @@ class customEvents
                 $arFields["DELIVERY_TYPE"] = $delivery["NAME"];
                 $arFields["PHONE"] = $orderProps["PHONE"];
                 $arFields["ZIP"] = $orderProps["ZIP"];
-                $arFields["ADDRESS"] = $location["COUNTRY_NAME"].", ".$location["CITY_NAME"].", ".$orderProps["STREET"].$orderProps["HOUSE"].$orderProps["CORPUS"].$orderProps["LEVEL"].$orderProps["KVARTIRA"];
+                $arFields["ADDRESS"] = $location["COUNTRY_NAME"] . ", " . $location["CITY_NAME"] . ", " . $orderProps["STREET"] . $orderProps["HOUSE"] . $orderProps["CORPUS"] . $orderProps["LEVEL"] . $orderProps["KVARTIRA"];
                 $arFields["ORDER_LIST"] = str_replace(".00 шт.", " шт.", $arFields["ORDER_LIST"]);
                 $arFields["CPMMENT"] = $order["USER_DESCRIPTION"];
             }
