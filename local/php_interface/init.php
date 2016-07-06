@@ -3,7 +3,6 @@
 
     require_once($include_path.'iblock.class.php');
     require_once($include_path.'ucresizeimg.class.php');
-    require_once($include_path.'config.php');
 
     AddEventHandler("iblock", "OnBeforeIBlockElementAdd", Array("MyIblock", "OnBeforeIBlockElementAddHandler"));
     AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", Array("MyIblock", "OnBeforeIBlockElementUpdateHandler"));
@@ -20,7 +19,7 @@
     CModule::IncludeModule("main");
     CModule::IncludeModule("sale");
     CModule::IncludeModule("catalog");
-    global $const;
+
     //Define constants
     define("COMPOSITION_IBLOCK_CODE", 'composition_data');
     define("ID_LETTER_TEMPLATE", 22);
