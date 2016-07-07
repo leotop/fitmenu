@@ -72,8 +72,6 @@
     </div>
     <div class="btn-up"></div>
 
-
-
     <div class="footer__sticky">
         <div class="footer__sticky-inner">
             <?
