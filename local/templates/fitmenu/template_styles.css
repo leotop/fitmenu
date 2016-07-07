@@ -3903,7 +3903,7 @@ li {
   margin: 0 auto;
 }
 
-.main-menu--fixed {
+.main-menu.fixed {
   width: 1260px;
   position: fixed;
   top: -20px;
@@ -4653,6 +4653,14 @@ ruble {
 
 .modal .bx_ordercart_order_pay {
   margin-left: 0!important;
+}
+
+.bx-filter.fixed {
+  position: fixed;
+  top: 32px;
+  z-index: 9999;
+  width: 720px;
+  background: #ececec;
 }
 
 /* Корзина */

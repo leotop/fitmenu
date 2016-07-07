@@ -233,39 +233,49 @@ $(function () {
   });
 });
 
-$(function () {
+// Sticky to Top with Scroll
+function StickyTop(element, offset) {
+  var element = element;
+  var offset = offset;
 
-  if (screen.width > 980 && !document.querySelector('#bx-panel')) {
-    var menu = $(".main-menu");
-
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 100 && !menu.hasClass("main-menu--fixed")) {
-        menu.addClass("main-menu--fixed");
-      } else if ($(this).scrollTop() <= 100 && menu.hasClass("main-menu--fixed")) {
-        menu.removeClass("main-menu--fixed");
-      }
-    });
-  } else {
-    $('#footer').css({'margin-bottom': 0});
+  this.listeners = function () {
+    $(window).on('scroll', this.setFixPos);
   }
 
-});
+  this.setFixPos = function () {
+    if (window.scrollY > offset) {
+      element.addClass('fixed');
+    } else {
+      element.removeClass('fixed');
+    }
+  }
+}
 
-$(function () {
+if (screen.width > 1024) {
+  var fixedMenu = new StickyTop($('.main-menu'), 100);
+  fixedMenu.listeners();
 
-  var textNums = $(".bx_small_cart").find(".t").text();
-  var num = parseInt(textNums[textNums.length - 1]);
-  var wrapperNum = $(".num-goods");
+  var fixedFilter = new StickyTop($('.bx-filter'), 700);
+  fixedFilter.listeners();
+}
 
-  if (isNaN(num)) {
-    wrapperNum.hide();
-  } else {
-    wrapperNum.show();
-    wrapperNum.text(num);
+// Amout Products in the cart
+var cartAmoutProducts = (function () {
+  var box = $('.num-goods');
+
+  function updateAmount() {
+    var amountProducts = $('.basket__main-row').length;
+    amountProducts <= 0 ? box.html('') : box.html(amountProducts);
   }
 
-});
+  return {
+    update: updateAmount
+  }
+})();
 
+cartAmoutProducts.update();
+
+// Work with Cookie
 $(function () {
 
   function getCookie(name) {
@@ -295,7 +305,7 @@ $(function () {
     });
   }
 
-
+  /*
    if (screen.width > 768 && $('.popup_discount').length > 0) {
      setPopup($('.popup_discount'), 'inline');
 
@@ -305,6 +315,7 @@ $(function () {
        document.cookie = 'popup=closed; expires=' + date.toUTCString();
      });
    }
+*/
 });
 
 

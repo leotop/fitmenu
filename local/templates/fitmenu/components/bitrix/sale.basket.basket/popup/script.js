@@ -972,6 +972,7 @@ function delfrombasket(ID) {
         success:function(result){ 
            // window.location.reload(); 
            $('#basket_form').load(window.location+' #basket_form');
+					cartAmoutProducts.update();
         } 
     })
 }

@@ -37,7 +37,7 @@ $(function () {
   });
 });
 
-
+// Cart Popup Module
 var cartBehavior = (function () {
   var cart = $('#shopCart'),
       modalCart = $('.modal'),
@@ -47,7 +47,6 @@ var cartBehavior = (function () {
   function closeCart() {
     modalCart.hide();
     cart.hide();
-    console.log('closed');
   }
 
   function openCart() {
@@ -70,60 +69,68 @@ if (screen.width < 480) {
   cartBehavior.init();
 }
 
-/*$(function () {
-  if (screen.width < 768) {
-    var modal = $(".modal"), cart = $("#shopCart"), body = $("body");
-    cart.on("click", function () {
-      cart.hide();
-      modal.show();
-    });
-    $(".modal-cross").on("click", function () {
-      modal.hide();
-    });
-    function cartHide() {
-      var cart = $("#shopCart"), openElement = $(".hide-cart-trigger"), closeElement = $(".show-cart-trigger");
-      if (screen.width <= 480) {
-        openElement.on("click", function () {
-          cart.hide();
-        });
-        closeElement.on("click", function () {
-          cart.show();
-        });
-      }
-    };
-    cartHide();
-  }
-});*/
-
+// Navbar Responsive Module
 $(function () {
-  var elemsShow = $(".rs-show");
 
-  function Modal(element) {
-    var elem = $(element);
-    if (!elem.hasClass("active")) {
-      elemsShow.removeClass("active").hide();
-      elem.addClass("active").show();
+  function NavbarResponsive(elem) {
+    this.elem = $(elem);
+  }
+
+  NavbarResponsive.prototype.elems = $('.rs-show');
+
+  NavbarResponsive.prototype.clearElems = function () {
+    this.elems.removeClass('active');
+    this.elems.hide();
+  }
+
+  NavbarResponsive.prototype.toggle = function () {
+    if (this.elem.hasClass('active')) {
+      this.hide();
     } else {
-      elem.removeClass("active").hide();
+      this.clearElems();
+      this.show();
     }
-  };
-  $(".cart-trigger").on("click", function () {
-    var modal = new Modal(".cart");
-  });
-  $(".main-menu-trigger").on("click", function () {
-    var modal = new Modal(".main-menu");
-  });
-  $(".login-trigger").on("click", function () {
-    var modal = new Modal(".bx_login_block");
-  });
-  $(".search-trigger").on("click", function () {
-    var modal = new Modal(".search-box");
-  });
+  }
+
+  NavbarResponsive.prototype.show = function () {
+    this.elem.addClass('active');
+    this.elem.show();
+  }
+
+  NavbarResponsive.prototype.hide = function () {
+    this.elem.removeClass('active');
+    this.elem.hide();
+  }
+
+  if (screen.width < 480) {
+    $('.cart-trigger').on('click', function () {
+      var cart = new NavbarResponsive('.cart');
+      cart.toggle();
+    });
+    $('.main-menu-trigger').on('click', function () {
+      var menu = new NavbarResponsive('.main-menu');
+      menu.toggle();
+    });
+    $('.login-trigger').on('click', function () {
+      var login = new NavbarResponsive('.bx_login_block');
+      login.toggle();
+    });
+    $('.search-trigger').on('click', function () {
+      var search = new NavbarResponsive('.search-box');
+      search.toggle();
+    });
+  }
+
 });
 
 $(function () {
   function ScrollFix(options) {
-    var element = $(options.element), showWhen = options.showWhen, duration = options.duration, scrollUp = options.scrollUp || false, className = options.className;
+    var element = $(options.element),
+      showWhen = options.showWhen,
+      duration = options.duration,
+      scrollUp = options.scrollUp || false,
+      className = options.className;
+
     this.init = function () {
       $(document).ready(function () {
         $(window).scroll(function () {
