@@ -673,7 +673,7 @@ class customEvents
                 //собираем полученные данные
                 $arFields["DELIVERY_TYPE"] = $delivery["NAME"];
                 $arFields["PHONE"] = $orderProps["PHONE"];
-                $arFields["ZIP"] = $orderProps["ZIP"];
+                $arFields["EMAIL"] = $orderProps["EMAIL"];
                 $arFields["ADDRESS"] = $location["COUNTRY_NAME"] . ", " . $location["CITY_NAME"] . ", " . $orderProps["STREET"] . $orderProps["HOUSE"] . $orderProps["CORPUS"] . $orderProps["LEVEL"] . $orderProps["KVARTIRA"];
                 $arFields["ORDER_LIST"] = str_replace(".00 шт.", " шт.", $arFields["ORDER_LIST"]);
                 $arFields["CPMMENT"] = $order["USER_DESCRIPTION"];
