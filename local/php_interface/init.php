@@ -667,7 +667,7 @@ class customEvents
                     }
 
                 }
-                arshow($orderProps);
+
                 //местоположение
                 $location = CSaleLocation::GetByID($orderProps["LOCATION"]);
                 //собираем полученные данные
