@@ -203,7 +203,23 @@
             };
 
 
-        ?><?
+        ?>
+
+        <?php
+        // Кол-во товаров на странице
+        if ($_REQUEST['page_count']) {
+            $_SESSION['page_count'] = $_REQUEST['page_count'];
+        }
+
+        if (empty($_SESSION['page_count'])) {
+            $page_count = 12;
+        } else {
+            $page_count = $_SESSION['page_count'];
+        }
+
+        ?>
+
+        <?
             $intSectionID = $APPLICATION->IncludeComponent(
                 "bitrix:catalog.section", 
                 "list",
@@ -233,7 +249,7 @@
                     "SET_TITLE" => $arParams["SET_TITLE"],
                     "SET_STATUS_404" => $arParams["SET_STATUS_404"],
                     "DISPLAY_COMPARE" => $arParams["USE_COMPARE"],
-                    "PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
+                    "PAGE_ELEMENT_COUNT" => $page_count,
                     "LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
                     "PRICE_CODE" => $arParams["PRICE_CODE"],
                     "USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],

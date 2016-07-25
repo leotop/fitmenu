@@ -82,12 +82,14 @@
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 
 <div id="header">
-    <div class="top-banner">
-    <a class="full-size-link" href="/catalog/sumki_sixpackfitness"></a>
-    <div class="top-banner__inner">СУПЕР АКЦИЯ на сумки <span class="top-banner__logo lennylarry"><img
-    src="<?= SITE_TEMPLATE_PATH ?>/images/top-banner/6pack.jpeg" alt="6pack" width="95px"></span> только до 28 июля!
-    <a class="discount-link" href="/catalog/sumki_sixpackfitness">Подробнее</a> </div>
-    </div>
+    <?php
+    $APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => SITE_TEMPLATE_PATH."/includes/top_banner.php",
+        "EDIT_TEMPLATE" => "standard.php"
+      )
+    );
+    ?>
     <div class="full-width">
         <div class="rs-navbar">
             <div class="main-menu-trigger"></div>
