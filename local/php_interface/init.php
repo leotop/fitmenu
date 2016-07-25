@@ -14,7 +14,7 @@
 
     AddEventHandler("sale", "OnSaleComponentOrderOneStepProcess", Array("MyOrderProcessor", "OnSaleComponentOrderOneStepProcess"));
 
-    AddEventHandler("sale", "OnOrderUpdate", "BUY_NUM_ADD");  
+    AddEventHandler("sale", "OnOrderUpdate", "BUY_NUM_ADD");
 
     CModule::IncludeModule("main");
     CModule::IncludeModule("sale");
@@ -22,6 +22,8 @@
 
     //Define constants
     define("COMPOSITION_IBLOCK_CODE", 'composition_data');
+    define("ID_LETTER_TEMPLATE", 22);
+    define("ID_DELIVERY_SERVICE", 2);
 
 
     function arshow($array, $adminCheck = false){
@@ -30,7 +32,7 @@
         if ($adminCheck) {
             if (!$USER->IsAdmin()) {
                 return false;
-            } 
+            }
         }
         echo "<pre>";
         print_r($array);
@@ -79,7 +81,7 @@
                         };
 
                     }
-                }	
+                }
 
             }
 
@@ -90,7 +92,7 @@
             /*$res = CSaleBasket::GetList(array("ID" => "ASC"), array("ORDER_ID" => $ID), false, false, array("*"));
             while ($arItem = $res->Fetch()) {
             mail('v.e.sorokin@gmail.com', 'заказ '.$ID, print_r($arItem, true));
-            //$arResult['PROPERTIES']['COUNTER']['VALUE']+=1; 
+            //$arResult['PROPERTIES']['COUNTER']['VALUE']+=1;
             //CIBlockElement::SetPropertyValues($arResult['ID'], $arResult["IBLOCK_ID"], $arResult['PROPERTIES']['COUNTER']['VALUE'], 'COUNTER');
             }*/
         }
@@ -101,7 +103,7 @@
             $CODE = (! empty($_REQUEST['CODE']) ? $_REQUEST['CODE'] : NULL);
         }
         if(CModule::IncludeModule("iblock")){
-            $IBLOCK_BREND = 9;//references  
+            $IBLOCK_BREND = 9;//references
             $arSelect = Array("ID", "NAME", "DETAIL_TEXT");
             $arFilter = Array("IBLOCK_ID"=>$IBLOCK_BREND, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y", "CODE" => $CODE);
             $res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
@@ -169,7 +171,7 @@
     if(! function_exists('list_class')){
         function Arr_get($array = array(),$key = NULL, $default = NULL){
             if(! is_array($array)){
-                return $default; 
+                return $default;
             }
             if(isset($array[$key])){
                 return $array[$key];
@@ -192,12 +194,12 @@
                 $_classes[] = (($index == 1) ? Arr_get($option,'first','first') : ($last ? Arr_get($option,'last','last'): ''));
                 if($index == 1 and $total == 1)
                 {
-                    $_classes[] = Arr_get($option,'last','last');    
+                    $_classes[] = Arr_get($option,'last','last');
                 }
             }
             if(in_array('even', $type)){
                 $_classes[] = $index % 2 == 0 ? Arr_get($option,'even','even'): NULL;
-                $_classes[] = $index % 2 == 1 ? Arr_get($option,'odd','odd'): NULL; 
+                $_classes[] = $index % 2 == 1 ? Arr_get($option,'odd','odd'): NULL;
             }
             if(in_array('end_row', $type)){
                 $_classes[] = ($index % $row == 0 OR $last) ? Arr::get($option,'end_row','end_row'): NULL;
@@ -207,7 +209,7 @@
 
         function list_class($index, $count, $total, $type = NULL, $row = 2){
             $_classes = _list_class($index, $count, $total, $type, $row);
-            return implode(' ', $_classes);    
+            return implode(' ', $_classes);
         }
 
         function echo_class($_classes){
@@ -219,10 +221,10 @@
     function class_content($side_l = FALSE,$side_r = FALSE){
         $classes = array();
         if(! $side_r AND ! $side_l){
-            $classes[] = 'full';  
+            $classes[] = 'full';
         }
         if($side_l AND $side_r){
-            $classes[] = 'small';  
+            $classes[] = 'small';
         }
         if(! empty($classes)){
             return ' class="'.implode(' ',$classes).'"';
@@ -365,20 +367,20 @@
     }
 
     // Функция проверяет товары на наличие цен если их нет то выводит из торговых предложений и добавляет к товарам
-    function OnPriceUbdate(){      
-        //если есть ТП     
-        $ar_item_id = Array();    
+    function OnPriceUbdate(){
+        //если есть ТП
+        $ar_item_id = Array();
         $mxResult = CCatalogSKU::GetInfoByProductIBlock(23);
         if (is_array($mxResult))
         {
-            $rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $mxResult['IBLOCK_ID'])); 
+            $rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $mxResult['IBLOCK_ID']));
             if ($rsOffers->SelectedRowsCount() > 0) {
-                while ($arOffer = $rsOffers->GetNext()) 
-                { 
+                while ($arOffer = $rsOffers->GetNext())
+                {
 
 
                     $ar_price = GetCatalogProductPrice($arOffer["ID"], 1);
-                    // 
+                    //
                     $db_res = CIBlockElement::GetList(array(),array('IBLOCK_ID' => 24, "ID"=>$ar_price["PRODUCT_ID"]), false, false, Array('ID',"PROPERTY_CML2_LINK"))->Fetch();
 
                     /* if($res = CCatalogDiscount::GetDiscountProductsList(array(), array(">=DISCOUNT_ID" => 1), false, false, array())){
@@ -390,17 +392,17 @@
                     // Далее подаём в компонент массив $arDiscountElementID для фильтрации по ID элемента
 
 
-                    $arFields = array(                                   
+                    $arFields = array(
                         "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
                         "PRICE" => $ar_price["PRICE"],
-                        "CURRENCY" => "RUB",            
-                        "CATALOG_GROUP_ID" => 1,           
+                        "CURRENCY" => "RUB",
+                        "CATALOG_GROUP_ID" => 1,
                     );
                     $res = CPrice::GetList(
                         array(),
                         array(
                             "PRODUCT_ID" => $db_res["PROPERTY_CML2_LINK_VALUE"],
-                            "CATALOG_GROUP_ID" => 1, 
+                            "CATALOG_GROUP_ID" => 1,
                         )
                     );
                     if ($arr = $res->Fetch())
@@ -414,12 +416,12 @@
                             $obPrice = CPrice::Add($arFields);
 
                             $ar_item_id[] =  $ar_price["PRODUCT_ID"];
-                        }  
-                    }  
-                } 
+                        }
+                    }
+                }
             }
         }
-    }    
+    }
 
     //Handler for composition custom property
     AddEventHandler("iblock", "OnIBlockPropertyBuildList", array("ProductDataComposition", "GetUserTypeDescription"));
@@ -428,9 +430,9 @@
     class ProductDataComposition {
 
         /***************
-        * 
+        *
         * The method returns an array describing the behavior of custom property
-        * 
+        *
         *************/
         function GetUserTypeDescription() {
             return array(
@@ -439,25 +441,25 @@
                 "DESCRIPTION" => "Состав продукта",
                 "GetPropertyFieldHtmlMulty" => array("ProductDataComposition", "GetPropertyFieldHtmlMulty"),
                 "ConvertToDB" => array("ProductDataComposition", "ConvertToDB"),
-                "GetSettingsHTML" => array("ProductDataComposition", "GetSettingsHTML"),                
-                "PrepareSettings" => array("ProductDataComposition", "PrepareSettings"),                
+                "GetSettingsHTML" => array("ProductDataComposition", "GetSettingsHTML"),
+                "PrepareSettings" => array("ProductDataComposition", "PrepareSettings"),
             );
         }
 
         /***************
-        * 
+        *
         * Output form edit multiple property
-        * 
+        *
         * @param array() $arProperty
         * @param array() $value
         * @param array() $strHTMLControlName
-        * @return string $result 
-        * 
+        * @return string $result
+        *
         *************/
         function GetPropertyFieldHtmlMulty($arProperty, $value, $strHTMLControlName) {
-            $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);   
-            $productId = intval($_REQUEST["ID"]); 
-            if ($linkBlockId && $productId) { 
+            $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);
+            $productId = intval($_REQUEST["ID"]);
+            if ($linkBlockId && $productId) {
                 $rsElement = CIBlockElement::GetList(array("ID" => "ASC"), array("IBLOCK_ID" => $linkBlockId,
                     "PROPERTY_ID_PRODUCT" => $productId), false, false, array("ID", "NAME", "PROPERTY_WEIGHT_PACK", "PROPERTY_DESCRIPTION_COMPLEX"));
 
@@ -465,12 +467,12 @@
                     $result .= '<tr>
                     <td>
                     </br>
-                    Название: 
+                    Название:
                     <input type="text" size="'.$arProperty["COL_COUNT"].'" value="'.$arElement["NAME"].'" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][VALUE]"/>
                     <input type="hidden" value="'.$arElement["ID"].'" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][ID]"/>
-                    Вес на порцию: 
+                    Вес на порцию:
                     <input type="text" size="5" value="'.$arElement["PROPERTY_WEIGHT_PACK_VALUE"].'" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][WEIGHT]"/></br>
-                    Описание комплекса: 
+                    Описание комплекса:
                     </br>
                     <textarea style="width: 100%; height: 100px;" class="typearea" name="'.$strHTMLControlName["VALUE"].'['.$arElement["ID"].'][VALUE][ITEM][DESCRIPTION]">'.$arElement["PROPERTY_DESCRIPTION_COMPLEX_VALUE"].'</textarea>
                     </br>
@@ -483,21 +485,21 @@
                         $result .= '<tr>
                         <td>
                         </br>
-                        Название: 
+                        Название:
                         <input type="text" size="'.$arProperty["COL_COUNT"].'" name="'.$strHTMLControlName["VALUE"].'[n'.$i.'][VALUE][ITEM][VALUE]"/>
-                        Вес на порцию: 
+                        Вес на порцию:
                         <input type="text" size="5" name="'.$strHTMLControlName["VALUE"].'[n'.$i.'][VALUE][ITEM][WEIGHT]"/></br>
-                        Описание комплекса: 
+                        Описание комплекса:
                         </br>
                         <textarea style="width: 100%; height: 100px;" class="typearea" name="'.$strHTMLControlName["VALUE"].'[n'.$i.'][VALUE][ITEM][DESCRIPTION]"></textarea>
                         </br>
                         </td>
-                        </tr>';                    
+                        </tr>';
                     }
                 }
 
                 $name = $strHTMLControlName["VALUE"];
-                $result .= '<tr><td><input type="button" value="Добавить" onClick="addNewRow(\'tb'.md5($name).'\')"></td></tr>'; 
+                $result .= '<tr><td><input type="button" value="Добавить" onClick="addNewRow(\'tb'.md5($name).'\')"></td></tr>';
                 return $result;
             } else {
                 return "Ошибка настройки свойства. Укажите инфоблок в котором будут храниться данные.";
@@ -505,13 +507,13 @@
         }
 
         /***************
-        * 
+        *
         * The method for saving, updating, and deleting of a custom property values.
-        * 
+        *
         * @param array() $arProperty
         * @param array() $value
-        * @return string $arResult 
-        * 
+        * @return string $arResult
+        *
         *************/
         function ConvertToDB($arProperty, $value) {
             $linkBlockId = intval($arProperty["LINK_IBLOCK_ID"]);
@@ -532,7 +534,7 @@
                 //Update property data
                 elseif (is_array($value["VALUE"]["ITEM"]) && !empty($value["VALUE"]["ITEM"]["VALUE"]) && !empty($value["VALUE"]["ITEM"]["ID"])) {
                     $obElement = new CIBlockElement;
-                    $propComposition = array();     
+                    $propComposition = array();
                     $propComposition["WEIGHT_PACK"] = $value["VALUE"]["ITEM"]["WEIGHT"];
                     $propComposition["DESCRIPTION_COMPLEX"] = $value["VALUE"]["ITEM"]["DESCRIPTION"];
                     $propComposition["ID_PRODUCT"] = $arProperty["ELEMENT_ID"];
@@ -544,12 +546,12 @@
                         ), false, false, true);
                     if ($result == true) {
                         $arResult["VALUE"] = $value["VALUE"]["ITEM"]["ID"];
-                    }  
+                    }
                 }
                 //Delete property data
                 elseif (empty($value["VALUE"]["ITEM"]["VALUE"])) {
                     $obElement = new CIBlockElement;
-                    $obElement->Delete($value["VALUE"]["ITEM"]["ID"]);  
+                    $obElement->Delete($value["VALUE"]["ITEM"]["ID"]);
                 } else {
                     $arResult["VALUE"] = $value["VALUE"];
                 }
@@ -623,3 +625,59 @@ class customEvents
         CEvent::Send('CUSTOM_SALE_NEW_ORDER', SITE_ID, $arEventFields);
     }
 }*/
+
+ //добавляем в письмо о заказе дополнительную информацию
+    AddEventHandler('main', 'OnBeforeEventSend', Array("newOrder", "orderDataChange"));
+
+    class newOrder{
+        function orderDataChange(&$arFields, &$arTemplate){
+            if ($arFields["ORDER_ID"] > 0 && $arTemplate["ID"] == ID_LETTER_TEMPLATE) {
+                //общая инфо о зказе
+                $order = CSaleOrder::GetById($arFields["ORDER_ID"]);
+
+                //служба доставки
+                $delivery = CSaleDelivery::GetById($order["DELIVERY_ID"]);
+
+                //платежная система
+                $paysystem = CSalePaysystem::GetById($order["PAY_SYSTEM_ID"]);
+
+                $arFields["PAYSYSTEM"] = $paysystem['NAME'];
+
+                //свойства заказа
+                $orderProps = array();
+                $db_props = CSaleOrderPropsValue::GetList(array(),array("ORDER_ID" => $order["ID"]));
+                while($orderProp = $db_props->Fetch()) {
+                    if ($orderProp["CODE"] == "STREET") {
+                        $orderProps["STREET"] = $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "HOUSE") {
+                        $orderProps["HOUSE"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "CORPUS") {
+                        $orderProps["CORPUS"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "LEVEL") {
+                        $orderProps["LEVEL"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "KVARTIRA") {
+                        $orderProps["KVARTIRA"] = ", " . $orderProp["NAME"] . ':' . $orderProp["VALUE"];
+                    } elseif ($orderProp["CODE"] == "PICKUP") {
+                        $arVal = CSaleOrderPropsVariant::GetByValue($orderProp["ORDER_PROPS_ID"], $orderProp["VALUE"]);
+                        if($delivery["ID"] == ID_DELIVERY_SERVICE){
+                            $delivery["NAME"] .= ', ' . $arVal["NAME"];
+                        }
+                    } else {
+                        $orderProps[$orderProp["CODE"]] = $orderProp["VALUE"];
+                    }
+
+                }
+
+                //местоположение
+                $location = CSaleLocation::GetByID($orderProps["LOCATION"]);
+                //собираем полученные данные
+                $arFields["DELIVERY_TYPE"] = $delivery["NAME"];
+                $arFields["PHONE"] = $orderProps["PHONE"];
+                $arFields["EMAIL"] = $orderProps["EMAIL"];
+                $arFields["ADDRESS"] = $location["COUNTRY_NAME"] . ", " . $location["CITY_NAME"] . ", " . $orderProps["STREET"] . $orderProps["HOUSE"] . $orderProps["CORPUS"] . $orderProps["LEVEL"] . $orderProps["KVARTIRA"];
+                $arFields["ORDER_LIST"] = str_replace(".00 шт.", " шт.", $arFields["ORDER_LIST"]);
+                $arFields["CPMMENT"] = $order["USER_DESCRIPTION"];
+            }
+
+        }
+    }

@@ -121,10 +121,12 @@
                     <?
 
                         if ($arProperty['CODE']== "ANONS") { continue;}
+                        if ($arProperty['CODE']== "CML2_MANUFACTURER") { continue;}
+                        if ($arProperty['CODE']== "SUPER_FOOD") { continue;}
 
                     ?>
 
-                    <td class="td <? echo ($arProperty['CODE'] == 'CML2_MANUFACTURER' ? "hidden" : " ")  ?>"<? echo ($arProperty['CODE'] == 'SUPER_FOOD' ? "style='display:none'" : "") ?> > <?=$arProperty["NAME"]?></td>
+                    <td class="td"><?=$arProperty["NAME"]?></td>
 
                     <?endforeach;
 
@@ -261,13 +263,13 @@
 
                     <?
 
-                        // if ($arProperty['CODE']== "ANONS") { continue;}
+                        if ($arProperty['CODE']== "ANONS") { continue; }
+                        if ($arProperty['CODE']== "SUPER_FOOD") { continue; }
+                        if ($arProperty['CODE']== "CML2_MANUFACTURER") { continue; }
 
                     ?>
 
-                    <td class="td hidden-480 <? echo ($arProperty['CODE'] == 'PACK' ? "category-item__weight" : "") ?>" <? echo ($arProperty['CODE'] == 'SUPER_FOOD' ? "style='display:none'" : "") ?><? echo ($arProperty['CODE'] == 'CML2_MANUFACTURER' ? "style='display:none'" : "")  ?>>
-
-
+                    <td class="td hidden-480 <? echo ($arProperty['CODE'] == 'PACK' ? "category-item__weight" : "") ?>">
 
                         <?if(is_array($arProperty["DISPLAY_VALUE"]))
 
@@ -808,9 +810,7 @@
 
         wind2.setContent(BX('popup_form_product'));
 
-        function addtoBasket(id)
-
-        {
+        function addtoBasket(id) {
 
             var a = $('#' + id + '_buy_link'), url = a.attr('href')+ "&ajax_basket=Y&ajax_buy=1";
             var tr = a.closest('tr'), preview = $('.preview',tr), name = $('.name',tr), offers_select = $('.offers-select',tr);
@@ -850,24 +850,15 @@
                     }
                     shopCart.html(cart.html());
                     $('.hiddencart').html('').load('/basketajax.php');
-
-
                 })
 
                 setTimeout(function(){
-
                     $('#popup_product').hide();
-
-                    },5000)
-
-
+                },5000)
             });
 
-
-            return !1;
-
-
-
+            cartAmoutProducts.update();
+            return location.reload();
         }
 
 

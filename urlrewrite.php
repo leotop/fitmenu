@@ -55,16 +55,16 @@ $arUrlRewrite = array(
 		"PATH" => "/pressa/index.php",
 	),
 	array(
-		"CONDITION" => "#^/store/#",
-		"RULE" => "",
-		"ID" => "bitrix:catalog.store",
-		"PATH" => "/store/index.php",
-	),
-	array(
 		"CONDITION" => "#^/vybor/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/vybor/index.php",
+	),
+	array(
+		"CONDITION" => "#^/store/#",
+		"RULE" => "",
+		"ID" => "bitrix:catalog.store",
+		"PATH" => "/store/index.php",
 	),
 	array(
 		"CONDITION" => "#^/news/#",

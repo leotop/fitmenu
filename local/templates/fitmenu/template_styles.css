@@ -3903,7 +3903,7 @@ li {
   margin: 0 auto;
 }
 
-.main-menu--fixed {
+.main-menu.fixed {
   width: 1260px;
   position: fixed;
   top: -20px;
@@ -4276,7 +4276,7 @@ div.vcard span.locality, div.vcard span.street-address, div.vcard span.category,
   border: none;
   padding: 0;
   border-radius: 0 5px 5px 0;
-  background-color: #E3E3E3;
+  background-color: #d7d7d7;
   box-shadow: -1px 0 4px #A3A3A3;
   cursor: pointer;
   background-image: url(/bitrix/templates/fitmenu/images/icons/filter__plain.png);
@@ -4675,6 +4675,14 @@ ruble {
 
 .modal .bx_ordercart_order_pay {
   margin-left: 0!important;
+}
+
+.bx-filter.fixed {
+  position: fixed;
+  top: 32px;
+  z-index: 9999;
+  width: 720px;
+  background: #ececec;
 }
 
 /* Корзина */
