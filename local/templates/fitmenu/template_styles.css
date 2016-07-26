@@ -504,6 +504,15 @@ div, .h.center, .products li, .slider-holder h2, .slider-nav ul, .slider-s, .sli
   background: #fff;
 }
 
+.left-menu__brends-link {
+	font-weight: normal!important;
+	font-size: 15px!important;
+}
+
+div#tab2 {
+	padding: 10px 0 20px!important;
+}
+
 .tabs {
   border-radius: 5px 5px 0 0;
 }
