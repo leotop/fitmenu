@@ -2,96 +2,42 @@
 
 <?if (!empty($arResult)):?>
 
-<?php // var_dump($arResult);
-?>
+	<?php
 
-<ul class="left-menu">
-<?
-$i = 0;
-$y = 0; // Для подсчета брендов
-$brendName = '';
-foreach($arResult as $arItem):
-	if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) 
-		continue;
-	
-	$i++;
-	
-	if($arItem["SELECTED"]):
-		if ($brendName !== $arItem['TEXT'][0]): 
-			$y = 0;
-			$brendName = $arItem['TEXT'][0];
-		else: $y++;
-		endif; 
-	
-		if ($y == 0): ?>
-		<li><a href="<?=$arItem["LINK"]?>" class="selected"><?=$arItem["TEXT"]?></a></li>
-		<?php endif; ?>
-	<?php else:
-		if ($brendName !== $arItem['TEXT'][0]): 
-			$y = 0;
-			$brendName = $arItem['TEXT'][0];
-		else: $y++;
-		endif;
-					 
-		if ($y == 0): ?>
-			<li><?php echo $brendName; ?></li>
-			<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-		<?php else: ?>
-			<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-		<?php endif; ?>
-	<?endif?>
-	
-	
-<? if($i > 21): 
-	  break;
-	endif ?>
-	
-<?endforeach?>
+	function getArrayBrends($array) {
+		$letterState = '';
+		$result = [];
 
-<? if($i > 21): ?>
-<!--    <li class="show"><a href="" title="Показать все">Показать все</a> </li>-->
-<? endif ?>
+		foreach ($array as $value) {
+			$letter = substr($value['TEXT'], 0, 1);
 
-</ul>
+			if ($letter !== $letterState) {
+				$result[] = $letter;
+				$letterState = $letter;
+			}
 
-<ul class="left-menu left-menu_column">
-	<?php if ($i > 21) {
-		for ($i; $i < count($arResult); $i++) { ?>
-			<?php if(($i % 22) == 0) { ?>
-			</ul><ul class="left-menu left-menu_column">
-			
-			<?php 
-			if ($brendName !== $arResult[$i]['TEXT'][0]) {
-					$y = 0;
-					$brendName = $arResult[$i]['TEXT'][0];
-				} else {
-					$y++;
-				} 
-				
-				if ($y == 0): ?>
-					<li><?php echo $brendName; ?></li>
-					<li><a href="<?=$arResult[$i]["LINK"]?>"><?=$arResult[$i]["TEXT"]?></a></li>
-				<?php else: ?>
-					<li><a href="<?=$arResult[$i]["LINK"]?>"><?=$arResult[$i]["TEXT"]?></a></li>
-				<?php endif; ?>
-			<?php } else { 
-				if ($brendName !== iconv("KOI8-U", "UTF-8", $arResult[$i]['TEXT'][0])) {
-					$y = 0;
-					$brendName = iconv("KOI8-U", "UTF-8", $arResult[$i]['TEXT'][0]);
-				} else {
-					$y++;
-				} 
-				
-				if ($y == 0): ?>
-					<li><?php echo $brendName; ?></li>
-					<li><a href="<?=$arResult[$i]["LINK"]?>"><?=$arResult[$i]["TEXT"]?></a></li>
-				<?php else: ?>
-					<li><a href="<?=$arResult[$i]["LINK"]?>"><?=$arResult[$i]["TEXT"]?></a></li>
-				<?php endif; ?>
+			$result[] = $value;
+		}
+
+		return $result;
+	}
+
+	$brendsCols = array_chunk(getArrayBrends($arResult), 25);
+
+	?>
+
+	<?php foreach ($brendsCols as $brends) { ?>
+
+		<ul class="left-menu left-menu__brends">
+			<?php foreach ($brends as $value) { ?>
+				<?php if (count($value) === 1) { ?>
+					<li class="left-menu__brends-head"><b><?php echo $value; ?></b></li>
+				<?php } else { ?>
+					<li class="left-menu__brends-item"><a class="left-menu__brends-link" href="<?php echo $value['LINK']; ?>"><?php echo $value['TEXT']; ?></a></li>
+				<?php } ?>
 			<?php } ?>
-		<?php } ?>
-	<?php } ?>
-</ul>
+		</ul>
 
+	<?php } ?>
 
 <?endif?>
