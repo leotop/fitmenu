@@ -16,41 +16,20 @@ $this->setFrameMode(true);
 
 <div class="list"> 
 
-<?
-
-	// Получение цены без скидки
-	$good_id = $arResult["ITEMS"]['ID'];
-	
-	foreach($arResult["ITEMS"] as $arElement):
-		foreach($arElement as $key => $value):
-			if ($key == "ID") {
-				$good_id = $value;
-			}
-		endforeach;
-	endforeach;
-	
-	if(CModule::IncludeModule("catalog")) {
-		//Дёргаем цену и элемента с id - $id
-		$ar_price = GetCatalogProductPrice($good_id, 1);
-		//В переменной $price теперь содержится цена товара
-		$price = round($ar_price['PRICE'], 10);
-	}
-
-?>
-
 <?foreach($arResult["ITEMS"] as $arElement):?>
 	<?
+	$itemPrice = CPrice::GetBasePrice($arElement['ID']);
 	$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 	?>
 <div class="product" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
 	<?if(is_array($arElement["PICTURE"])):?>
-		<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<? echo $arElement["NAME"] ?>" class="preview"><img border="0" src="<?=$arElement["PICTURE"]["SRC"]?>" alt="<?=$arElement['NAME']?>" title="<?=$arElement['NAME']?>" /></a><br /><!-- <?=$arElement["PICTURE"]["SRC"]?> -->
+		<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<? echo $arElement["NAME"] ?>" class="preview"><img border="0" src="<?php echo CFile::GetPath($arElement["DETAIL_PICTURE"]);?>" alt="<?=$arElement['NAME']?>" title="<?=$arElement['NAME']?>" /></a><br />
 	<?endif?>
     <div class="price"><? echo SaleFormatCurrency($arElement['PRICE']['PRICE'], $arElement['PRICE']['CURRENCY']); ?></div>
-
+				
         <div class="special-discount-price">
-            <span>2300<!--<?= $price ?>--></span>
+            <span><?php echo round($itemPrice['PRICE'], 100);?></span>
         </div>
 
 	<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>" class="name"><?=$arElement["NAME"]?></a>

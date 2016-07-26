@@ -350,7 +350,7 @@ function addtoBasket(id)
             $('#popup_product').hide();
         },5000)
     });
-    return !1;
+    return window.location.reload();
 }
 
 </script>
