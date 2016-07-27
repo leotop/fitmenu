@@ -1,4 +1,10 @@
 /* catalog.section */
+
+.buying-with__header {
+	font-size: 24px;
+ 	padding: 20px 20px 30px 40px;
+}
+
 .bx_catalog_top_home{
 	margin-bottom:20px;
 	border-bottom:1px solid #e5e5e5;
