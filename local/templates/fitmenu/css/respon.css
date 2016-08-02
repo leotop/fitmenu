@@ -698,10 +698,10 @@
   }
 
   .left-menu {
-    display: none;
-    float: none;
+    width: 40%;
+    float: none!important;
   }
-    
+	
   .tabs-container {
     height: 100% !important;
   }

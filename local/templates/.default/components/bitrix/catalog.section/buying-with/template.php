@@ -10,7 +10,7 @@
 /** @var array $templateData */
 global $APPLICATION;
 ?>
-<div class="in_stock_filter">
+<div class="buying-with__header">
     <span>С этим товаром покупают</span>    
 </div>
 <div class="bx_catalog_top_home col<? echo $arParams['LINE_ELEMENT_COUNT']; ?> <? echo $templateData['TEMPLATE_CLASS']; ?>">
