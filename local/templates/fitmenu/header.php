@@ -16,25 +16,22 @@
     <title><?$APPLICATION->ShowTitle()?></title>
     <?
 
-        $APPLICATION->ShowHeadStrings();
-        CAjax::Init();
-        $APPLICATION->ShowHeadScripts();
-
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery-1.7.1.min.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/justSlider.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/justTabs.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/fancybox/jquery.mousewheel-3.0.6.pack.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/fancybox/jquery.fancybox.js");
-
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.form.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.bpopup.min.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.validate.min.js");
-        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.bpopup.min.js");
+      $APPLICATION->ShowHeadStrings();
+      CAjax::Init();
+      $APPLICATION->ShowHeadScripts();
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery-1.7.1.min.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/justSlider.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/justTabs.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/fancybox/jquery.mousewheel-3.0.6.pack.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/fancybox/jquery.fancybox.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.form.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.bpopup.min.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.validate.min.js");
+      $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.bpopup.min.js");
     ?>
     <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/order_form.js"></script>
     <?
         //        $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/shide.js");
-
         $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/fxSlider.js");
         $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery.maskedinput.min.js");
         $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/respon.js");
@@ -44,21 +41,34 @@
         ?><meta name="robots" content="noindex,follow" /><?
         }
         $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/main.js");
-
     ?>
     <?//Don't add shide.js across AddHeadScript
         //    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH/js/shide.js"></script>
     ?>
-    <link href="<?= SITE_TEMPLATE_PATH ?>/css/popup.css" rel="stylesheet" type="text/css" media="all"/>
+    
+    <?php $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/popup.css'); ?>
+  	<?php $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/magnific-popup.css'); ?>
+  	<?php $APPLICATION->SetAdditionalCSS('https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=cyrillic,latin'); ?>
     <link href="<?= SITE_TEMPLATE_PATH ?>/css/respon.css" rel="stylesheet">
-    <link href="<?= SITE_TEMPLATE_PATH ?>/css/magnific-popup.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
     <?php
         $curPage = $APPLICATION->GetCurPage(true);
         if (preg_match('/^\/catalog/', $curPage)) {
             echo '<link rel="canonical" href="' . $curPage . '" />';
         }
     ?>
+    
+    <?php 
+			  $LastModified_unix = strtotime(date("D, d M Y H:i:s", filectime($_SERVER['SCRIPT_FILENAME'])));
+				$LastModified = gmdate("D, d M Y H:i:s \G\M\T", $LastModified_unix);
+				$IfModifiedSince = false;
+				if (isset($_ENV['HTTP_IF_MODIFIED_SINCE'])) $IfModifiedSince = strtotime(substr($_ENV['HTTP_IF_MODIFIED_SINCE'], 5));
+				if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) $IfModifiedSince = strtotime(substr($_SERVER['HTTP_IF_MODIFIED_SINCE'], 5));
+				if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
+					header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
+					exit;
+				}
+				header('Last-Modified: '. $LastModified);
+		?>
 </head>
 
 <?php if ( is_home() ): ?>
@@ -87,8 +97,7 @@
         "AREA_FILE_SHOW" => "file",
         "PATH" => SITE_TEMPLATE_PATH."/includes/top_banner.php",
         "EDIT_TEMPLATE" => "standard.php"
-      )
-    );
+    ));
     ?>
     <div class="full-width">
         <div class="rs-navbar">
