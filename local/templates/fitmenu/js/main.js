@@ -319,51 +319,110 @@ $(function () {
 });
 
 
-// Subscribe Email AJAX
-var subscribeEmail = (function () {
-  var form = $('#subscribe');
-  var input = form.find($('#sub_email'));
+/**
+ * Создает экземпляр класса GetEmailAjax
+ *
+ * @param {object} options
+ * @this {GetEmailAjax}
+ * @constructor
+ */
 
-  function validation() {
-    var inputVal = $('#sub_email').val();
+function GetEmailAjax(options) {
+  this.form = options.form;
+  this.input = options.input;
+  this.btn = options.submit;
+  this.path = options.path;
+  this.success = options.ansSuccess;
+}
 
-    if (~inputVal.indexOf('@')) {
-      input.css({'border': 'none'});
-      return true;
-    } else {
-      input.css({'border': '1px solid red'});
-      return false;
+GetEmailAjax.prototype.setAjax = function () {
+  var msg = this.form.serialize();
+
+  return $.ajax({
+    type: 'POST',
+    url: this.path,
+    data: msg,
+    success: this.success.bind(this),
+    error: function (xhr, str) {
+      console.log('Что-то пошло не так :(');
     }
-  }
+  });
+}
 
-  function sendEmail() {
-    if (validation()) {
-      var msg = $('#subscribe').serialize();
-      $.ajax({
-        type: 'POST',
-        url: '/ajax/subscribe.php',
-        data: msg,
-        success: function (data) {
-          console.log('Мы получили твой Email!');
-        },
-        error: function (xhr, str) {
-          console.log('Что-то пошло не так :(');
-        }
-      });
-    }
-  }
+GetEmailAjax.prototype.validationEmail = function () {
+  var inputVal = this.input.val();
+  var input = this.input;
 
-  function setUpListeners() {
-    form.on('submit', sendEmail);
-    input.on('input', validation);
+  if (~inputVal.indexOf('@')) {
+    input.css({'border': 'none'});
+    return true;
+  } else {
+    input.css({'border': '1px solid red'});
+    return false;
   }
+}
 
-  return {
-    init: setUpListeners
+GetEmailAjax.prototype.sendEmail = function () {
+  console.log(this.validationEmail);
+  if (this.validationEmail(this.input)) {
+    this.setAjax();
   }
+};
 
-}());
+/**
+ * Объекты для передачи в options
+ * @type {Object}
+ */
+
+var subscribeEmailOptions = {
+  form: $('#subscribe'),
+  input: $('#sub_email'),
+  submit: $('.subscribe__submit'),
+  ansSuccess: function () {
+    this.form.html('Мы получили Ваш Email!');
+  },
+  path: '/ajax/subscribe.php'
+}
+
+var optEmail = {
+  form: $('.p-opt__price-form'),
+  input: $('.p-opt__input'),
+  submit: $('.p-opt__submit'),
+  ansSuccess: function () {
+    this.form.html('Мы отправим наш прайс Вам на Email');
+  },
+  path: '/ajax/opt_email.php'
+}
+
+/**
+ * Обработчики событий
+ *
+ */
 
 if ($('#subscribe').length > 0) {
-  subscribeEmail.init();
+  var subscribeEmail = new GetEmailAjax(subscribeEmailOptions);
+
+  // Установка обработчиков на subscribe
+  subscribeEmail.btn.on('click', function (e) {
+    e.preventDefault();
+    subscribeEmail.sendEmail();
+  });
+  subscribeEmail.input.on('input', subscribeEmail.validationEmail.bind(subscribeEmail));
 }
+
+if ($('.p-opt__price-form').length > 0) {
+  var getOptEmail = new GetEmailAjax(optEmail);
+
+  // Установка обработчиков на опт
+  getOptEmail.btn.on('click', function (e) {
+    e.preventDefault();
+    getOptEmail.sendEmail();
+  });
+  getOptEmail.input.on('input', getOptEmail.validationEmail.bind(getOptEmail));
+}
+
+
+
+
+
+
