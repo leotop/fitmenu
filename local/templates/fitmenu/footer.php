@@ -86,7 +86,6 @@
     </div>
     <div class="discount_link"><a href="http://fitmenu.ru/about/stocks/">Акция</a></div>
 
-    <div class="popup_discount mfp-hide"><img src="<?php echo SITE_TEMPLATE_PATH; ?>/images/popups/gift.jpg" alt="IMAGE" class="img-responsive"></div>
 </div>
 
 <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH ?>/js/settings.js"></script>
