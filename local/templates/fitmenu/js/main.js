@@ -299,23 +299,18 @@ $(function () {
 
       callbacks: {
         close: function () {
-          document.cookie = 'popup=closed';
+          var date = new Date;
+          var lost = new Date;
+          lost.setDate(date.getDate() + 7);
+          document.cookie = 'popup=closed; expires=' + lost.toUTCString();
         }
       }
     });
   }
 
-  /*
-   if (screen.width > 768 && $('.popup_discount').length > 0) {
-     setPopup($('.popup_discount'), 'inline');
-
-     $('.popup_discount-trigger').on('click', function() {
-       var date = new Date;
-       date.setMinutes(20);
-       document.cookie = 'popup=closed; expires=' + date.toUTCString();
-     });
-   }
-*/
+  if (screen.width > 768 && $('.popup_discount').length > 0) {
+    setPopup($('.popup_discount'), 'inline');
+  }
 });
 
 
@@ -354,10 +349,10 @@ GetEmailAjax.prototype.validationEmail = function () {
   var input = this.input;
 
   if (~inputVal.indexOf('@')) {
-    input.css({'border': 'none'});
+    input.removeClass('error-input');
     return true;
   } else {
-    input.css({'border': '1px solid red'});
+    input.addClass('error-input');;
     return false;
   }
 }
@@ -394,6 +389,20 @@ var optEmail = {
   path: '/ajax/opt_email.php'
 }
 
+var discountEmail = {
+  form: $('.discount-form'),
+  input: $('.discount-form__input'),
+  submit: $('.discount-form__submit'),
+  ansSuccess: function () {
+    this.form.html('Мы получили твой E-mail');
+    var date = new Date;
+    var lost = new Date;
+    lost.setDate(date.getDate() + 268);
+    document.cookie = 'popup=closed; expires=' + lost.toUTCString();
+  },
+  path: '/ajax/subscribeStock.php'
+}
+
 /**
  * Обработчики событий
  *
@@ -421,6 +430,16 @@ if ($('.p-opt__price-form').length > 0) {
   getOptEmail.input.on('input', getOptEmail.validationEmail.bind(getOptEmail));
 }
 
+if ($('.discount-form').length > 0) {
+  var getStockEmail = new GetEmailAjax(discountEmail);
+
+  // Установка обработчиков на stock
+  getStockEmail.btn.on('click', function (e) {
+    e.preventDefault();
+    getStockEmail.sendEmail();
+  });
+  getStockEmail.input.on('input', getStockEmail.validationEmail.bind(getStockEmail));
+}
 
 
 

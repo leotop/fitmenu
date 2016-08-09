@@ -247,5 +247,16 @@
         "border='0' width='31' height='31'><\/a>")
     //--></script><!--/LiveInternet--></span>
 	
+	  <div class="popup_discount mfp-hide">
+    	<div class="popup_discount__inner">
+    	    <img src="<?php echo SITE_TEMPLATE_PATH; ?>/images/popups/stock_email.jpg" alt="STOCK" class="img-responsive">
+    	    <form action="" class="discount-form">
+    	        <div class="discount-form__inner">
+    	            <input type="text" class="discount-form__input" placeholder="E-mail" name="email">
+    	            <button class="discount-form__submit">ОК</button>
+    	        </div>
+    	    </form>
+    	</div>
+    </div>
 </body>
 </html>

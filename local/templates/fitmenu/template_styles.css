@@ -4564,6 +4564,55 @@ ol.olmain {
   margin: 20px auto;
 }
 
+
+.discount-form {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 40px;
+  left: 75px;
+  border-radius: 0 3px 3px 0;
+}
+
+.discount-form__input {
+  float: left;
+  width: 140px;
+  padding: 5px;
+  font-family: MagistralC, sans-serif;
+  border: 1px solid #000;
+}
+
+.discount-form__submit {
+  cursor: pointer;
+  background: #fe0103;
+  border: none;
+  padding: 4px 2px;
+  color: #fff;
+  font-family: MagistralC, sans-serif;
+  font-size: 15px;
+  border-radius: 0 3px 3px 0;
+  margin-left: -1px;
+  border: 1px solid #000;
+}
+
+.discount-form__inner {
+  position: relative;
+}
+
+.discount-form__inner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -37px;
+  bottom: -1px;
+  width: 38px;
+  height: 43px;
+  background: url(images/popups/email.jpg) no-repeat center center / contain;
+}
+
+.error-input {
+  border: 1px solid red;
+}
+
 .img-responsive {
   max-width: 100%;
 }
