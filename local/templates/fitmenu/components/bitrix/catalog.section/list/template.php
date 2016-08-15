@@ -12,21 +12,32 @@
     /** @var CBitrixComponent $component */
     $this->setFrameMode(true);
 ?>
-<div class="sorting_block"><?
-        // arshow($arResult);
-    ?> 
-    <?$APPLICATION->IncludeFile(SITE_TEMPLATE_PATH.'/includes/catalog/choose_nmg.php',array("arChoose"=>array(
-            "1"=>array("NAME"=>"по имени", "CODE"=> "NAME", "sort"=>"ASC"),
-            "2"=>array("NAME"=>"по возрастанию цены", "CODE"=> "CATALOG_PRICE_".$arResult["PRICES_ALLOW"][0], "sort"=>"ASC"),
-            "3"=>array("NAME"=>"по убыванию цены", "CODE"=> "CATALOG_PRICE_".$arResult["PRICES_ALLOW"][0], "sort"=>"DESC"),    
-            // "3"=>array("NAME"=>"популярности(возр.)", "CODE" => "PROPERTY_rating", "sort"=>"ASC"),
-            "4"=>array("NAME"=>"по популярности", "CODE" => "PROPERTY_rating", "sort"=>"DESC"),
-            "5"=>array("NAME"=>"по акциям", "CODE" => "propertysort_209", "sort"=>"DESC"),
-            "6"=>array("NAME"=>"по новинкам", "CODE" => "propertysort_210", "sort"=>"DESC"),
-        )));?><?
-    ?>
-    <div class="clear"></div>
+<div class="catalog-view clearfix">
+    <div class="sorting_block"><?
+            // arshow($arResult);
+        ?>
+        <?$APPLICATION->IncludeFile(SITE_TEMPLATE_PATH.'/includes/catalog/choose_nmg.php',array("arChoose"=>array(
+                "1"=>array("NAME"=>"по имени", "CODE"=> "NAME", "sort"=>"ASC"),
+                "2"=>array("NAME"=>"по возрастанию цены", "CODE"=> "CATALOG_PRICE_".$arResult["PRICES_ALLOW"][0], "sort"=>"ASC"),
+                "3"=>array("NAME"=>"по убыванию цены", "CODE"=> "CATALOG_PRICE_".$arResult["PRICES_ALLOW"][0], "sort"=>"DESC"),
+                // "3"=>array("NAME"=>"популярности(возр.)", "CODE" => "PROPERTY_rating", "sort"=>"ASC"),
+                "4"=>array("NAME"=>"по популярности", "CODE" => "PROPERTY_rating", "sort"=>"DESC"),
+                "5"=>array("NAME"=>"по акциям", "CODE" => "propertysort_209", "sort"=>"DESC"),
+                "6"=>array("NAME"=>"по новинкам", "CODE" => "propertysort_210", "sort"=>"DESC"),
+            )));?><?
+        ?>
+    </div>
+
+    <div class="btn-group">
+
+        <button class="catalog-view__triggers is_active" id="catalog-list" title="Список"></button>
+
+        <button class="catalog-view__triggers" id="catalog-grid" title="Сетка"></button>
+
+    </div>
+
 </div>
+
 <span class="head"><?=  $arResult['NAME'] ?></span>
 
 <div class="catalog-section">
@@ -79,8 +90,8 @@
 
 
 
-            <tr id="<?=$this->GetEditAreaId($arElement['ID']);?>">
-                <td><? /*print_R($arElement);*/ $preview = $arElement['PREVIEW_PICTURE'];   ?>
+            <tr class="category-item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+                <td class="category-item__img-box"><? /*print_R($arElement);*/ $preview = $arElement['DETAIL_PICTURE'];   ?>
                     <? echo label_product($arElement['PROPERTIES']) ?>
                     <a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>" class="preview">
                         <?php if(! empty($preview)): ?>
@@ -88,7 +99,7 @@
                             <?php endif ?>
                     </a>
                 </td>
-                <td>
+                <td class="category-item__descr">
                     <a href="<?=$arElement["DETAIL_PAGE_URL"]?>" class="name"><?=$arElement["NAME"]?></a>
                     <?if(count($arElement["SECTION"]["PATH"])>0):?>
                         <br />
@@ -99,7 +110,16 @@
                     <div class="desc"><? echo $arElement['PREVIEW_TEXT'] ?>.</div>
                 </td>
                 <?foreach($arElement["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-                    <td class="td <? echo ($arProperty['CODE'] == 'CML2_MANUFACTURER' ? "hidden" : "")  ?>">
+
+                <?
+
+                if ($arProperty['CODE']== "ANONS") { continue; }
+                if ($arProperty['CODE']== "SUPER_FOOD") { continue; }
+                if ($arProperty['CODE']== "CML2_MANUFACTURER") { continue; }
+
+                ?>
+
+                    <td class="td <? echo ($arProperty['CODE'] == 'PACK' ? "category-item__weight" : "")  ?>">
                         <?if(is_array($arProperty["DISPLAY_VALUE"]))
                                 echo implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
                             elseif($arProperty["DISPLAY_VALUE"] === false)
@@ -109,7 +129,7 @@
                     </td>
                     <?endforeach?>
                 <?foreach($arResult["PRICES"] as $code=>$arPrice):?>
-                    <td>
+                    <td class="category__price">
                         <?//if($arPrice = $arElement["PRICES"][$code]):
                             if($arPrice = $arElement["OFFERS"][0]["MIN_PRICE"]):?>
                             <?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
@@ -123,8 +143,39 @@
                             <?endif;?>
                     </td>
                     <?endforeach;?>
+                    <td class="category__usp">
+
+                        <ul class="category__usp-list">
+
+                            <li class="category__usp-delivery">
+
+                                <div class="category__usp-image"></div>
+
+                                Бесплатная доставка
+
+                            </li>
+
+                            <li class="category__usp-pickup">
+
+                                <div class="category__usp-image"></div>
+
+                                Самовывоз
+
+                            </li>
+
+                            <li class="category__usp-pay">
+
+                                <div class="category__usp-image"></div>
+
+                                Удобная оплата
+
+                            </li>
+
+                        </ul>
+
+                    </td>
                 <?if(count($arResult["PRICES"]) > 0):?>
-                    <td>
+                    <td class="category-item__buy">
                         <? //print_r($arElement['OFFERS']); ?>
                         <?if($arElement["CAN_BUY"]):?>
                             <? if(count($arElement['OFFERS']) < 1): ?> 
@@ -201,6 +252,22 @@
                                                 <? endif ?>
                                             <div class="buy">
                                                 <a href="<? echo $arShowOffer['ADD_URL'] ?>" id="<? echo $arShowOffer['ID'] ?>_buy_link" onclick="return addtoBasket(<? echo $arShowOffer['ID']?>)" class="to-cart" title="РљСѓРїРёС‚СЊ"><span></span> <?  echo $buyBtnMessage; ?></a>
+
+                                                <a href="javascript:;" class="add_to_favorite" data-id="<?=$arElement["ID"]?>"></a>
+
+
+                                                <!-- КУПИТЬ В ОДИН КЛИК -->
+
+
+
+                                                <div class="one-click-buy">
+
+                                                    <span data-id="<?=$arElement["ID"]?>">Купить в 1 клик</span>
+
+                                                    <div class="nameElement" style="display:none"><?=$arElement["NAME"]?></div>
+
+                                                </div>
+
                                             </div>
                                             <?  $b_o++;?>
                                             <? elseif($SHOW_NOT_AVALIBELE): ?>
@@ -242,6 +309,53 @@
         <p><?=$arResult["NAV_STRING"]?></p>
         <?endif?>
 </div>
+
+
+    <div class="popup-wrapper popup-oneClick">
+
+
+
+        <div class="popup">
+
+            <div class="popup__content">
+
+                <h3 class="popup__title">Заказ в один клик</h3>
+
+                <form class="popup__form" action="javascript:void(0)" id="newOneClick" name="newOneClick">
+
+                    <input type="text" id="name" name="name" placeholder="Имя" required>
+
+                    <input type="text" id="phone" name="phone" placeholder="Телефон" required>
+
+                    <input type="hidden" id="one_click_id" name="id_order" value="">
+
+                    <button type="submit" onclick="sendOneClick()">Отправить</button>
+
+                </form>
+
+                <div class="close-trigger">x</div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="popup-answer-wrapper">
+
+        <div class="popup-answer__content">
+
+            <div class="popup-answer__title">Ваша заявка отравлена!</div>
+
+            <p class="popup-answer__text">Оператор Вам позвонит для уточнения деталей заказа.</p>
+
+        </div>
+
+    </div>
 
 <div class="order_one_click">
     <div class="close_order_form">X</div>
