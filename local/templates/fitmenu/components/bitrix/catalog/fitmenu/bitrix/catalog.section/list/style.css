@@ -110,6 +110,8 @@ display:inline-block;
 
 .sorting_block {
   display:inline-block;
+	background: #f7f7f7;
+	padding: 6px 0 0 15px;
 }
 
 /* GRID */
