@@ -1,3 +1,26 @@
+// responsive max width 1024
+
+$(function () {
+  var header = $('#header');
+  var cart = $('#shopCart');
+  var placeCart = $('#header .wrapper');
+
+  if (screen.width <= 1024 && screen.width > 768) {
+    placeCart.append(cart);
+  } else if (screen.width <= 768) {
+    header.append(cart);
+  }
+
+  $(window).on('resize', function () {
+    if (screen.width <= 1024 && screen.width > 768) {
+      placeCart.append(cart);
+    } else if (screen.width <= 768) {
+      header.append(cart);
+    }
+  })
+
+});
+
 $(function () {
 
   function Accordeon(trigger) {
@@ -14,7 +37,7 @@ $(function () {
   };
 
   $(".dropdown .dropdown__trigger").on("click", function (e) {
-    if (screen.width < 768) {
+    if (screen.width <= 768) {
       e.preventDefault();
       var accordeon = new Accordeon($(this));
     }
@@ -40,9 +63,9 @@ $(function () {
 // Cart Popup Module
 var cartBehavior = (function () {
   var cart = $('#shopCart'),
-      modalCart = $('.modal'),
-      body = $('body'),
-      closeBtn = $('.modal-cross');
+    modalCart = $('.modal'),
+    body = $('body'),
+    closeBtn = $('.modal-cross');
 
   function closeCart() {
     modalCart.hide();
@@ -65,7 +88,7 @@ var cartBehavior = (function () {
   }
 })();
 
-if (screen.width < 480) {
+if (screen.width < 769) {
   cartBehavior.init();
 }
 
@@ -76,11 +99,16 @@ $(function () {
     this.elem = $(elem);
   }
 
+  NavbarResponsive.prototype.removeClasses = function () {
+    if (screen.width > 768) {
+      this.elems.removeClass('active');
+    }
+  }
+
   NavbarResponsive.prototype.elems = $('.rs-show');
 
   NavbarResponsive.prototype.clearElems = function () {
     this.elems.removeClass('active');
-    this.elems.hide();
   }
 
   NavbarResponsive.prototype.toggle = function () {
@@ -94,33 +122,50 @@ $(function () {
 
   NavbarResponsive.prototype.show = function () {
     this.elem.addClass('active');
-    this.elem.show();
   }
 
   NavbarResponsive.prototype.hide = function () {
     this.elem.removeClass('active');
-    this.elem.hide();
   }
 
-  if (screen.width < 480) {
-    $('.cart-trigger').on('click', function () {
+  NavbarResponsive.prototype.init = function (trigger) {
+    this.setUpListeners(trigger);
+  }
+
+  NavbarResponsive.prototype.setUpListeners = function (trigger) {
+    trigger.on('click', this.toggle.bind(this));
+    $(window).on('resize', this.removeClasses.bind(this));
+  }
+
+  if (screen.width < 769) {
+    var cart = new NavbarResponsive('.cart');
+    cart.init($('.cart-trigger'));
+
+    var menu = new NavbarResponsive('.main-menu');
+    menu.init($('.main-menu-trigger'));
+
+    var login = new NavbarResponsive('.bx_login_block');
+    login.init($('.login-trigger'));
+
+    var search = new NavbarResponsive('.search-box');
+    search.init($('.search-trigger'));
+  }
+
+  $(window).on('resize', function () {
+    if (screen.width < 769) {
       var cart = new NavbarResponsive('.cart');
-      cart.toggle();
-    });
-    $('.main-menu-trigger').on('click', function () {
-      var menu = new NavbarResponsive('.main-menu');
-      menu.toggle();
-    });
-    $('.login-trigger').on('click', function () {
-      var login = new NavbarResponsive('.bx_login_block');
-      login.toggle();
-    });
-    $('.search-trigger').on('click', function () {
-      var search = new NavbarResponsive('.search-box');
-      search.toggle();
-    });
-  }
+      cart.init($('.cart-trigger'));
 
+      var menu = new NavbarResponsive('.main-menu');
+      menu.init($('.main-menu-trigger'));
+
+      var login = new NavbarResponsive('.bx_login_block');
+      login.init($('.login-trigger'));
+
+      var search = new NavbarResponsive('.search-box');
+      search.init($('.search-trigger'));
+    }
+  })
 });
 
 $(function () {
@@ -158,7 +203,7 @@ $(function () {
 
 // Use In Responsive
 $(function () {
-  if (screen.width < 480)$(".bx_breadcrumbs li:last-child").hide();
+  if (screen.width < 769)$(".bx_breadcrumbs li:last-child").hide();
 
   // hide discount block
   var loc = 'http://fitmenu.ru/about/stocks/';
