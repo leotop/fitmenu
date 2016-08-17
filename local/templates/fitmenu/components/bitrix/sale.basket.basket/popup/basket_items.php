@@ -431,6 +431,15 @@ if ($normalCount > 0):
 				?>
 			</tbody>
 		</table>
+		
+		<div class="bx_ordercart__gift">
+			<?$APPLICATION->IncludeComponent(
+				"sebekon:present.block",
+				"gift",
+				Array(
+				)
+			);?>
+		</div>
 	</div>
 	<input type="hidden" id="column_headers" value="<?=CUtil::JSEscape(implode($arHeaders, ","))?>" />
 	<input type="hidden" id="offers_props" value="<?=CUtil::JSEscape(implode($arParams["OFFERS_PROPS"], ","))?>" />

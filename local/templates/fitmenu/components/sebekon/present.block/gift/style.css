@@ -3,7 +3,7 @@
 }
 
 .present-block .next-present {
-	max-width: 290px;
+	/*max-width: 290px;*/
 }
 
 .present-block .current-present a img, .present-block .next-present a img {
@@ -12,10 +12,12 @@
 
 .present-block .current-present .present-name, .present-block .next-present .present-name {
 	margin: 10px 0 0 0;
+	font-size: 16px;
 }
 
 .present-block .current-present .present-image, .present-block .next-present .present-image {
 	margin: 0 10px 0 0;
+	width: 25px;
 }
 
 .present-block .present-item {
@@ -25,4 +27,9 @@
 .present-block .present-quantity {
 	margin-left: 5px;
 	font-size: 12px;
+}
+
+.present-text {
+	margin-bottom: 10px;
+	font-size: 16px;
 }
