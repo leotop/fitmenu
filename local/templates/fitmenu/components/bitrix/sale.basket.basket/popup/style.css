@@ -868,7 +868,13 @@ input.bt2:active{border:1px solid #d2d2d2}
 .bx_ordercart__gift {
 	padding: 10px;
 	margin: 15px 5px 0;
-	background: #fbfbfb;
-	box-shadow: 0 2px 0 #c1c1c1;
+	background: #fbfbfb url(/local/templates/fitmenu/components/bitrix/sale.basket.basket/popup/images/gift.png) no-repeat;
+	background-position: right 0;
+	box-shadow: 0px 1px 1px #c1c1c1;
 	border-radius: 2px;
+}
+
+.bx_ordercart__gift_order {
+	width: 56%;
+	padding: 15px 0 8px 21px;
 }

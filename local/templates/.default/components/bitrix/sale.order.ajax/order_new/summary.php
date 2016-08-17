@@ -379,7 +379,7 @@
             </tbody>
         </table>
         
-        <div class="bx_ordercart__gift">
+        <div class="bx_ordercart__gift bx_ordercart__gift_order">
 					<?$APPLICATION->IncludeComponent(
 						"sebekon:present.block",
 						"gift",
