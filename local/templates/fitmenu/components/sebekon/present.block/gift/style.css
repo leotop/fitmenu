@@ -17,7 +17,7 @@
 
 .present-block .current-present .present-image, .present-block .next-present .present-image {
 	margin: 0 10px 0 0;
-	width: 25px;
+	width: 50px;
 }
 
 .present-block .present-item {
@@ -32,4 +32,5 @@
 .present-text {
 	margin-bottom: 10px;
 	font-size: 16px;
+	font-weight: bold;
 }
