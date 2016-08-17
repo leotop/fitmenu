@@ -1,0 +1,28 @@
+.present-block .current-present, .present-block .next-present {
+	margin: 0 0 10px 0;
+}
+
+.present-block .next-present {
+	max-width: 290px;
+}
+
+.present-block .current-present a img, .present-block .next-present a img {
+	float: left;
+}
+
+.present-block .current-present .present-name, .present-block .next-present .present-name {
+	margin: 10px 0 0 0;
+}
+
+.present-block .current-present .present-image, .present-block .next-present .present-image {
+	margin: 0 10px 0 0;
+}
+
+.present-block .present-item {
+	min-height: 40px;
+}
+
+.present-block .present-quantity {
+	margin-left: 5px;
+	font-size: 12px;
+}
