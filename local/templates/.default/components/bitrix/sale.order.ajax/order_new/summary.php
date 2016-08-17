@@ -378,6 +378,15 @@
                     <?endforeach;?>
             </tbody>
         </table>
+        
+        <div class="bx_ordercart__gift">
+					<?$APPLICATION->IncludeComponent(
+						"sebekon:present.block",
+						"gift",
+						Array(
+						)
+					);?>
+				</div>
     </div>
     <div class="bx_ordercart_order_pay">
         <div class="bx_ordercart_order_pay_right">

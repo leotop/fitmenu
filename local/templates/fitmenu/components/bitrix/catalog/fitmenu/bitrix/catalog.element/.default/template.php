@@ -259,19 +259,24 @@
                 </div>
                 <div class="panel_delivery">
                     <ul>
-                        <li><div class="image_delivery_1 images"></div><p>Бесплатная доставка</p>
-                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p><?=GetMessage("DELIVERY")?></p></div></li>
-                        <li><div class="image_delivery_2 images"></div><p>Самовывоз</p>
-                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p><?=GetMessage("PICKUP")?></p></div></li>
-                        <li><div class="image_delivery_3 images"></div><p>Удобная оплата</p>
-                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p><?=GetMessage("PAYMENT")?></p></div></li>
-                        <li><div class="image_delivery_4 images"></div><p>Подарок при покупке!</p>
-                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p>Подарок при покупке на сумму от 2000р. Уточнить можно у менеджера 351-05-05</p>
-
-
-
+                        <li class="panel_delivery__item"><div class="image_delivery_1 images"></div><p>Бесплатная доставка</p>
+                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p class="panel_delivery__item-descr"><?=GetMessage("DELIVERY")?></p></div></li>
+                        <li class="panel_delivery__item"><div class="image_delivery_2 images"></div><p>Самовывоз</p>
+                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p class="panel_delivery__item-descr"><?=GetMessage("PICKUP")?></p></div></li>
+                        <li class="__item"><div class="image_delivery_3 images"></div><p>Удобная оплата</p>
+                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div><p class="panel_delivery__item-descr"><?=GetMessage("PAYMENT")?></p></div></li>
+                        <li class="panel_delivery__item"><div class="image_delivery_4 images"></div><p>Подарок при покупке!</p>
+                            <div class="delivery_text"><div class="strelka_delivery"><span></span></div>
+                                <div class="panel_delivery__item-descr">
+                                    <?$APPLICATION->IncludeComponent(
+                                      "sebekon:present.block",
+                                      "gift",
+                                      Array(
+                                      )
+                                    );?>
+                                </div>
                             </div></li>
-                    </ul>                
+                    </ul>               
                 </div>
             </div>
             <div class="left_characteristics">

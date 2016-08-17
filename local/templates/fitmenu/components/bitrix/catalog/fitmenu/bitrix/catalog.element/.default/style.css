@@ -2103,7 +2103,7 @@
     left: 130px;
     top: -50px;
 }
-.panel_delivery .delivery_text p{ 
+.panel_delivery__item-descr {
     background-color: #fff;
     padding: 10px;
     display: block;
