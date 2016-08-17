@@ -13,7 +13,7 @@ if(empty($arResult['BASKET']['PRESENTS']['CURRENT']) && empty($arResult['BASKET'
 			
 			<?foreach($arResult['BASKET']['PRESENTS']['CURRENT'] as $sum => $arPresents):?>
 				<?foreach($arPresents as $productId => $arPresent):?>
-					<div class="present-item">
+					<div class="present-item clearfix">
 						<?$arCurrentPresent = $arResult['BASKET']['PRESENTS']['DATA'][$productId];?>
 						<a href="<?=$arCurrentPresent['DETAIL_PAGE_URL']?>">
 							<?if(!empty($arCurrentPresent['PICTURE'])):?> 
@@ -31,7 +31,7 @@ if(empty($arResult['BASKET']['PRESENTS']['CURRENT']) && empty($arResult['BASKET'
 			<div class="present-text"><?=GetMessage('NEXT_PRESENT', array('#SUM#' => sb\CPresents::wordDeclension($arResult['BASKET']['PRESENTS']['NEED_MORE'], GetMessage('CURRENCY_N'), GetMessage('CURRENCY_A'), GetMessage('CURRENCY_G'))))?></div>
 			<?foreach($arResult['BASKET']['PRESENTS']['NEXT'] as $sum => $arPresents):?>
 				<?foreach($arPresents as $productId => $arPresent):?>
-					<div class="present-item">
+					<div class="present-item clearfix">
 						<?$arNextPresent = $arResult['BASKET']['PRESENTS']['DATA'][$productId];?>
 						<a href="<?=$arNextPresent['DETAIL_PAGE_URL']?>">
 							<?if(!empty($arNextPresent['PICTURE'])):?>
