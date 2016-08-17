@@ -864,3 +864,11 @@ input.bt2:active{border:1px solid #d2d2d2}
 	color: red;
 }
 #basket_items_list {position: relative; }
+
+.bx_ordercart__gift {
+	padding: 10px;
+	margin: 15px 5px 0;
+	background: #fbfbfb;
+	box-shadow: 0 2px 0 #c1c1c1;
+	border-radius: 2px;
+}
