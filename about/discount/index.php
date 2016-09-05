@@ -71,7 +71,7 @@ $APPLICATION->SetTitle("Скидки");
     <div class="p-discount-table p-discount-birth"> 
       <h2 class="p-discount-table-title">Скидка для именинников</h2>
      
-      <div class="p-discount-birth-content">За неделю до и неделю после Вашего дня рождения мы дарим Вам скидку <span class="hvr-buzz">10%</span></div>
+      <div class="p-discount-birth-content">За неделю до и неделю после Вашего дня рождения мы дарим Вам скидку <span class="hvr-buzz">5%</span></div>
      </div>
    
     <div class="p-discount-table p-discount-shop p-discount-shops"> 

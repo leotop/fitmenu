@@ -30,10 +30,4 @@ $APPLICATION->SetTitle("Заказы");
 		"PROP_2" => array(),
 		"COMPONENT_TEMPLATE" => "order_new"
 	)
-);?><?$APPLICATION->IncludeComponent(
-	"sebekon:present.block",
-	"",
-	Array(
-	),
-false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

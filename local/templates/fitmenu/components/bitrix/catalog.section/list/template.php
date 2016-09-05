@@ -64,6 +64,11 @@
             </tr>
         </thead>
         <?foreach($arResult["ITEMS"] as $arElement):?>
+
+
+<!--
+<?php echo var_dump($arElement); ?>
+-->
             <?
                 $this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
                 $this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
@@ -93,14 +98,14 @@
             <tr class="category-item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
                 <td class="category-item__img-box"><? /*print_R($arElement);*/ $preview = $arElement['DETAIL_PICTURE'];   ?>
                     <? echo label_product($arElement['PROPERTIES']) ?>
-                    <a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>" class="preview">
+                    <a href="<?= '/catalog/' . $section_code . '/' . $arElement['CODE']; ?>" title="<?=$arElement["NAME"]?>" class="preview">
                         <?php if(! empty($preview)): ?>
                             <img src="<?=$preview["SRC"]?>" alt="<?=$arElement["NAME"]?>" width="100" />
                             <?php endif ?>
                     </a>
                 </td>
                 <td class="category-item__descr">
-                    <a href="<?=$arElement["DETAIL_PAGE_URL"]?>" class="name"><?=$arElement["NAME"]?></a>
+                    <a href="<?= '/catalog/' . $section_code . '/' . $arElement['CODE']; ?>" class="name"><?=$arElement["NAME"]?></a>
                     <?if(count($arElement["SECTION"]["PATH"])>0):?>
                         <br />
                         <?foreach($arElement["SECTION"]["PATH"] as $arPath):?>

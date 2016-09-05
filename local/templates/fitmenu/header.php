@@ -46,10 +46,9 @@
         //    <script type="text/javascript" src="<?= SITE_TEMPLATE_PATH/js/shide.js"></script>
     ?>
     
-    <?php $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/popup.css'); ?>
   	<?php $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/magnific-popup.css'); ?>
   	<?php $APPLICATION->SetAdditionalCSS('https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=cyrillic,latin'); ?>
-    <link href="<?= SITE_TEMPLATE_PATH ?>/css/respon.css" rel="stylesheet">
+<!--    <link href="--><?//= SITE_TEMPLATE_PATH ?><!--/css/respon.css" rel="stylesheet">-->
     <?php
         $curPage = $APPLICATION->GetCurPage(true);
         if (preg_match('/^\/catalog/', $curPage)) {
@@ -386,7 +385,7 @@
 	array(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "23",
-		"DISCOUNT_ID" => "642",
+		"DISCOUNT_ID" => "661",
 		"COUNT_PRODUCT" => "3",
 		"IBLOCKS_PROP" => "203",
 		"DETAIL_URL" => "",

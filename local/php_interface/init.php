@@ -643,6 +643,22 @@ class customEvents
 
                 $arFields["PAYSYSTEM"] = $paysystem['NAME'];
 
+                CModule::IncludeModule('sale');
+                $res = CSaleBasket::GetList(array(), array("ORDER_ID" => $arFields['ORDER_ID'])); // ID заказа
+                $products_array= [];
+                $products_html = '';
+
+                while ($arItem = $res->Fetch()) {
+                    $products_array[] = $arItem;
+                }
+
+                if ($products_array) {
+                    foreach ($products_array as $product) {
+                        $products_html .= '<tr><td colspan="2">' . $product['NAME'] . '</td>';
+                        $products_html .= '<td style="text-align: center;">' . (float)$product['QUANTITY'] . '</td>';                                  $products_html .= '<td style="text-align: center;">' . (float)$product['PRICE'] . '</td></tr>';
+                    }
+                }
+
                 //свойства заказа
                 $orderProps = array();
                 $db_props = CSaleOrderPropsValue::GetList(array(),array("ORDER_ID" => $order["ID"]));
@@ -677,6 +693,7 @@ class customEvents
                 $arFields["ADDRESS"] = $location["COUNTRY_NAME"] . ", " . $location["CITY_NAME"] . ", " . $orderProps["STREET"] . $orderProps["HOUSE"] . $orderProps["CORPUS"] . $orderProps["LEVEL"] . $orderProps["KVARTIRA"];
                 $arFields["ORDER_LIST"] = str_replace(".00 шт.", " шт.", $arFields["ORDER_LIST"]);
                 $arFields["CPMMENT"] = $order["USER_DESCRIPTION"];
+                $arFields['PRODUCTS_LIST'] = $products_html;
             }
 
         }
