@@ -458,12 +458,12 @@
                                                     <? if(count($arShowOffer['ATTRIBUTES']) > 0): ?>
                                                         <div class="left">
                                                             <? foreach($arShowOffer['ATTRIBUTES'] as $k => $CML2_ATTRIBUTE): ?>
-                                                                <p><b><?echo $arShowOffer['ATTRIBUTES_DECRIPTION'][$k]?>:</b> <? echo $CML2_ATTRIBUTE  ?></p>
+                                                                <p><?echo $arShowOffer['ATTRIBUTES_DECRIPTION'][$k]?>: <? echo $CML2_ATTRIBUTE  ?></p>
                                                                 <? endforeach ?>
                                                         </div>
                                                         <div class="prices">
                                                             <? foreach($arShowOffer['PRICES'] as $k => $Offer_price): ?>
-                                                                <p class="price"><b><? echo $Offer_price['VALUE'] ?></b><span class="rub">P</span> </p>
+                                                                <p class="price"><? echo $Offer_price['VALUE'] ?><span class="rub">P</span> </p>
                                                                 <? endforeach ?>
                                                         </div>
                                                         <? endif ?>

@@ -466,7 +466,7 @@ if ($normalCount > 0):
 				<span><?=GetMessage("STB_COUPON_PROMT")?></span>
 				<input type="text" id="coupon" name="COUPON" value="<?=$arResult["COUPON"]?>" onchange="enterCoupon();" size="21" class="<?=$couponClass?>">
 				</br>
-				<b><a href="/about/discount/" target="_blank">Как получить скидку?</a></b>
+				<span class="bold"><a href="/about/discount/" target="_blank">Как получить скидку?</a></span>
 			</div>
 		</div>
 
