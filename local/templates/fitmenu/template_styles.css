@@ -40,6 +40,10 @@ a, abbr, acronym, address, applet, article, aside, audio, big, blockquote, body,
   border: 0;
 }
 
+span.bold {
+  font-weight: bold;
+}
+
 .top-menu, .top-nav-wrap {
   margin: 0 auto;
 }

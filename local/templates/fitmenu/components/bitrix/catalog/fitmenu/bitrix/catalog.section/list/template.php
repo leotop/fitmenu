@@ -499,11 +499,11 @@
 
                                                         <p>
 
-                                                            <b><? echo '<span class="shide">',
+                                                            <? echo '<span class="shide">',
 
                                                                     $arShowOffer['ATTRIBUTES_DECRIPTION'][$k]
 
-                                                                , '</span>: ';?></b>
+                                                                , '</span>: ';?>
 
 
 
@@ -525,7 +525,7 @@
 
                                                     <? foreach($arShowOffer['PRICES'] as $k => $Offer_price): ?>
 
-                                                        <p class="price"><b><? echo $Offer_price['VALUE'] ?></b><span class="rub">P</span> </p>
+                                                        <p class="price"><? echo $Offer_price['VALUE'] ?><span class="rub">P</span> </p>
 
                                                         <? endforeach ?>
 
@@ -682,7 +682,7 @@
 
         <div class="popup__content">
 
-            <h3 class="popup__title">Заказ в один клик</h3>
+            <div class="popup__title">Заказ в один клик</div>
 
             <form class="popup__form" action="javascript:void(0)" id="newOneClick" name="newOneClick">
 

@@ -33,9 +33,9 @@ $frame = $this->createFrame()->begin();
 		<input type="hidden" name="<?=$key?>" value="<?=$value?>" />
 		<?endforeach?>
 
-		<b><?=GetMessage("AUTH_LOGIN")?></b><br>
+		<span class="bold"><?=GetMessage("AUTH_LOGIN")?></span><br>
 		<input class="input_text_style" type="text" name="USER_LOGIN" maxlength="255" value="<?=$arResult["LAST_LOGIN"]?>" /><br><br>
-		<b><?=GetMessage("AUTH_PASSWORD")?></b><br>
+		<span class="bold"><?=GetMessage("AUTH_PASSWORD")?></span><br>
 		<input class="input_text_style" type="password" name="USER_PASSWORD" maxlength="255" /><br>
 
 		<?if($arResult["CAPTCHA_CODE"]):?>

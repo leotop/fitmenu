@@ -31,7 +31,7 @@
 		<ul class="left-menu left-menu__brends">
 			<?php foreach ($brends as $value) { ?>
 				<?php if (count($value) === 1) { ?>
-					<li class="left-menu__brends-head"><b><?php echo $value; ?></b></li>
+					<li class="left-menu__brends-head"><span class="bold"><?php echo $value; ?></span></li>
 				<?php } else { ?>
 					<li class="left-menu__brends-item"><a class="left-menu__brends-link" href="<?php echo $value['LINK']; ?>"><?php echo $value['TEXT']; ?></a></li>
 				<?php } ?>
