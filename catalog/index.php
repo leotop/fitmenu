@@ -11,8 +11,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 	Array(
 		"START_FROM" => "1",
 		"PATH" => "",
-		"SITE_ID" => "-",
-		"COMPONENT_TEMPLATE" => "light"
+		"SITE_ID" => "-"
 	)
 );?> <?
     if($_GET["orderby"]){$sort_od = $_GET["orderby"];}else{$sort_od = "NAME";};

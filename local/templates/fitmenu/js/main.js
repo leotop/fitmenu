@@ -358,7 +358,6 @@ GetEmailAjax.prototype.validationEmail = function () {
 }
 
 GetEmailAjax.prototype.sendEmail = function () {
-  console.log(this.validationEmail);
   if (this.validationEmail(this.input)) {
     this.setAjax();
   }
