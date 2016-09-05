@@ -40,7 +40,12 @@ a, abbr, acronym, address, applet, article, aside, audio, big, blockquote, body,
   border: 0;
 }
 
-span.bold {
+.bold {
+  font-weight: bold;
+}
+
+.bx_lt .h2 {
+  font-size: 17px;
   font-weight: bold;
 }
 
@@ -4764,7 +4769,8 @@ ruble {
 }
 
 .sorting_block .sort_title {
-color:#000;
+  color:#000;
+  font-weight: bold;
 }
 
 
