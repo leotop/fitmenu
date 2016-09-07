@@ -1858,6 +1858,11 @@
         SITE_ID: '<? echo SITE_ID; ?>'
     });
 
+	
+		$('.alert_buy .close_buy').on('click', function(e) {
+        e.preventDefault();
+        $('.alert_buy, .fon_buy').hide();
+    })
 </script>
 
 <? if(! is_ajax() AND empty($_GET['ajax_buy'])) : ?>
