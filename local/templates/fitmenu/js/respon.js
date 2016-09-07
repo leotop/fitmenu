@@ -5,7 +5,7 @@ $(function () {
   var cart = $('#shopCart');
   var placeCart = $('#header .wrapper');
 
-  if (screen.width <= 1024 && screen.width > 768) {
+  if (screen.width <= 1025 && screen.width > 768) {
     placeCart.append(cart);
   } else if (screen.width <= 768) {
     header.append(cart);
