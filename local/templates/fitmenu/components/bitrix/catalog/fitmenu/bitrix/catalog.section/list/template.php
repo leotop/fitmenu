@@ -858,7 +858,6 @@
             });
 
             cartAmoutProducts.update();
-            return location.reload();
         }
 
 
