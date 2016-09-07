@@ -4822,8 +4822,31 @@ ruble {
     display: block;
   }
 
+ 	#subscribe input, .subscribe__submit {
+		display: inline-block;
+		vertical-align: middle;
+		position: static;
+	}
+
+	.subscribe__submit {
+		margin-left: -10px;
+		height: 33px;
+	}
+
   .footer__sticky p {
     margin-right: 300px;
+  }
+
+  .footer__sticky .fix-width {
+    display: block;
+  }
+
+  .footer_sticky__left {
+    display: block;
+    padding-top: 10px;
+    justify-content: inherit;
+    align-items: inherit;
+    float: left;
   }
 
   body {
@@ -4874,10 +4897,11 @@ ruble {
   }
 
   .cart {
-    margin: 0 -250px 0;
+    margin: 0;
     right: 0;
-    top: 0;
-    width: 48%;
+    top: 111px;
+    width: 225px;
+	height: 80px;
   }
 
   .cart.fixed {
@@ -4886,7 +4910,9 @@ ruble {
     width: 220px;
   }
 
-
+  #header .contacts {
+    text-align: left;
+  }
 
   .right-sidebar {
     display: none;

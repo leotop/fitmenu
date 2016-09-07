@@ -250,7 +250,8 @@ $APPLICATION->IncludeComponent(
 		"COMPONENT_TEMPLATE" => "list_shares",
 		"MESS_BTN_COMPARE" => "Сравнить",
 		"AJAX_OPTION_ADDITIONAL" => "",
-		"FILE_404" => ""
+		"FILE_404" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 );?>
