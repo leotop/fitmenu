@@ -535,7 +535,7 @@
 
                                             <div class="buy">
 
-                                                <a href="<? echo $arShowOffer['ADD_URL'] ?>" id="<? echo $arShowOffer['ID'] ?>_buy_link" onclick="return addtoBasket(<? echo $arShowOffer['ID']?>)" class="to-cart" title="Купить"><span>Купить</span> <?  echo $buyBtnMessage; ?></a>
+                                                <a data-id="<?php echo $arShowOffer['ID']; ?>" href="<? echo $arShowOffer['ADD_URL'] ?>" id="<? echo $arShowOffer['ID'] ?>_buy_link" class="to-cart" title="Купить"><span>Купить</span> <?  echo $buyBtnMessage; ?></a>
 
                                                 <a href="javascript:;" class="add_to_favorite" data-id="<?=$arElement["ID"]?>"></a>
 
@@ -860,8 +860,11 @@
             cartAmoutProducts.update();
         }
 
+        $('.to-cart').on('click', function(e) {
+            e.preventDefault();
 
-
+            addtoBasket($(this).attr('data-id'));
+        });
     </script>
 
     <? endif ?>
