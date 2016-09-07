@@ -231,7 +231,8 @@ $APPLICATION->IncludeComponent(
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
 		"SEF_RULE" => "",
-		"SECTION_CODE_PATH" => ""
+		"SECTION_CODE_PATH" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N"
 	),
 	false
 ); ?>

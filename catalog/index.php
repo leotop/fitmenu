@@ -64,7 +64,7 @@ $APPLICATION->IncludeComponent(
 		"PRICE_CODE" => array(
 			0 => "Интернет-магазин",
 		),
-		"USE_PRICE_COUNT" => "N",
+		"USE_PRICE_COUNT" => "Y",
 		"SHOW_PRICE_COUNT" => "1",
 		"PRICE_VAT_INCLUDE" => "N",
 		"PRICE_VAT_SHOW_VALUE" => "Y",
@@ -210,7 +210,7 @@ $APPLICATION->IncludeComponent(
 		"OFFER_TREE_PROPS" => array(
 		),
 		"SHOW_DISCOUNT_PERCENT" => "Y",
-		"SHOW_OLD_PRICE" => "Y",
+		"SHOW_OLD_PRICE" => "N",
 		"DETAIL_SHOW_MAX_QUANTITY" => "Y",
 		"MESS_BTN_BUY" => "Купить",
 		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
@@ -305,7 +305,7 @@ $APPLICATION->IncludeComponent(
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE#",
-			"element" => "#SECTION_CODE#/#ELEMENT_CODE#",
+			"element" => "element/#ELEMENT_CODE#",
 			"compare" => "compare/",
 			"smart_filter" => "#SECTION_CODE#filter/#SMART_FILTER_PATH#/apply/",
 		)
